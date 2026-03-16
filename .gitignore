@@ -1,0 +1,16 @@
+.vscode
+*.zip
+**/__pycache__/
+.ipynb_checkpoints
+.__pycache__
+analysis/data
+saved_models
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
