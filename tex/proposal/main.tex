@@ -26,11 +26,11 @@ This approach involves generating multiple responses to the same prompt and then
 \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{../images/sets.png}
-    \caption{An illustration of the Self-Enhanced Test-Time Scaling (SETS) method, which involves "Self-Verify" and "Self-Correct" steps that recursively repeat until agreement. The approach uses multiple sampling and majority voting to determine the final answer.}
+    \caption{An illustration of the Self-Enhanced Test-Time Scaling (SETS) method \citep{sets}, which involves "Self-Verify" and "Self-Correct" steps that recursively repeat until agreement. The approach uses multiple sampling and majority voting to determine the final answer.}
 \end{figure}
 
 \subsubsection{SETS}
-Self-Enhanced Test-Time Scaling (SETS) is a method very close to the one proposed in this research. It involves "Self-Verify" and "Self-Correct" steps which recursively repeat until agreement. Furthermore, the approach uses multiple sampling and majority voting to determine the final answer. The main difference between SETS and our proposed method is how the "Self-Verify" step is implemented. In SETS, the verification is only focused on the task and the output, while in our proposed method, we aim to explore a more comprehensive internal verification process that includes not only the task and output but also the domain related constraints not necessarily directly related to the task. This allows us to investigate whether LLMs can utilize a broader range of internal knowledge and reasoning capabilities to enhance their performance.
+Self-Enhanced Test-Time Scaling (SETS) is a method very close to the one proposed in this research \citep{sets}. It involves "Self-Verify" and "Self-Correct" steps which recursively repeat until agreement. Furthermore, the approach uses multiple sampling and majority voting to determine the final answer. The main difference between SETS and our proposed method is how the "Self-Verify" step is implemented. In SETS, the verification is only focused on the task and the output, while in our proposed method, we aim to explore a more comprehensive internal verification process that includes not only the task and output but also the domain related constraints not necessarily directly related to the task. This allows us to investigate whether LLMs can utilize a broader range of internal knowledge and reasoning capabilities to enhance their performance.
 \subsubsection{SGV}
 \cite{sgv} proposed a method called Self-Grounded Verification (SGV) which is designed to improve the performance of LLMs by enabling them to verify their own outputs. The method makes particular focus on mitigating the "agreement bias" problem, which occurs when models tend to agree with their own outputs without critically evaluating them. SGV solves this problem by separating the verification process from the generation process, allowing the model to independently assess the correctness of its outputs. 
 
@@ -57,6 +57,7 @@ This evaluation not only gives insight into how much of an improvement in accura
 \subsubsection{Test-Time Scalability}
 While improving accuracy is a primary goal, it is also important to consider the computational efficiency of the proposed method. The improvements in accuracy should not come at the cost of significantly increased computational resources or time. 
 \subsection{Models}
+It is hard to depict the particular models that will be used in the experiments, as the research is still in its early stages. However, it is expected that the experiments will be conducted on a range of LLMs with open source weights, such as LLaMA or Qwen with small to medium sizes of 1.5B to 7B parameters. The choice of models will depend on the computational resources available and the specific libraries that will be used for the experiments. It is expected that the lower size models will benefit more from the proposed method, as they have less capacity to store and utilize internal knowledge, hence, the verification process can help them to better leverage their internal knowledge and reasoning capabilities.
 
 \section{Goals}
 
