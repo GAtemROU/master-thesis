@@ -1,7 +1,8 @@
-\documentclass[11pt,a4paper]{article}
-
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
 \usepackage[natbibapa]{apacite}
-\usepackage{hyperref}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+\usepackage{amsmath}
 
 \title{Internal Verification Behavior of LLMs}
 \author{Tymur Mykhalievskyi}
@@ -10,11 +11,52 @@
 \maketitle
 
 \section{Introduction}
-Citation \cite{besta2025}.
+Large Language Models (LLMs) are without a doubt one of the most significant advancements in the field of data science and artificial intelligence. They have shown remarkable capabilities in understanding and generating human-like text, making them invaluable tools for a wide range of applications. However, as these models become increasingly complex and powerful, we understand less about their internal workings and decision-making processes. This lack of transparency raises concerns about the reliability, robustness, and overall performance of LLMs. 
+
+The internal verification behaviors are natural to humans, as we often double-check our work to ensure accuracy and consistency. However, it is unclear to what extent LLMs exhibit similar behaviors. 
 
 \section{Related Work}
+The current work on internal verification behaviors in LLMs mainly focuses on techniques that encourage the model to verify its own outputs via prompting strategies paired with multiple steps of sampling, verification and correction of some sort. 
+
+In addition, another approach that is frequently used is to define an RL pipeline where the reward is affected by both correctness of the output and the quality of the verification process. While this approach is interesting and has shown promising results, it is not the focus of this research, as it requires a more complex setup and is not as widely used as the prompting strategies \citep{revise}.
+\subsection{Encouraging Internal Verification in LLMs}
+\subsubsection{BoN and majority voting}
+This approach involves generating multiple responses to the same prompt and then using a voting mechanism to determine the most likely correct answer. By encouraging the model to produce multiple outputs, we can increase the chances of identifying the correct answer through consensus. This method has been shown to improve accuracy in various tasks, as it allows the model to leverage its internal knowledge and reasoning capabilities more effectively. This approach will be treated as a baseline for our experiments, as it is a widely used technique for enhancing the performance of LLMs.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/sets.png}
+    \caption{An illustration of the Self-Enhanced Test-Time Scaling (SETS) method, which involves "Self-Verify" and "Self-Correct" steps that recursively repeat until agreement. The approach uses multiple sampling and majority voting to determine the final answer.}
+\end{figure}
+
+\subsubsection{SETS}
+Self-Enhanced Test-Time Scaling (SETS) is a method very close to the one proposed in this research. It involves "Self-Verify" and "Self-Correct" steps which recursively repeat until agreement. Furthermore, the approach uses multiple sampling and majority voting to determine the final answer. The main difference between SETS and our proposed method is how the "Self-Verify" step is implemented. In SETS, the verification is only focused on the task and the output, while in our proposed method, we aim to explore a more comprehensive internal verification process that includes not only the task and output but also the domain related constraints not necessarily directly related to the task. This allows us to investigate whether LLMs can utilize a broader range of internal knowledge and reasoning capabilities to enhance their performance.
+\subsubsection{SGV}
+\cite{sgv} proposed a method called Self-Grounded Verification (SGV) which is designed to improve the performance of LLMs by enabling them to verify their own outputs. The method makes particular focus on mitigating the "agreement bias" problem, which occurs when models tend to agree with their own outputs without critically evaluating them. SGV solves this problem by separating the verification process from the generation process, allowing the model to independently assess the correctness of its outputs. 
+
+It is not plausible to directly compare SGV with our proposed method, as they have different approaches in terms of data. SGV focuses on visual web tasks which do not necessarily require a deep understanding of the domain, while our proposed method is designed to be applied to a wide range of tasks that may require a more comprehensive internal verification process.
+
+
 
 \section{Methodology}
+\subsection{Datasets}
+The domain of mathematics naturally fits the goal of this research, as it often requires a deep understanding of the underlying concepts and principles, as well as the ability to apply them in various contexts. Furthermore, mathematical problems often allow for various verification steps that can be used to assess the correctness of the solution, making it an ideal domain for exploring internal verification behaviors in LLMs. Therefore, we will focus on mathematical datasets for our experiments.
+
+In addition, other domains might also be explored. While the improvements would not be expected, if the proposed method shows significant increases or decreases in performance, it would be interesting to investigate the underlying reasons for such behavior. 
+\subsubsection{GSM8K}
+\subsubsection{MATH500}
+\subsubsection{AIME 2024/2025}
+\subsubsection{AMC 2023}
+\subsection{Evaluation Metrics}
+\subsubsection{Accuracy}
+The accuracy fundamentally fits the goal of this research. As we hypothesize that the proposed verification method will lead to improved solutions, hence, increasing the accuracy.
+\subsubsection{Self-Verification Evaluation}
+A big role in this research is played by the self-verification process. A natural way to see how well the model is able to verify its own outputs is to evaluate the self-verification process itself. The evaluation can be done by computing the confusion matrix of the self-verification process, that is, how many times the model correctly identifies a correct solution as correct (true positives), how many times it incorrectly identifies a correct solution as incorrect (false negatives). Furthermore, metrics such as precision, recall, and F1-score can be computed to provide a more comprehensive evaluation of the self-verification process. 
+
+This evaluation not only gives insight into how much of an improvement in accuracy can be attributed to the self-verification process but also acts as a sanity check to ensure that the method is not hurting the performance of the model.
+\subsubsection{Test-Time Scalability}
+While improving accuracy is a primary goal, it is also important to consider the computational efficiency of the proposed method. The improvements in accuracy should not come at the cost of significantly increased computational resources or time. 
+\subsection{Models}
 
 \section{Goals}
 
