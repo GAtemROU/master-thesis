@@ -28,6 +28,7 @@
   url           = {https://arxiv.org/abs/2507.11662}
 }
 
+%rl
 @misc{revise,
   title         = {ReVISE: Learning to Refine at Test-Time via Intrinsic Self-Verification},
   author        = {Hyunseok Lee and Seunghyuk Oh and Jaehyung Kim and Jinwoo Shin and Jihoon Tack},
@@ -38,6 +39,27 @@
   url           = {https://arxiv.org/abs/2502.14565}
 }
 
+@misc{cai2026smartsnapproactiveevidenceseeking,
+  title         = {SmartSnap: Proactive Evidence Seeking for Self-Verifying Agents},
+  author        = {Shaofei Cai and Yulei Qin and Haojia Lin and Zihan Xu and Gang Li and Yuchen Shi and Zongyi Li and Yong Mao and Siqi Cai and Xiaoyu Tan and Yitao Liang and Ke Li and Xing Sun},
+  year          = {2026},
+  eprint        = {2512.22322},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2512.22322}
+}
+
+@misc{zhang2025incentivizingllmsselfverifyanswers,
+  title         = {Incentivizing LLMs to Self-Verify Their Answers},
+  author        = {Fuxiang Zhang and Jiacheng Xu and Chaojie Wang and Ce Cui and Yang Liu and Bo An},
+  year          = {2025},
+  eprint        = {2506.01369},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2506.01369}
+}
+
+%competitor methods
 @misc{sets,
   title         = {SETS: Leveraging Self-Verification and Self-Correction for Improved Test-Time Scaling},
   author        = {Jiefeng Chen and Jie Ren and Xinyun Chen and Chengrun Yang and Ruoxi Sun and Jinsung Yoon and Sercan Oe Arik},
@@ -47,4 +69,39 @@
   primaryclass  = {cs.AI},
   url           = {https://arxiv.org/abs/2501.19306}
 }
+
+@inproceedings{factprompt,
+  author    = {Zhuang, Ren
+               and Wang, Ben
+               and Sun, Shuifa
+               and Lu, Ke},
+  editor    = {Taniguchi, Tadahiro
+               and Leung, Chi Sing Andrew
+               and Kozuno, Tadashi
+               and Yoshimoto, Junichiro
+               and Mahmud, Mufti
+               and Doborjeh, Maryam
+               and Doya, Kenji},
+  title     = {Factored Internal Verification Enhances Large Language Model Factuality},
+  booktitle = {Neural Information Processing},
+  year      = {2026},
+  publisher = {Springer Nature Singapore},
+  address   = {Singapore},
+  pages     = {258--272},
+  abstract  = {Large Language Model (LLM) factual hallucination critically limits their reliability. To address this, we introduce FactPrompt, a framework inspired by cognitive refinement processes, integrating guided Chain-of-Thought (CoT) with a novel factored self-correction mechanism. FactPrompt first generates an initial response. Crucially, it then deliberately decouples verification: it independently generates internal factual claims relevant to the query using a distinct prompt, separate from the initial reasoning path. This structural separation allows the LLM to evaluate the initial response against these independently sourced claims, minimizing bias propagation from potentially flawed initial reasoning---a key distinction from standard CoT or simpler self-critique loops. Concurrently, we propose and validate R{\&}T, an information-theoretic metric quantifying deviations from uniform information density (UID) that signal potential unreliability. R{\&}T strongly correlates with established accuracy metrics, supporting its use for automated, ground-truth-free reliability assessment. Extensive evaluation across ten datasets shows FactPrompt yields substantial accuracy improvements over strong baselines (average 4.3{\%}, up to 8.37{\%}), notably in long-form generation and open-ended QA. FactPrompt demonstrates that structured, decoupled internal verification is a promising route towards more reliable and trustworthy LLMs.},
+  isbn      = {978-981-95-4088-4}
+}
+
+
+@misc{verifyfirst,
+  title         = {Asking LLMs to Verify First is Almost Free Lunch},
+  author        = {Shiguang Wu and Quanming Yao},
+  year          = {2025},
+  eprint        = {2511.21734},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2511.21734}
+}
+
+
 

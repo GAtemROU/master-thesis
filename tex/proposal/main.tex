@@ -18,35 +18,46 @@ The internal verification behaviors are natural to humans, as we often double-ch
 \section{Related Work}
 The current work on internal verification behaviors in LLMs mainly focuses on techniques that encourage the model to verify its own outputs via prompting strategies paired with multiple steps of sampling, verification and correction of some sort. 
 
-In addition, another approach that is frequently used is to define an RL pipeline where the reward is affected by both correctness of the output and the quality of the verification process. While this approach is interesting and has shown promising results, it is not the focus of this research, as it requires a more complex setup and is not as widely used as the prompting strategies \citep{revise}.
-\subsection{Encouraging Internal Verification in LLMs}
-\subsubsection{BoN and majority voting}
-This approach involves generating multiple responses to the same prompt and then using a voting mechanism to determine the most likely correct answer. By encouraging the model to produce multiple outputs, we can increase the chances of identifying the correct answer through consensus. This method has been shown to improve accuracy in various tasks, as it allows the model to leverage its internal knowledge and reasoning capabilities more effectively. This approach will be treated as a baseline for our experiments, as it is a widely used technique for enhancing the performance of LLMs.
+Furthermore, another approach that is frequently used is to define an RL pipeline where the reward is affected by both correctness of the output and the quality of the verification process \citep{revise,cai2026smartsnapproactiveevidenceseeking,zhang2025incentivizingllmsselfverifyanswers}. While this approach is interesting and has shown promising results, it is not the focus of this research, as it requires a more complex setup and is not as widely used as the prompting strategies.
+
+\cite{factprompt} proposed a simple yet effective method of prompting the model to find the solution, while independently generating facts about the problem. And afterwards, the model is prompted to verify the solution based on the generated facts. This method is particularly interesting as it encourages the model to utilize its internal knowledge and reasoning capabilities in a more comprehensive way, which is in line with the goals of this research. Similarly, we can design a method to generate domain and task related constraints and principles, and then prompt the model to verify the solution based on these constraints and principles. \cite{sgv} show a similar idea, in a different domain of web navigation, where the model is prompted to independently generate an abstract solution and verify it with the proposed concrete solution. 
+
+\cite{verifyfirst} showed how prompting the model to firstly verify a solution before solving the task can lead to significant improvements in performance. This method is particularly interesting as it encourages the model to engage in a verification process before even attempting to solve the task, which can help to mitigate the agreement bias problem and lead to more accurate solutions. 
+
 
 \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{../images/sets.png}
     \caption{An illustration of the Self-Enhanced Test-Time Scaling (SETS) method \citep{sets}, which involves "Self-Verify" and "Self-Correct" steps that recursively repeat until agreement. The approach uses multiple sampling and majority voting to determine the final answer.}
+    \label{fig:sets}
 \end{figure}
 
-\subsubsection{SETS}
-Self-Enhanced Test-Time Scaling (SETS) is a method very close to the one proposed in this research \citep{sets}. It involves "Self-Verify" and "Self-Correct" steps which recursively repeat until agreement. Furthermore, the approach uses multiple sampling and majority voting to determine the final answer. The main difference between SETS and our proposed method is how the "Self-Verify" step is implemented. In SETS, the verification is only focused on the task and the output, while in our proposed method, we aim to explore a more comprehensive internal verification process that includes not only the task and output but also the domain related constraints not necessarily directly related to the task. This allows us to investigate whether LLMs can utilize a broader range of internal knowledge and reasoning capabilities to enhance their performance.
-\subsubsection{SGV}
-\cite{sgv} proposed a method called Self-Grounded Verification (SGV) which is designed to improve the performance of LLMs by enabling them to verify their own outputs. The method makes particular focus on mitigating the "agreement bias" problem, which occurs when models tend to agree with their own outputs without critically evaluating them. SGV solves this problem by separating the verification process from the generation process, allowing the model to independently assess the correctness of its outputs. 
-
-It is not plausible to directly compare SGV with our proposed method, as they have different approaches in terms of data. SGV focuses on visual web tasks which do not necessarily require a deep understanding of the domain, while our proposed method is designed to be applied to a wide range of tasks that may require a more comprehensive internal verification process.
-
+Self-Enhanced Test-Time Scaling (SETS) is a method very close to the one proposed in this research \citep{sets}. It involves "Self-Verify" and "Self-Correct" steps which recursively repeat until agreement. Furthermore, the approach uses multiple sampling and majority voting to determine the final answer. The main difference between SETS and our proposed method is how the "Self-Verify" step is implemented. See \autoref{fig:sets} for an illustration of the method. SETS also utilizes ideas proposed by \cite{verifyfirst} by independently generating a solution and then verifying it.
 
 
 \section{Methodology}
-\subsection{Datasets}
-The domain of mathematics naturally fits the goal of this research, as it often requires a deep understanding of the underlying concepts and principles, as well as the ability to apply them in various contexts. Furthermore, mathematical problems often allow for various verification steps that can be used to assess the correctness of the solution, making it an ideal domain for exploring internal verification behaviors in LLMs. Therefore, we will focus on mathematical datasets for our experiments.
 
-In addition, other domains might also be explored. While the improvements would not be expected, if the proposed method shows significant increases or decreases in performance, it would be interesting to investigate the underlying reasons for such behavior. 
-\subsubsection{GSM8K}
-\subsubsection{MATH500}
-\subsubsection{AIME 2024/2025}
-\subsubsection{AMC 2023}
+\subsection{Proposed Method}
+The main idea behind the proposed method is to encourage LLMs to engage in a more comprehensive internal verification process that goes beyond just verifying the output of a task. The method involves prompting the model to not only verify the correctness of its output but also to consider domain-related constraints and principles that may not be directly related to the task at hand.
+
+The main architecture is very similar to the one of SETS, the outer loop is a majority voting mechanism, where multiple samples are generated. However, the "Self-Verify" step will be split into two steps, the first one will be focused on generating the domain-related and/or task-related constraints and principles, while the second step will be focused on verifying the solution based on these constraints and principles. This way, we can encourage the model to engage in a more comprehensive internal verification process that can potentially lead to improved performance. The "Self-Correct" step will be similar to the one in SETS, where the model is prompted to generate a new solution based on the feedback from the verification step. The process will repeat until agreement is reached among the generated samples.
+
+It is difficult to say, whether simply prompting the model to generate domain-related constraints will lead to the desired result. Hence, depending on the empirical results, the method might be further modified to include more specific instructions or examples to guide the model in generating relevant constraints and principles. For instance, a some rather simple examples of constraints are sign parity for multiplication or addition, or the total probability of all possible outcomes for a probability problem should be equal to 1. These constraints are not directly related to the task, but they are related to the domain and can be used to verify the correctness of the solution.
+
+
+\subsection{Competitor Methods}
+\subsubsection{BoN and majority voting}
+This approach involves generating multiple responses to the same prompt and then using a voting mechanism to determine the most likely correct answer. By encouraging the model to produce multiple outputs, we can increase the chances of identifying the correct answer through consensus. This method has been shown to improve accuracy in various tasks, as it allows the model to leverage its internal knowledge and reasoning capabilities more effectively. This approach will be treated as a baseline for our experiments, as it is a widely used technique for enhancing the performance of LLMs.
+
+
+\subsubsection{SETS}
+SETS is a method very close to the one proposed in this research, in fact, many architectural elements of the method are inspired by SETS. Hence, naturally, it will be treated as a competitor method in our experiments. The main difference between SETS and our proposed method is how the "Self-Verify" step is implemented. In SETS, the verification is only focused on the task and the output, while in our proposed method, we aim to explore a more comprehensive internal verification process that includes not only the task and output but also the domain related constraints not necessarily directly related to the task. See \autoref{fig:sets} for an illustration of the method.
+
+
+\subsection{Datasets}
+The domain of mathematics naturally fits the goal of this research, as it often requires a deep understanding of the underlying concepts and principles, as well as the ability to apply them in various contexts. Furthermore, mathematical problems often allow for various verification steps that can be used to assess the correctness of the solution, making it an ideal domain for exploring internal verification behaviors in LLMs. Therefore, we will focus on mathematical datasets for our experiments. The main datasets that we will be using are GSM8K, MATH500, AIME 2024/2025, and AMC 2023. These datasets cover a wide range of mathematical problems, from basic arithmetic to more complex problems in algebra, geometry, and number theory.
+
+In addition, other domains might also be explored. While the improvements would not be expected, if the proposed method shows significant increases or decreases in performance, it would be interesting to investigate the underlying reasons for such behavior.
 \subsection{Evaluation Metrics}
 \subsubsection{Accuracy}
 The accuracy fundamentally fits the goal of this research. As we hypothesize that the proposed verification method will lead to improved solutions, hence, increasing the accuracy.
@@ -60,6 +71,14 @@ While improving accuracy is a primary goal, it is also important to consider the
 It is hard to depict the particular models that will be used in the experiments, as the research is still in its early stages. However, it is expected that the experiments will be conducted on a range of LLMs with open source weights, such as LLaMA or Qwen with small to medium sizes of 1.5B to 7B parameters. The choice of models will depend on the computational resources available and the specific libraries that will be used for the experiments. It is expected that the lower size models will benefit more from the proposed method, as they have less capacity to store and utilize internal knowledge, hence, the verification process can help them to better leverage their internal knowledge and reasoning capabilities.
 
 \section{Goals}
+\subsection{Short-term Goals}
+The first and foremost goal of this research is to implement the proposed method and have clear evidence of models generating the related useful constraints. 
+
+Furthermore, the performance increase in combination to efficient test-time evaluation is clearly of the essence, otherwise, SETS and other competitor methods would be preferred. 
+
+\subsection{Long-term Goals}
+The long-term goal of this research is to establish a deeper understanding of the internal verification behaviors and ideally reaching some generalization in terms of the applicability of the method across various domains and tasks.
+
 
 
 \bibliographystyle{apacite}	
