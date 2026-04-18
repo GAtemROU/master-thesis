@@ -1,0 +1,4 @@
+{"id": "gsm8k_dummy_1", "question": "If you have 3 apples and buy 2 more, how many apples do you have?", "answer": "You start with 3 and buy 2. #### 5"}
+{"id": "gsm8k_dummy_2", "question": "A box has 12 candies. You eat 4. How many remain?", "answer": "12 - 4 = 8. #### 8"}
+{"id": "gsm8k_dummy_3", "question": "Sara reads 10 pages on Monday and 7 on Tuesday. How many pages total?", "answer": "10 + 7 = 17. #### 17"}
+{"id": "gsm8k_dummy_4", "question": "A pencil costs $2. How much do 3 pencils cost?", "answer": "3 * 2 = 6. #### 6"}
