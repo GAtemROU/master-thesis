@@ -1,23 +1,38 @@
-TASK_PROMPT = """You are solving a math problem.
-Provide a brief solution and put the final answer on the last line as:
-FINAL: <answer>
-Problem: {question}
-"""
+from __future__ import annotations
 
-CONSTRAINT_PROMPT = """List domain- or task-related constraints that can be used
-to verify a solution. Return each constraint on its own line and start with "- ".
-Problem: {question}
-"""
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Optional
 
-VERIFY_PROMPT = """Verify the proposed solution using the constraints.
-Return:
-VERDICT: PASS or VERDICT: FAIL
-REASON: <short reason>
+from .config import PromptConfig
 
-Problem: {question}
-Proposed Solution:
-{solution}
+DEFAULT_PROMPTS_DIR = Path(__file__).parent / "prompt_templates"
+DEFAULT_TASK_PROMPT_PATH = DEFAULT_PROMPTS_DIR / "task_prompt.txt"
+DEFAULT_CONSTRAINT_PROMPT_PATH = DEFAULT_PROMPTS_DIR / "constraint_prompt.txt"
+DEFAULT_VERIFY_PROMPT_PATH = DEFAULT_PROMPTS_DIR / "verify_prompt.txt"
 
-Constraints:
-{constraints}
-"""
+
+@dataclass(frozen=True)
+class PromptSet:
+    task_prompt: str
+    constraint_prompt: str
+    verify_prompt: str
+
+
+def _load_prompt(path: Path) -> str:
+    return path.read_text()
+
+
+def load_prompt_set(prompt_config: Optional[PromptConfig]) -> PromptSet:
+    if prompt_config is None:
+        prompt_config = PromptConfig()
+    task_path = prompt_config.task_prompt_path or DEFAULT_TASK_PROMPT_PATH
+    constraint_path = (
+        prompt_config.constraint_prompt_path or DEFAULT_CONSTRAINT_PROMPT_PATH
+    )
+    verify_path = prompt_config.verify_prompt_path or DEFAULT_VERIFY_PROMPT_PATH
+    return PromptSet(
+        task_prompt=_load_prompt(Path(task_path)),
+        constraint_prompt=_load_prompt(Path(constraint_path)),
+        verify_prompt=_load_prompt(Path(verify_path)),
+    )

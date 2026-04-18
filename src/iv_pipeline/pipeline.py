@@ -5,7 +5,7 @@ from typing import Dict, List
 
 from .config import PipelineConfig
 from .models import get_model
-from .prompts import CONSTRAINT_PROMPT, TASK_PROMPT, VERIFY_PROMPT
+from .prompts import load_prompt_set
 
 
 @dataclass
@@ -23,6 +23,7 @@ class VerificationPipeline:
         if config.max_samples != 1:
             raise ValueError("Single-sample pipeline only; set max_samples=1.")
         self.config = config
+        self.prompts = load_prompt_set(config.prompts)
         self.sampler_model = get_model(
             config.sampler_model.name, config.sampler_model.params
         )
@@ -34,13 +35,13 @@ class VerificationPipeline:
         )
 
     def run(self, question: str) -> PipelineResult:
-        solution_prompt = TASK_PROMPT.format(question=question)
+        solution_prompt = self.prompts.task_prompt.format(question=question)
         solution_text = self.sampler_model.generate(solution_prompt)
 
-        constraint_prompt = CONSTRAINT_PROMPT.format(question=question)
+        constraint_prompt = self.prompts.constraint_prompt.format(question=question)
         constraints_text = self.constraint_model.generate(constraint_prompt)
 
-        verify_prompt = VERIFY_PROMPT.format(
+        verify_prompt = self.prompts.verify_prompt.format(
             question=question,
             solution=solution_text,
             constraints=constraints_text,
@@ -65,12 +66,13 @@ class MajorityVotePipeline:
             raise ValueError("num_samples must be >= 1.")
         self.config = config
         self.num_samples = num_samples
+        self.prompts = load_prompt_set(config.prompts)
         self.sampler_model = get_model(
             config.sampler_model.name, config.sampler_model.params
         )
 
     def run(self, question: str) -> PipelineResult:
-        solution_prompt = TASK_PROMPT.format(question=question)
+        solution_prompt = self.prompts.task_prompt.format(question=question)
         samples: List[str] = []
         answers: List[str] = []
         for _ in range(self.num_samples):

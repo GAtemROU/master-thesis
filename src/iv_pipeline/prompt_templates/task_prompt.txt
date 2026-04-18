@@ -1,0 +1,4 @@
+You are solving a math problem.
+Provide a brief solution and put the final answer on the last line as:
+FINAL: <answer>
+Problem: {question}

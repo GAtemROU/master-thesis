@@ -1,0 +1,11 @@
+Verify the proposed solution using the constraints.
+Return:
+VERDICT: PASS or VERDICT: FAIL
+REASON: <short reason>
+
+Problem: {question}
+Proposed Solution:
+{solution}
+
+Constraints:
+{constraints}
