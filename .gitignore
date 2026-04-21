@@ -15,3 +15,5 @@ saved_models
 *.synctex.gz
 *.toc
 env/
+runs/
+traces/
