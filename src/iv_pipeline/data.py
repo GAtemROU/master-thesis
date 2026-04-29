@@ -30,6 +30,10 @@ def load_jsonl(path: str | Path) -> List[Example]:
 
 
 def load_gsm8k(path: str | Path) -> List[Example]:
+    path_value = str(path)
+    if path_value.startswith("hf:"):
+        dataset_id, split = _parse_hf_spec(path_value)
+        return _load_gsm8k_from_hf(dataset_id, split)
     examples: List[Example] = []
     for index, line in enumerate(Path(path).read_text().splitlines()):
         if not line.strip():
@@ -81,6 +85,37 @@ def load_dataset(name: str, path: str | Path) -> List[Example]:
     if name == "math500":
         return load_math500(path)
     raise ValueError("Unknown dataset name: {}".format(name))
+
+
+def _load_gsm8k_from_hf(dataset_id: str, split: str) -> List[Example]:
+    from datasets import load_dataset
+    dataset = load_dataset(dataset_id, "main", split=split)
+    examples: List[Example] = []
+    for index, row in enumerate(dataset):
+        answer = _extract_gsm8k_answer(str(row.get("answer", "")))
+        examples.append(
+            Example(
+                example_id=str(row.get("id", index)),
+                question=row["question"],
+                answer=answer,
+            )
+        )
+    return examples
+
+
+def _parse_hf_spec(spec: str) -> tuple[str, str]:
+    default_split = "train[:1000]"
+    remainder = spec.split(":", 1)[1] if ":" in spec else ""
+    if not remainder:
+        return "gsm8k", default_split
+    dataset_part, split_part = remainder, ""
+    if "?split=" in remainder:
+        dataset_part, split_part = remainder.split("?split=", 1)
+    elif ":" in remainder:
+        dataset_part, split_part = remainder.split(":", 1)
+    dataset_id = dataset_part or "gsm8k"
+    split = split_part or default_split
+    return dataset_id, split
 
 
 def _extract_gsm8k_answer(text: str) -> str:

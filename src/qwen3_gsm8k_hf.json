@@ -1,0 +1,42 @@
+{
+  "sampler_model": {
+    "name": "hf_causal_lm",
+    "params": {
+      "model_name": "Qwen/Qwen3-1.7B",
+      "device": "cuda",
+      "torch_dtype": "float16",
+      "trust_remote_code": true,
+      "max_new_tokens": 96,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "do_sample": true
+    }
+  },
+  "constraint_model": {
+    "name": "hf_causal_lm",
+    "params": {
+      "model_name": "Qwen/Qwen3-1.7B",
+      "device": "cuda",
+      "torch_dtype": "float16",
+      "trust_remote_code": true,
+      "max_new_tokens": 96,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "do_sample": true
+    }
+  },
+  "verifier_model": {
+    "name": "hf_causal_lm",
+    "params": {
+      "model_name": "Qwen/Qwen3-1.7B",
+      "device": "cuda",
+      "torch_dtype": "float16",
+      "trust_remote_code": true,
+      "max_new_tokens": 96,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "do_sample": true
+    }
+  },
+  "max_samples": 1
+}

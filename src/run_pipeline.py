@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 from iv_pipeline.config import load_config
 from iv_pipeline.data import load_dataset
 from iv_pipeline.evaluate import compute_metrics, evaluate
+from iv_pipeline.logger import RunLogger
 from iv_pipeline.pipeline import (
     MajorityVotePipeline,
     VerificationPipeline,
@@ -65,17 +66,82 @@ def main() -> int:
         default=0,
         help="Index of example to trace (default: 0).",
     )
+    parser.add_argument(
+        "--max-examples",
+        type=int,
+        default=None,
+        help="Optional cap on number of examples to evaluate.",
+    )
+    parser.add_argument(
+        "--log-traces",
+        action="store_true",
+        help="Include per-example outputs in the run log.",
+    )
+    parser.add_argument(
+        "--trace-only",
+        action="store_true",
+        help="Only run the trace step and skip full evaluation.",
+    )
     args = parser.parse_args()
 
-    config = load_config(args.config)
-    if args.pipeline == "majority_vote":
-        pipeline = MajorityVotePipeline(config, args.num_samples)
-    else:
-        pipeline = VerificationPipeline(config)
-    examples = load_dataset(args.dataset_name, args.dataset)
     run_timestamp = datetime.now(timezone.utc)
     run_id = run_timestamp.strftime("%Y%m%dT%H%M%SZ")
+    output_dir = Path(__file__).parent / "runs"
+    run_logger = RunLogger(run_id, run_timestamp, output_dir)
+    run_logger.write_start(
+        {
+            "args": {
+                "dataset": args.dataset,
+                "dataset_name": args.dataset_name,
+                "config": args.config,
+                "pipeline": args.pipeline,
+                "num_samples": args.num_samples,
+                "trace_run": args.trace_run,
+                "trace_index": args.trace_index,
+                "trace_only": args.trace_only,
+                "max_examples": args.max_examples,
+                "log_traces": args.log_traces,
+            },
+            "config": None,
+            "prompts": None,
+        }
+    )
+    print(f"Run log initialized: {run_logger.output_path}")
+
+    try:
+        config = load_config(args.config)
+        run_logger.write_start(
+            {
+                "args": {
+                    "dataset": args.dataset,
+                    "dataset_name": args.dataset_name,
+                    "config": args.config,
+                    "pipeline": args.pipeline,
+                    "num_samples": args.num_samples,
+                    "trace_run": args.trace_run,
+                    "trace_index": args.trace_index,
+                    "trace_only": args.trace_only,
+                    "max_examples": args.max_examples,
+                    "log_traces": args.log_traces,
+                },
+                "config": asdict(config),
+                "prompts": None,
+            }
+        )
+        if args.pipeline == "majority_vote":
+            pipeline = MajorityVotePipeline(config, args.num_samples)
+        else:
+            pipeline = VerificationPipeline(config)
+        examples = load_dataset(args.dataset_name, args.dataset)
+        if args.max_examples is not None:
+            if args.max_examples < 1:
+                raise ValueError("--max-examples must be >= 1.")
+            examples = list(examples[: args.max_examples])
+    except BaseException as exc:
+        run_logger.write_error(exc)
+        raise
     if args.trace_run:
+        print(f"Trace run enabled (index {args.trace_index}).")
         if not (0 <= args.trace_index < len(examples)):
             raise ValueError(
                 f"trace_index {args.trace_index} out of range for "
@@ -157,22 +223,27 @@ def main() -> int:
         }
         trace_path.write_text(json.dumps(trace_record, indent=2, sort_keys=True))
         print(f"Trace saved to: {trace_path}")
+        if args.trace_only:
+            run_logger.write_results(
+                {"accuracy": 0.0, "verification_tp": 0, "verification_fp": 0, "verification_fn": 0, "verification_tn": 0},
+                details={"trace_only": True, "trace_path": str(trace_path)},
+            )
+            print(f"Run saved to: {run_logger.output_path}")
+            return 0
 
-    results = evaluate(pipeline, examples)
-    metrics = compute_metrics(results, examples)
-    output_dir = Path(__file__).parent / "runs"
-    output_dir.mkdir(parents=True, exist_ok=True)
-    output_path = output_dir / f"run_{run_id}.json"
-    run_record = {
-        "run_id": run_id,
-        "run_timestamp": run_timestamp.isoformat(),
-        "inputs": {
+    run_logger.write_start(
+        {
             "args": {
                 "dataset": args.dataset,
                 "dataset_name": args.dataset_name,
                 "config": args.config,
                 "pipeline": args.pipeline,
                 "num_samples": args.num_samples,
+                "trace_run": args.trace_run,
+                "trace_index": args.trace_index,
+                "trace_only": args.trace_only,
+                "max_examples": args.max_examples,
+                "log_traces": args.log_traces,
             },
             "config": asdict(config),
             "prompts": {
@@ -180,16 +251,42 @@ def main() -> int:
                 "constraint_prompt": pipeline.prompts.constraint_prompt,
                 "verify_prompt": pipeline.prompts.verify_prompt,
             },
-        },
-        "metrics": {
-            "accuracy": metrics.accuracy,
-            "verification_tp": metrics.verification_tp,
-            "verification_fp": metrics.verification_fp,
-            "verification_fn": metrics.verification_fn,
-            "verification_tn": metrics.verification_tn,
-        },
+            "dataset": {
+                "num_examples": len(examples),
+            },
+        }
+    )
+
+    try:
+        results = evaluate(pipeline, examples)
+        metrics = compute_metrics(results, examples)
+    except BaseException as exc:
+        run_logger.write_error(exc)
+        raise
+
+    metric_payload = {
+        "accuracy": metrics.accuracy,
+        "verification_tp": metrics.verification_tp,
+        "verification_fp": metrics.verification_fp,
+        "verification_fn": metrics.verification_fn,
+        "verification_tn": metrics.verification_tn,
     }
-    output_path.write_text(json.dumps(run_record, indent=2, sort_keys=True))
+    details = None
+    if args.log_traces:
+        details = {
+            "results": [
+                {
+                    "question": result.question,
+                    "solution_text": result.solution_text,
+                    "constraints_text": result.constraints_text,
+                    "verification_text": result.verification_text,
+                    "final_answer": result.final_answer,
+                    "verification_verdict": result.verification_verdict,
+                }
+                for result in results
+            ]
+        }
+    run_logger.write_results(metric_payload, details=details)
 
     print(f"Accuracy: {metrics.accuracy:.3f}")
     print(
@@ -199,7 +296,7 @@ def main() -> int:
         f"{metrics.verification_fn}/"
         f"{metrics.verification_tn}"
     )
-    print(f"Run saved to: {output_path}")
+    print(f"Run saved to: {run_logger.output_path}")
     return 0
 
 
