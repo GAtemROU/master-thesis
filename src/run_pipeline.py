@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from iv_pipeline.config import load_config
 from iv_pipeline.data import load_dataset
 from iv_pipeline.evaluate import compute_metrics, evaluate
-from iv_pipeline.logger import RunLogger
+from iv_pipeline.logger import RunLogger, set_verbose, verbose_print
 from iv_pipeline.pipeline import (
     MajorityVotePipeline,
     VerificationPipeline,
@@ -82,7 +82,14 @@ def main() -> int:
         action="store_true",
         help="Only run the trace step and skip full evaluation.",
     )
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Print and log additional run details.",
+    )
     args = parser.parse_args()
+    if args.verbose:
+        set_verbose(True)
 
     run_timestamp = datetime.now(timezone.utc)
     run_id = run_timestamp.strftime("%Y%m%dT%H%M%SZ")
@@ -101,6 +108,7 @@ def main() -> int:
                 "trace_only": args.trace_only,
                 "max_examples": args.max_examples,
                 "log_traces": args.log_traces,
+                "verbose": args.verbose,
             },
             "config": None,
             "prompts": None,
@@ -123,11 +131,36 @@ def main() -> int:
                     "trace_only": args.trace_only,
                     "max_examples": args.max_examples,
                     "log_traces": args.log_traces,
+                    "verbose": args.verbose,
                 },
                 "config": asdict(config),
                 "prompts": None,
             }
         )
+        if args.verbose:
+            verbose_print(
+                "Run config loaded: "
+                f"pipeline={args.pipeline} "
+                f"dataset_name={args.dataset_name} "
+                f"dataset={args.dataset}"
+            )
+            run_logger.write_event(
+                "Verbose mode enabled",
+                {
+                    "pipeline": args.pipeline,
+                    "dataset_name": args.dataset_name,
+                    "dataset": args.dataset,
+                    "models": {
+                        "sampler": asdict(config.sampler_model),
+                        "constraint": asdict(config.constraint_model),
+                        "verifier": asdict(config.verifier_model),
+                    },
+                    "max_examples": args.max_examples,
+                    "num_samples": args.num_samples,
+                    "trace_run": args.trace_run,
+                    "trace_only": args.trace_only,
+                },
+            )
         if args.pipeline == "majority_vote":
             pipeline = MajorityVotePipeline(config, args.num_samples)
         else:
@@ -137,6 +170,14 @@ def main() -> int:
             if args.max_examples < 1:
                 raise ValueError("--max-examples must be >= 1.")
             examples = list(examples[: args.max_examples])
+        if args.verbose:
+            verbose_print(
+                f"Dataset loaded: name={args.dataset_name} path={args.dataset} count={len(examples)}"
+            )
+            run_logger.write_event(
+                "Dataset loaded",
+                {"num_examples": len(examples), "dataset_name": args.dataset_name},
+            )
     except BaseException as exc:
         run_logger.write_error(exc)
         raise
@@ -244,6 +285,7 @@ def main() -> int:
                 "trace_only": args.trace_only,
                 "max_examples": args.max_examples,
                 "log_traces": args.log_traces,
+                "verbose": args.verbose,
             },
             "config": asdict(config),
             "prompts": {

@@ -1,0 +1,3 @@
+List domain- or task-related constraints that can be used
+to verify a solution. Return each constraint on its own line and start with "- ".
+Problem: {question}

@@ -1,0 +1,15 @@
+You need to solve the math problem.
+
+Meaning of this step:
+- Understand what the problem asks.
+- Use only relevant facts from the problem.
+- Write short reasoning steps, enough to show how the answer is found.
+- Do not add unrelated explanation.
+- Put the final answer on the last line in the required format.
+
+Output format:
+<short solution>
+FINAL: <answer>
+
+Problem:
+{question}

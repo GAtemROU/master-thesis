@@ -2,7 +2,7 @@
   "sampler_model": {
     "name": "hf_causal_lm",
     "params": {
-      "model_name": "Qwen/Qwen3-1.7B",
+      "model_name": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
       "device": "cpu",
       "torch_dtype": "float32",
       "trust_remote_code": true,
@@ -15,7 +15,7 @@
   "constraint_model": {
     "name": "hf_causal_lm",
     "params": {
-      "model_name": "Qwen/Qwen3-1.7B",
+      "model_name": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
       "device": "cpu",
       "torch_dtype": "float32",
       "trust_remote_code": true,
@@ -28,7 +28,7 @@
   "verifier_model": {
     "name": "hf_causal_lm",
     "params": {
-      "model_name": "Qwen/Qwen3-1.7B",
+      "model_name": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
       "device": "cpu",
       "torch_dtype": "float32",
       "trust_remote_code": true,

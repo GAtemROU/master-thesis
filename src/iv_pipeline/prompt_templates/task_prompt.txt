@@ -1,4 +1,5 @@
-You are solving a math problem.
-Provide a brief solution and put the final answer on the last line as:
+Solve the math problem. Show key steps only. End with exactly:
 FINAL: <answer>
-Problem: {question}
+
+Problem:
+{question}

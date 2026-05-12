@@ -1,3 +1,6 @@
-List domain- or task-related constraints that can be used
-to verify a solution. Return each constraint on its own line and start with "- ".
-Problem: {question}
+Generate checks that can verify a solution to this math problem.
+Use domain/task constraints, not full solving steps. Keep each check short.
+Return only bullet lines starting with "- ".
+
+Problem:
+{question}

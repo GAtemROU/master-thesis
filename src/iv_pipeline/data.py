@@ -5,6 +5,8 @@ from pathlib import Path
 import re
 from typing import Iterable, List
 
+from .logger import verbose_print
+
 
 @dataclass
 class Example:
@@ -26,6 +28,7 @@ def load_jsonl(path: str | Path) -> List[Example]:
                 answer=str(data["answer"]),
             )
         )
+    verbose_print(f"Loaded {len(examples)} examples from jsonl: {path}")
     return examples
 
 
@@ -47,6 +50,7 @@ def load_gsm8k(path: str | Path) -> List[Example]:
                 answer=answer,
             )
         )
+    verbose_print(f"Loaded {len(examples)} examples from gsm8k: {path}")
     return examples
 
 
@@ -73,11 +77,13 @@ def load_math500(path: str | Path) -> List[Example]:
                 answer=answer,
             )
         )
+    verbose_print(f"Loaded {len(examples)} examples from math500: {path}")
     return examples
 
 
 def load_dataset(name: str, path: str | Path) -> List[Example]:
     name = name.lower()
+    verbose_print(f"Loading dataset '{name}' from {path}")
     if name == "jsonl":
         return load_jsonl(path)
     if name == "gsm8k":
@@ -89,6 +95,9 @@ def load_dataset(name: str, path: str | Path) -> List[Example]:
 
 def _load_gsm8k_from_hf(dataset_id: str, split: str) -> List[Example]:
     from datasets import load_dataset
+    verbose_print(
+        f"Loading GSM8K from Hugging Face: dataset_id={dataset_id} split={split}"
+    )
     dataset = load_dataset(dataset_id, "main", split=split)
     examples: List[Example] = []
     for index, row in enumerate(dataset):
@@ -100,6 +109,9 @@ def _load_gsm8k_from_hf(dataset_id: str, split: str) -> List[Example]:
                 answer=answer,
             )
         )
+    verbose_print(
+        f"Loaded {len(examples)} examples from HF dataset {dataset_id} split {split}"
+    )
     return examples
 
 

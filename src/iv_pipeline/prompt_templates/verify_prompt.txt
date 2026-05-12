@@ -1,11 +1,14 @@
-Verify the proposed solution using the constraints.
-Return:
-VERDICT: PASS or VERDICT: FAIL
-REASON: <short reason>
+Verify the proposed solution using the checks.
+Do not solve from scratch unless needed for a check.
+Return exactly:
+VERDICT: PASS or FAIL
+REASON: <one short sentence>
 
-Problem: {question}
-Proposed Solution:
+Problem:
+{question}
+
+Proposed solution:
 {solution}
 
-Constraints:
+Checks:
 {constraints}

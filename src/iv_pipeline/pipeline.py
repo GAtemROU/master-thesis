@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from typing import Dict, List
 
 from .config import PipelineConfig
+from .logger import verbose_print
 from .models import get_model
 from .prompts import load_prompt_set
 
@@ -32,6 +33,12 @@ class VerificationPipeline:
         )
         self.verifier_model = get_model(
             config.verifier_model.name, config.verifier_model.params
+        )
+        verbose_print(
+            "Initialized VerificationPipeline with models: "
+            f"sampler={config.sampler_model.name} "
+            f"constraint={config.constraint_model.name} "
+            f"verifier={config.verifier_model.name}"
         )
 
     def run(self, question: str) -> PipelineResult:
@@ -69,6 +76,10 @@ class MajorityVotePipeline:
         self.prompts = load_prompt_set(config.prompts)
         self.sampler_model = get_model(
             config.sampler_model.name, config.sampler_model.params
+        )
+        verbose_print(
+            "Initialized MajorityVotePipeline with model: "
+            f"sampler={config.sampler_model.name} num_samples={self.num_samples}"
         )
 
     def run(self, question: str) -> PipelineResult:

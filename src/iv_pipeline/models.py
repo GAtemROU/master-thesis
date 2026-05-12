@@ -5,6 +5,8 @@ import json
 import re
 from typing import Any, Dict
 
+from .logger import verbose_print
+
 
 class BaseModel(ABC):
     @abstractmethod
@@ -60,6 +62,7 @@ class HuggingFaceCausalLMModel(BaseModel):
         )
         self.model.to(self.device)
         self.model.eval()
+        self.model.generation_config.max_length = None
         if self.tokenizer.pad_token_id is None:
             self.tokenizer.pad_token_id = self.tokenizer.eos_token_id
         self.generate_kwargs = {
@@ -92,7 +95,9 @@ def get_model(name: str, params: Dict[str, Any] | None = None) -> BaseModel:
     params = params or {}
     cache_key = json.dumps({"name": name, "params": params}, sort_keys=True)
     if cache_key in _MODEL_CACHE:
+        verbose_print(f"Model cache hit: {name} params={params}")
         return _MODEL_CACHE[cache_key]
+    verbose_print(f"Loading model: {name} params={params}")
     if name == "mock_math":
         model = MockMathModel()
     elif name == "mock_constraints":

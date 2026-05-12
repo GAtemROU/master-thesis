@@ -6,6 +6,22 @@ from pathlib import Path
 import traceback
 from typing import Any, Dict
 
+_VERBOSE = False
+
+
+def set_verbose(enabled: bool) -> None:
+    global _VERBOSE
+    _VERBOSE = enabled
+
+
+def is_verbose() -> bool:
+    return _VERBOSE
+
+
+def verbose_print(message: str) -> None:
+    if _VERBOSE:
+        print(f"[verbose] {message}")
+
 
 class RunLogger:
     def __init__(self, run_id: str, run_timestamp: datetime, output_dir: Path) -> None:
@@ -16,12 +32,25 @@ class RunLogger:
         self.output_path = self.output_dir / f"run_{run_id}.json"
 
     def write_start(self, inputs: Dict[str, Any]) -> None:
-        record = {
-            "run_id": self.run_id,
-            "run_timestamp": self.run_timestamp.isoformat(),
-            "status": "running",
-            "inputs": inputs,
-        }
+        record = self._read_record()
+        record.update(
+            {
+                "run_id": self.run_id,
+                "run_timestamp": self.run_timestamp.isoformat(),
+                "status": "running",
+                "inputs": inputs,
+            }
+        )
+        self._write_record(record)
+
+    def write_event(self, message: str, data: Dict[str, Any] | None = None) -> None:
+        record = self._read_record()
+        events = record.get("events", [])
+        event = {"timestamp": datetime.utcnow().isoformat(), "message": message}
+        if data is not None:
+            event["data"] = data
+        events.append(event)
+        record["events"] = events
         self._write_record(record)
 
     def write_results(self, metrics: Dict[str, Any], details: Dict[str, Any] | None = None) -> None:

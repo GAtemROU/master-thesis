@@ -1,0 +1,22 @@
+You need to verify the proposed solution using the checks.
+
+Meaning of this step:
+- Read the problem, proposed solution, and checks.
+- Test whether the proposed solution satisfies the checks.
+- If a check fails, the solution should fail.
+- If the checks support the solution and no clear mistake is found, pass it.
+- Do not rewrite the full solution unless needed to test a check.
+- Keep the reason short and specific.
+
+Output format:
+VERDICT: PASS or FAIL
+REASON: <one short reason>
+
+Problem:
+{question}
+
+Proposed solution:
+{solution}
+
+Checks:
+{constraints}

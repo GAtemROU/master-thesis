@@ -1,0 +1,16 @@
+You need to write checks that can be used to verify a solution.
+
+Meaning of this step:
+- A check is a rule, constraint, or sanity test that a correct solution should satisfy.
+- Checks may use math facts, units, signs, parity, ranges, equations, totals, or problem conditions.
+- Do not solve the whole problem.
+- Do not judge any solution yet.
+- Write checks that are simple and useful for catching mistakes.
+
+Output format:
+- <check 1>
+- <check 2>
+- <check 3>
+
+Problem:
+{question}
