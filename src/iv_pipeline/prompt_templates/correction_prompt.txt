@@ -1,0 +1,13 @@
+You are given a proposed solution and a short reason why it is wrong.
+Fix the solution using the reason. Keep changes minimal.
+End with exactly:
+FINAL: <answer>
+
+Problem:
+{question}
+
+Proposed solution:
+{solution}
+
+Issue:
+{reason}

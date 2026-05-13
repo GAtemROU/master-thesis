@@ -2,11 +2,11 @@
   "sampler_model": {
     "name": "hf_causal_lm",
     "params": {
-      "model_name": "Qwen/Qwen3-1.7B",
-      "device": "cuda",
-      "torch_dtype": "float16",
+      "model_name": "Qwen/Qwen3-0.6B",
+      "device": "cpu",
+      "torch_dtype": "float32",
       "trust_remote_code": true,
-      "max_new_tokens": 96,
+      "max_new_tokens": 256,
       "temperature": 0.7,
       "top_p": 0.9,
       "do_sample": true
@@ -15,11 +15,11 @@
   "constraint_model": {
     "name": "hf_causal_lm",
     "params": {
-      "model_name": "Qwen/Qwen3-1.7B",
-      "device": "cuda",
-      "torch_dtype": "float16",
+      "model_name": "Qwen/Qwen3-0.6B",
+      "device": "cpu",
+      "torch_dtype": "float32",
       "trust_remote_code": true,
-      "max_new_tokens": 96,
+      "max_new_tokens": 256,
       "temperature": 0.7,
       "top_p": 0.9,
       "do_sample": true
@@ -28,15 +28,21 @@
   "verifier_model": {
     "name": "hf_causal_lm",
     "params": {
-      "model_name": "Qwen/Qwen3-1.7B",
-      "device": "cuda",
-      "torch_dtype": "float16",
+      "model_name": "Qwen/Qwen3-0.6B",
+      "device": "cpu",
+      "torch_dtype": "float32",
       "trust_remote_code": true,
-      "max_new_tokens": 96,
+      "max_new_tokens": 256,
       "temperature": 0.7,
       "top_p": 0.9,
       "do_sample": true
     }
   },
-  "max_samples": 1
+  "max_samples": 1,
+  "prompts": {
+    "task_prompt_path": "src/iv_pipeline/prompt_templates/task_prompt_extended.txt",
+    "constraint_prompt_path": "src/iv_pipeline/prompt_templates/constraint_prompt_extended.txt",
+    "verify_prompt_path": "src/iv_pipeline/prompt_templates/verify_prompt_extended.txt",
+    "correction_prompt_path": "src/iv_pipeline/prompt_templates/correction_prompt_extended.txt"
+  }
 }

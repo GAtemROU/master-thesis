@@ -16,6 +16,7 @@ class PromptConfig:
     task_prompt_path: Optional[str] = None
     constraint_prompt_path: Optional[str] = None
     verify_prompt_path: Optional[str] = None
+    correction_prompt_path: Optional[str] = None
 
 
 @dataclass
@@ -50,5 +51,6 @@ def load_config(path: str | Path | None) -> PipelineConfig:
             task_prompt_path=prompt_data.get("task_prompt_path"),
             constraint_prompt_path=prompt_data.get("constraint_prompt_path"),
             verify_prompt_path=prompt_data.get("verify_prompt_path"),
+            correction_prompt_path=prompt_data.get("correction_prompt_path"),
         ),
     )
