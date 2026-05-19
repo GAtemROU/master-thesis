@@ -1,8 +1,9 @@
-You need to solve the math problem.
+You need to solve the math problem using the interval constraint.
 
 Meaning of this step:
 - Understand what the problem asks.
 - Use only relevant facts from the problem.
+- Use the interval to guide and sanity-check the solution.
 - Write short reasoning steps, enough to show how the answer is found.
 - Do not add unrelated explanation.
 - Put the final answer on the last line in the required format.
@@ -13,3 +14,6 @@ FINAL: <answer>
 
 Problem:
 {question}
+
+Interval:
+{constraints}

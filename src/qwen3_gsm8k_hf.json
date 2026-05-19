@@ -41,8 +41,8 @@
   "max_samples": 1,
   "prompts": {
     "task_prompt_path": "src/iv_pipeline/prompt_templates/task_prompt_extended.txt",
+    "constrained_task_prompt_path": "src/iv_pipeline/prompt_templates/task_prompt_with_constraints_extended.txt",
     "constraint_prompt_path": "src/iv_pipeline/prompt_templates/constraint_prompt_extended.txt",
-    "verify_prompt_path": "src/iv_pipeline/prompt_templates/verify_prompt_extended.txt",
-    "correction_prompt_path": "src/iv_pipeline/prompt_templates/correction_prompt_extended.txt"
+    "verify_prompt_path": "src/iv_pipeline/prompt_templates/verify_prompt_extended.txt"
   }
 }

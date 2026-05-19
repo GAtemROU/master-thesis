@@ -9,7 +9,7 @@ Main entry: `src/run_pipeline.py`.
 1. Load config (`src/iv_pipeline/config.py`) from JSON or defaults.
 2. Load prompt templates (`src/iv_pipeline/prompt_templates/*`).
 3. Build pipeline:
-   - **VerificationPipeline**: single-sample solution → constraints → verification.
+   - **VerificationPipeline**: constraints → baseline solution → constrained solution → verification.
    - **MajorityVotePipeline**: multiple sampled solutions → majority vote.
 4. Load dataset (local file or Hugging Face for GSM8K).
 5. Evaluate, compute metrics, write run log.

@@ -10,7 +10,9 @@ DEFAULT_PROMPTS_DIR = Path(__file__).parent / "prompt_templates"
 DEFAULT_TASK_PROMPT_PATH = DEFAULT_PROMPTS_DIR / "task_prompt.txt"
 DEFAULT_CONSTRAINT_PROMPT_PATH = DEFAULT_PROMPTS_DIR / "constraint_prompt.txt"
 DEFAULT_VERIFY_PROMPT_PATH = DEFAULT_PROMPTS_DIR / "verify_prompt.txt"
-DEFAULT_CORRECTION_PROMPT_PATH = DEFAULT_PROMPTS_DIR / "correction_prompt.txt"
+DEFAULT_CONSTRAINED_TASK_PROMPT_PATH = (
+    DEFAULT_PROMPTS_DIR / "task_prompt_with_constraints_extended.txt"
+)
 
 
 @dataclass(frozen=True)
@@ -18,7 +20,7 @@ class PromptSet:
     task_prompt: str
     constraint_prompt: str
     verify_prompt: str
-    correction_prompt: str
+    constrained_task_prompt: str
 
 
 def _load_prompt(path: Path) -> str:
@@ -33,12 +35,13 @@ def load_prompt_set(prompt_config: Optional[PromptConfig]) -> PromptSet:
         prompt_config.constraint_prompt_path or DEFAULT_CONSTRAINT_PROMPT_PATH
     )
     verify_path = prompt_config.verify_prompt_path or DEFAULT_VERIFY_PROMPT_PATH
-    correction_path = (
-        prompt_config.correction_prompt_path or DEFAULT_CORRECTION_PROMPT_PATH
+    constrained_task_path = (
+        prompt_config.constrained_task_prompt_path
+        or DEFAULT_CONSTRAINED_TASK_PROMPT_PATH
     )
     return PromptSet(
         task_prompt=_load_prompt(Path(task_path)),
         constraint_prompt=_load_prompt(Path(constraint_path)),
         verify_prompt=_load_prompt(Path(verify_path)),
-        correction_prompt=_load_prompt(Path(correction_path)),
+        constrained_task_prompt=_load_prompt(Path(constrained_task_path)),
     )

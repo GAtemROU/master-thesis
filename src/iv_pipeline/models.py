@@ -76,16 +76,63 @@ class HuggingFaceCausalLMModel(BaseModel):
 
     def generate(self, prompt: str, **kwargs: Any) -> str:
         import torch
+        from transformers import StoppingCriteria, StoppingCriteriaList
 
         inputs = self.tokenizer(prompt, return_tensors="pt")
         inputs = {key: value.to(self.device) for key, value in inputs.items()}
         input_len = inputs["input_ids"].shape[1]
         generate_kwargs = dict(self.generate_kwargs)
         generate_kwargs.update(kwargs)
+        stop_after_line_prefixes = generate_kwargs.pop("stop_after_line_prefixes", None)
+        stop_after_prefix_min_chars = int(
+            generate_kwargs.pop("stop_after_prefix_min_chars", 1)
+        )
+        if stop_after_line_prefixes:
+            class _StopAfterLinePrefix(StoppingCriteria):
+                def __init__(
+                    self,
+                    tokenizer: Any,
+                    start_len: int,
+                    prefixes: list[str],
+                    min_chars: int,
+                ) -> None:
+                    self.tokenizer = tokenizer
+                    self.start_len = start_len
+                    self.prefixes = tuple(prefixes)
+                    self.min_chars = min_chars
+
+                def __call__(self, input_ids, scores, **kwargs) -> bool:  # type: ignore[override]
+                    generated_ids = input_ids[0][self.start_len:]
+                    if generated_ids.numel() == 0:
+                        return False
+                    text = self.tokenizer.decode(
+                        generated_ids, skip_special_tokens=True
+                    )
+                    for prefix in self.prefixes:
+                        index = text.find(prefix)
+                        if index != -1:
+                            after_prefix = text[index + len(prefix) :].strip()
+                            if len(after_prefix) >= self.min_chars:
+                                return True
+                    return False
+
+            generate_kwargs["stopping_criteria"] = StoppingCriteriaList(
+                [
+                    _StopAfterLinePrefix(
+                        self.tokenizer,
+                        input_len,
+                        stop_after_line_prefixes,
+                        stop_after_prefix_min_chars,
+                    )
+                ]
+            )
         with torch.no_grad():
             output_ids = self.model.generate(**inputs, **generate_kwargs)
         generated = output_ids[0][input_len:]
-        return self.tokenizer.decode(generated, skip_special_tokens=True).strip()
+        text = self.tokenizer.decode(generated, skip_special_tokens=True).strip()
+        if stop_after_line_prefixes:
+            text = _strip_after_prefixed_line(text, stop_after_line_prefixes)
+        return text
 
 
 _MODEL_CACHE: Dict[str, BaseModel] = {}
@@ -112,6 +159,21 @@ def get_model(name: str, params: Dict[str, Any] | None = None) -> BaseModel:
         raise ValueError(f"Unknown model name: {name}")
     _MODEL_CACHE[cache_key] = model
     return model
+
+
+def _strip_after_prefixed_line(text: str, prefixes: list[str]) -> str:
+    best_end = None
+    for prefix in prefixes:
+        index = text.find(prefix)
+        if index == -1:
+            continue
+        line_end = text.find("\n", index)
+        end = len(text) if line_end == -1 else line_end
+        if best_end is None or end < best_end:
+            best_end = end
+    if best_end is None:
+        return text
+    return text[:best_end].strip()
 
 
 def _extract_expression(prompt: str) -> str | None:

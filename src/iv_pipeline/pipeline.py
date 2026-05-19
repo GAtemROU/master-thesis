@@ -2,7 +2,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import time
-from typing import Dict, List
+import re
+from typing import Dict, List, Optional, Tuple
 
 from .config import PipelineConfig
 from .logger import verbose_print
@@ -18,16 +19,13 @@ class PipelineResult:
     verification_text: str
     final_answer: str
     verification_verdict: str
+    raw_constraints_text: str = ""
+    baseline_solution_text: str = ""
+    baseline_final_answer: str = ""
     initial_solution_text: str = ""
     initial_verification_text: str = ""
     initial_final_answer: str = ""
     initial_verification_verdict: str = ""
-    correction_applied: bool = False
-    correction_reason: str = ""
-    corrected_solution_text: str = ""
-    corrected_verification_text: str = ""
-    corrected_final_answer: str = ""
-    corrected_verification_verdict: str = ""
 
 
 class VerificationPipeline:
@@ -42,14 +40,11 @@ class VerificationPipeline:
         self.constraint_model = get_model(
             config.constraint_model.name, config.constraint_model.params
         )
-        self.verifier_model = get_model(
-            config.verifier_model.name, config.verifier_model.params
-        )
         verbose_print(
             "Initialized VerificationPipeline with models: "
             f"sampler={config.sampler_model.name} "
             f"constraint={config.constraint_model.name} "
-            f"verifier={config.verifier_model.name}"
+            "interval_check=hard"
         )
 
     def run(self, question: str) -> PipelineResult:
@@ -57,101 +52,102 @@ class VerificationPipeline:
         start_time = time.perf_counter()
         question_preview = question.replace("\n", " ")[:80]
         verbose_print(f"Pipeline start: question={question_preview}")
-        solution_prompt = self.prompts.task_prompt.format(question=question)
         prompt_time = time.perf_counter()
-        verbose_print("Generate solution: start")
-        solution_text = self.sampler_model.generate(solution_prompt)
-        solution_time = time.perf_counter()
-        verbose_print(
-            f"Generate solution: done elapsed={solution_time - prompt_time:.3f}s"
-        )
 
-        constraint_prompt = self.prompts.constraint_prompt.format(question=question)
+        constraint_prompt = self.prompts.constraint_prompt.format(
+            question=question,
+            problem=question,
+        )
         verbose_print("Generate constraints: start")
-        constraints_text = self.constraint_model.generate(constraint_prompt)
+        raw_constraints_text = self.constraint_model.generate(constraint_prompt)
+        constraints_text = _normalize_interval_constraint(raw_constraints_text)
         constraints_time = time.perf_counter()
         verbose_print(
-            f"Generate constraints: done elapsed={constraints_time - solution_time:.3f}s"
+            f"Generate constraints: done elapsed={constraints_time - prompt_time:.3f}s"
         )
 
-        verify_prompt = self.prompts.verify_prompt.format(
+        solution_prompt = self.prompts.task_prompt.format(
             question=question,
-            solution=solution_text,
+            problem=question,
+        )
+        verbose_print("Generate baseline solution: start")
+        baseline_solution_text = self.sampler_model.generate(
+            solution_prompt,
+            stop_after_line_prefixes=["FINAL:"],
+            stop_after_prefix_min_chars=10,
+        )
+        baseline_solution_time = time.perf_counter()
+        verbose_print(
+            "Generate baseline solution: done "
+            f"elapsed={baseline_solution_time - constraints_time:.3f}s"
+        )
+
+        constrained_solution_prompt = self.prompts.constrained_task_prompt.format(
+            question=question,
+            problem=question,
             constraints=constraints_text,
         )
-        verbose_print("Verify solution: start")
-        verification_text = self.verifier_model.generate(verify_prompt)
-        verify_time = time.perf_counter()
+        verbose_print("Generate constrained solution: start")
+        solution_text = self.sampler_model.generate(
+            constrained_solution_prompt,
+            stop_after_line_prefixes=["FINAL:"],
+            stop_after_prefix_min_chars=10,
+        )
+        solution_time = time.perf_counter()
         verbose_print(
-            f"Verify solution: done elapsed={verify_time - constraints_time:.3f}s"
+            "Generate constrained solution: done "
+            f"elapsed={solution_time - baseline_solution_time:.3f}s"
+        )
+        initial_final_answer = _extract_final_answer(solution_text)
+        verbose_print("Interval hard check: start")
+        interval_check_start = time.perf_counter()
+        initial_verdict, interval_reason = _hard_interval_check(
+            initial_final_answer,
+            constraints_text,
+        )
+        interval_check_time = time.perf_counter()
+        verification_text = (
+            f"VERDICT: {initial_verdict}\nREASON: {interval_reason}"
+        )
+        verbose_print(
+            "Interval hard check: done "
+            f"elapsed={interval_check_time - interval_check_start:.3f}s"
         )
         step_times.update(
             {
                 "prompt_format_s": prompt_time - start_time,
-                "solution_gen_s": solution_time - prompt_time,
-                "constraints_gen_s": constraints_time - solution_time,
-                "verify_gen_s": verify_time - constraints_time,
-                "total_s": verify_time - start_time,
+                "constraints_gen_s": constraints_time - prompt_time,
+                "baseline_solution_gen_s": baseline_solution_time - constraints_time,
+                "constrained_solution_gen_s": solution_time - baseline_solution_time,
+                "interval_check_s": interval_check_time - interval_check_start,
+                "total_s": interval_check_time - start_time,
             }
         )
-
-        initial_final_answer = _extract_final_answer(solution_text)
-        initial_verdict = _extract_verdict(verification_text)
-        reason = _extract_reason(verification_text)
-        correction_applied = False
-        corrected_solution_text = ""
-        corrected_final_answer = ""
+        baseline_final_answer = _extract_final_answer(baseline_solution_text)
         final_answer = initial_final_answer
         final_verdict = initial_verdict
         final_verification_text = verification_text
-        if initial_verdict != "PASS":
-            correction_applied = True
-            correction_prompt = self.prompts.correction_prompt.format(
-                question=question,
-                solution=solution_text,
-                reason=reason,
-            )
-            correction_prompt_time = time.perf_counter()
-            verbose_print(
-                f"Correction step: start reason={reason if reason else 'unknown'}"
-            )
-            corrected_solution_text = self.sampler_model.generate(correction_prompt)
-            correction_solution_time = time.perf_counter()
-            verbose_print(
-                f"Correction step: done elapsed={correction_solution_time - correction_prompt_time:.3f}s"
-            )
-            corrected_final_answer = _extract_final_answer(corrected_solution_text)
-            final_answer = corrected_final_answer
-            step_times.update(
-                {
-                    "correction_prompt_format_s": correction_prompt_time - verify_time,
-                    "correction_solution_gen_s": correction_solution_time
-                    - correction_prompt_time,
-                    "total_s": correction_solution_time - start_time,
-                }
-            )
         verbose_print(
             "Step timings: "
             + " ".join(f"{key}={value:.3f}s" for key, value in step_times.items())
         )
         verbose_print(
-            f"Pipeline done: initial_verdict={initial_verdict} correction_applied={correction_applied} final_answer={final_answer}"
+            f"Pipeline done: initial_verdict={initial_verdict} final_answer={final_answer}"
         )
         return PipelineResult(
             question=question,
-            solution_text=corrected_solution_text if correction_applied else solution_text,
+            solution_text=solution_text,
             constraints_text=constraints_text,
+            raw_constraints_text=raw_constraints_text,
             verification_text=final_verification_text,
             final_answer=final_answer,
             verification_verdict=final_verdict,
+            baseline_solution_text=baseline_solution_text,
+            baseline_final_answer=baseline_final_answer,
             initial_solution_text=solution_text,
             initial_verification_text=verification_text,
             initial_final_answer=initial_final_answer,
             initial_verification_verdict=initial_verdict,
-            correction_applied=correction_applied,
-            correction_reason=reason,
-            corrected_solution_text=corrected_solution_text,
-            corrected_final_answer=corrected_final_answer,
         )
 
 
@@ -184,9 +180,12 @@ class MajorityVotePipeline:
             question=question,
             solution_text="\n\n".join(samples),
             constraints_text="",
+            raw_constraints_text="",
             verification_text="",
             final_answer=final_answer,
             verification_verdict="UNKNOWN",
+            baseline_solution_text="\n\n".join(samples),
+            baseline_final_answer=final_answer,
             initial_solution_text="\n\n".join(samples),
             initial_verification_text="",
             initial_final_answer=final_answer,
@@ -197,7 +196,11 @@ class MajorityVotePipeline:
 def _extract_final_answer(text: str) -> str:
     for line in reversed(text.strip().splitlines()):
         if line.strip().startswith("FINAL:"):
-            return line.split("FINAL:", 1)[1].strip()
+            candidate = line.split("FINAL:", 1)[1].strip()
+            number = re.search(r"[-+]?\d+(?:\.\d+)?(?:/\d+)?", candidate)
+            if number:
+                return number.group(0)
+            return candidate
     return "unknown"
 
 
@@ -208,11 +211,67 @@ def _extract_verdict(text: str) -> str:
     return "UNKNOWN"
 
 
-def _extract_reason(text: str) -> str:
+def _normalize_interval_constraint(text: str) -> str:
+    interval = _extract_interval(text)
+    if interval is None:
+        return "INTERVAL: unknown"
+    return f"INTERVAL: {interval}"
+
+def _extract_interval(text: str) -> Optional[str]:
     for line in text.splitlines():
-        if "REASON:" in line:
-            return line.split("REASON:", 1)[1].strip()
-    return "unknown"
+        if "INTERVAL:" in line.upper():
+            _, rest = line.split(":", 1)
+            candidate = rest.strip()
+            if candidate:
+                bracketed = re.search(r"[\[\(][^\]\)]*[\]\)]", candidate)
+                if bracketed:
+                    return bracketed.group(0)
+                return candidate
+            break
+    pattern = re.compile(r"[\[\(]\s*[^,\]\)]+\s*,\s*[^,\]\)]+\s*[\]\)]")
+    match = pattern.search(text)
+    if match:
+        return match.group(0)
+    return None
+
+def _hard_interval_check(answer_text: str, interval_text: str) -> Tuple[str, str]:
+    answer_value = _parse_number(answer_text)
+    if answer_value is None:
+        return "FAIL", "could not parse numeric final answer"
+    bounds = _extract_interval_bounds(interval_text)
+    if bounds is None:
+        return "FAIL", "could not parse valid interval bounds"
+    lower, upper = bounds
+    if lower <= answer_value <= upper:
+        return "PASS", "final answer is inside interval"
+    return "FAIL", "final answer is outside interval"
+
+def _extract_interval_bounds(text: str) -> Optional[Tuple[float, float]]:
+    interval = _extract_interval(text)
+    if interval is None:
+        return None
+    match = re.search(r"[\[\(]\s*([^,\]\)]+)\s*,\s*([^,\]\)]+)\s*[\]\)]", interval)
+    if match is None:
+        return None
+    lower = _parse_number(match.group(1))
+    upper = _parse_number(match.group(2))
+    if lower is None or upper is None:
+        return None
+    return lower, upper
+
+def _parse_number(text: str) -> Optional[float]:
+    token_match = re.search(r"[-+]?\d+(?:\.\d+)?(?:/\d+)?", text)
+    if token_match is None:
+        return None
+    token = token_match.group(0)
+    if "/" in token:
+        numerator_text, denominator_text = token.split("/", 1)
+        denominator = float(denominator_text)
+        if denominator == 0:
+            return None
+        return float(numerator_text) / denominator
+    return float(token)
+
 
 
 def _majority_vote(answers: List[str]) -> str:

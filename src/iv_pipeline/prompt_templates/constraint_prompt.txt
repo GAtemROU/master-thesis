@@ -1,6 +1,7 @@
-Generate checks that can verify a solution to this math problem.
-Use domain/task constraints, not full solving steps. Keep each check short.
-Return only bullet lines starting with "- ".
+Generate a single interval constraint that contains the correct final answer.
+Do not solve the problem.
+Return exactly one line:
+INTERVAL: [lower, upper]
 
 Problem:
 {question}

@@ -1,5 +1,5 @@
-Verify the proposed solution using the checks.
-Do not solve from scratch unless needed for a check.
+Verify the proposed solution using the interval constraint.
+Do not solve from scratch unless needed to check interval membership.
 Return exactly:
 VERDICT: PASS or FAIL
 REASON: <one short sentence>
@@ -10,5 +10,5 @@ Problem:
 Proposed solution:
 {solution}
 
-Checks:
+Interval:
 {constraints}

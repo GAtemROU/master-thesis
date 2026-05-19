@@ -1,16 +1,13 @@
-You need to write checks that can be used to verify a solution.
-
+Carefully read the presented problem, reason and output a single interval constraint that contains the correct final answer. 
 Meaning of this step:
-- A check is a rule, constraint, or sanity test that a correct solution should satisfy.
-- Checks may use math facts, units, signs, parity, ranges, equations, totals, or problem conditions.
+- The interval should not be very tight
 - Do not solve the whole problem.
-- Do not judge any solution yet.
-- Write checks that are simple and useful for catching mistakes.
+- Do not output multiple checks.
+- You are free to perform reasoning steps in order to figure out the interval.
 
 Output format:
-- <check 1>
-- <check 2>
-- <check 3>
+<short reasoning>
+INTERVAL: [lower, upper]
 
 Problem:
 {question}

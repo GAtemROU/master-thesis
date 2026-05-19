@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import re
 from typing import Iterable, List
 
 from .data import Example
@@ -10,12 +11,11 @@ from .pipeline import PipelineResult, VerificationPipeline
 
 @dataclass
 class EvaluationMetrics:
-    accuracy: float
-    final_accuracy: float
-    verification_tp: int
-    verification_fp: int
-    verification_fn: int
-    verification_tn: int
+    baseline_accuracy: float
+    constrained_accuracy: float
+    interval_unknown_fraction: float
+    interval_includes_true_answer_fraction: float
+    interval_includes_llm_solution_fraction: float
 
 
 def evaluate(
@@ -32,7 +32,7 @@ def evaluate(
         result = pipeline.run(example.question)
         results.append(result)
         verbose_print(
-            f"Example done: {index}/{total} id={example.example_id} initial_answer={result.initial_final_answer} final_answer={result.final_answer} correction_applied={result.correction_applied}"
+            f"Example done: {index}/{total} id={example.example_id} initial_answer={result.initial_final_answer} final_answer={result.final_answer}"
         )
     return results
 
@@ -42,46 +42,84 @@ def compute_metrics(
 ) -> EvaluationMetrics:
     results_list = list(results)
     examples_list = list(examples)
-    correct = 0
-    final_correct = 0
-    tp = fp = fn = tn = 0
+    baseline_correct = 0
+    constrained_correct = 0
+    unknown_intervals = 0
+    intervals_include_true_answer = 0
+    intervals_include_llm_solution = 0
     for result, example in zip(results_list, examples_list):
-        initial_answer = (
-            result.initial_final_answer if result.initial_final_answer else result.final_answer
+        baseline_answer = (
+            result.baseline_final_answer
+            if result.baseline_final_answer
+            else result.final_answer
         )
-        is_correct = _normalize(initial_answer) == _normalize(example.answer)
-        final_is_correct = (
-            _normalize(result.final_answer) == _normalize(example.answer)
+        baseline_is_correct = _normalize(baseline_answer) == _normalize(example.answer)
+        constrained_is_correct = _normalize(result.final_answer) == _normalize(
+            example.answer
         )
-        if is_correct:
-            correct += 1
-        if final_is_correct:
-            final_correct += 1
-        verdict_value = (
-            result.initial_verification_verdict
-            if result.initial_verification_verdict
-            else result.verification_verdict
-        )
-        verdict_pass = verdict_value == "PASS"
-        if is_correct and verdict_pass:
-            tp += 1
-        elif (not is_correct) and verdict_pass:
-            fp += 1
-        elif is_correct and (not verdict_pass):
-            fn += 1
-        else:
-            tn += 1
-    accuracy = correct / max(1, len(examples_list))
-    final_accuracy = final_correct / max(1, len(examples_list))
+        if baseline_is_correct:
+            baseline_correct += 1
+        if constrained_is_correct:
+            constrained_correct += 1
+        interval_bounds = _extract_interval_bounds(result.constraints_text)
+        if interval_bounds is None:
+            unknown_intervals += 1
+            continue
+        true_answer_value = _parse_number(example.answer)
+        if (
+            true_answer_value is not None
+            and _is_within_interval(true_answer_value, interval_bounds)
+        ):
+            intervals_include_true_answer += 1
+        llm_answer_value = _parse_number(result.final_answer)
+        if (
+            llm_answer_value is not None
+            and _is_within_interval(llm_answer_value, interval_bounds)
+        ):
+            intervals_include_llm_solution += 1
+    total = max(1, len(examples_list))
     return EvaluationMetrics(
-        accuracy=accuracy,
-        final_accuracy=final_accuracy,
-        verification_tp=tp,
-        verification_fp=fp,
-        verification_fn=fn,
-        verification_tn=tn,
+        baseline_accuracy=baseline_correct / total,
+        constrained_accuracy=constrained_correct / total,
+        interval_unknown_fraction=unknown_intervals / total,
+        interval_includes_true_answer_fraction=intervals_include_true_answer / total,
+        interval_includes_llm_solution_fraction=intervals_include_llm_solution / total,
     )
 
 
 def _normalize(value: str) -> str:
     return value.strip().lower()
+
+
+def _extract_interval_bounds(text: str) -> tuple[float, float] | None:
+    match = re.search(
+        r"INTERVAL:\s*[\[\(]\s*([^,\]\)]+)\s*,\s*([^,\]\)]+)\s*[\]\)]",
+        text,
+        flags=re.IGNORECASE,
+    )
+    if match is None:
+        return None
+    lower = _parse_number(match.group(1))
+    upper = _parse_number(match.group(2))
+    if lower is None or upper is None:
+        return None
+    return lower, upper
+
+
+def _parse_number(text: str) -> float | None:
+    token_match = re.search(r"[-+]?\d+(?:\.\d+)?(?:/\d+)?", text)
+    if token_match is None:
+        return None
+    token = token_match.group(0)
+    if "/" in token:
+        numerator_text, denominator_text = token.split("/", 1)
+        denominator = float(denominator_text)
+        if denominator == 0:
+            return None
+        return float(numerator_text) / denominator
+    return float(token)
+
+
+def _is_within_interval(value: float, bounds: tuple[float, float]) -> bool:
+    lower, upper = bounds
+    return lower <= value <= upper

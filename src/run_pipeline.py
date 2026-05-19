@@ -14,9 +14,9 @@ from iv_pipeline.pipeline import (
     MajorityVotePipeline,
     VerificationPipeline,
     _extract_final_answer,
-    _extract_reason,
-    _extract_verdict,
+    _hard_interval_check,
     _majority_vote,
+    _normalize_interval_constraint,
 )
 
 
@@ -230,57 +230,52 @@ def main() -> int:
             )
         example = examples[args.trace_index]
         if isinstance(pipeline, VerificationPipeline):
-            solution_prompt = pipeline.prompts.task_prompt.format(
-                question=example.question
-            )
-            solution_text = pipeline.sampler_model.generate(solution_prompt)
             constraint_prompt = pipeline.prompts.constraint_prompt.format(
-                question=example.question
-            )
-            constraints_text = pipeline.constraint_model.generate(constraint_prompt)
-            verify_prompt = pipeline.prompts.verify_prompt.format(
                 question=example.question,
-                solution=solution_text,
+                problem=example.question,
+            )
+            raw_constraints_text = pipeline.constraint_model.generate(constraint_prompt)
+            constraints_text = _normalize_interval_constraint(raw_constraints_text)
+            solution_prompt = pipeline.prompts.task_prompt.format(
+                question=example.question,
+                problem=example.question,
+            )
+            baseline_solution_text = pipeline.sampler_model.generate(
+                solution_prompt,
+                stop_after_line_prefixes=["FINAL:"],
+                stop_after_prefix_min_chars=10,
+            )
+            baseline_final_answer = _extract_final_answer(baseline_solution_text)
+            constrained_solution_prompt = pipeline.prompts.constrained_task_prompt.format(
+                question=example.question,
+                problem=example.question,
                 constraints=constraints_text,
             )
-            verification_text = pipeline.verifier_model.generate(verify_prompt)
+            solution_text = pipeline.sampler_model.generate(
+                constrained_solution_prompt,
+                stop_after_line_prefixes=["FINAL:"],
+                stop_after_prefix_min_chars=10,
+            )
             final_answer = _extract_final_answer(solution_text)
-            verdict = _extract_verdict(verification_text)
-            reason = _extract_reason(verification_text)
-            correction_applied = False
-            corrected_solution_text = ""
-            corrected_final_answer = ""
-            correction_prompt = ""
-            if verdict != "PASS":
-                correction_applied = True
-                correction_prompt = pipeline.prompts.correction_prompt.format(
-                    question=example.question,
-                    solution=solution_text,
-                    reason=reason,
-                )
-                corrected_solution_text = pipeline.sampler_model.generate(
-                    correction_prompt
-                )
-                corrected_final_answer = _extract_final_answer(
-                    corrected_solution_text
-                )
-                final_answer = corrected_final_answer
+            verdict, interval_reason = _hard_interval_check(
+                final_answer,
+                constraints_text,
+            )
+            verification_text = f"VERDICT: {verdict}\nREASON: {interval_reason}"
             trace_outputs = {
+                "raw_constraints_text": raw_constraints_text,
+                "baseline_solution_text": baseline_solution_text,
+                "baseline_final_answer": baseline_final_answer,
                 "solution_text": solution_text,
                 "constraints_text": constraints_text,
                 "verification_text": verification_text,
                 "final_answer": final_answer,
                 "verification_verdict": verdict,
-                "correction_applied": correction_applied,
-                "correction_reason": reason,
-                "corrected_solution_text": corrected_solution_text,
-                "corrected_final_answer": corrected_final_answer,
             }
             trace_prompts = {
                 "task_prompt": solution_prompt,
+                "constrained_task_prompt": constrained_solution_prompt,
                 "constraint_prompt": constraint_prompt,
-                "verify_prompt": verify_prompt,
-                "correction_prompt": correction_prompt,
             }
         else:
             solution_prompt = pipeline.prompts.task_prompt.format(
@@ -330,7 +325,13 @@ def main() -> int:
         print(f"Trace saved to: {trace_path}")
         if args.trace_only:
             run_logger.write_results(
-                {"accuracy": 0.0, "verification_tp": 0, "verification_fp": 0, "verification_fn": 0, "verification_tn": 0},
+                {
+                    "baseline_accuracy": 0.0,
+                    "constrained_accuracy": 0.0,
+                    "interval_unknown_fraction": 0.0,
+                    "interval_includes_true_answer_fraction": 0.0,
+                    "interval_includes_llm_solution_fraction": 0.0,
+                },
                 details={"trace_only": True, "trace_path": str(trace_path)},
             )
             print(f"Run saved to: {run_logger.output_path}")
@@ -355,8 +356,8 @@ def main() -> int:
             "config": asdict(config),
             "prompts": {
                 "task_prompt": pipeline.prompts.task_prompt,
+                "constrained_task_prompt": pipeline.prompts.constrained_task_prompt,
                 "constraint_prompt": pipeline.prompts.constraint_prompt,
-                "verify_prompt": pipeline.prompts.verify_prompt,
             },
             "dataset": {
                 "num_examples": None if examples is None else len(examples),
@@ -418,12 +419,11 @@ def main() -> int:
                         "batch_start": offset,
                         "batch_end": offset + len(batch_examples) - 1,
                         "batch_size": len(batch_examples),
-                        "accuracy": batch_metrics.accuracy,
-                        "final_accuracy": batch_metrics.final_accuracy,
-                        "verification_tp": batch_metrics.verification_tp,
-                        "verification_fp": batch_metrics.verification_fp,
-                        "verification_fn": batch_metrics.verification_fn,
-                        "verification_tn": batch_metrics.verification_tn,
+                        "baseline_accuracy": batch_metrics.baseline_accuracy,
+                        "constrained_accuracy": batch_metrics.constrained_accuracy,
+                        "interval_unknown_fraction": batch_metrics.interval_unknown_fraction,
+                        "interval_includes_true_answer_fraction": batch_metrics.interval_includes_true_answer_fraction,
+                        "interval_includes_llm_solution_fraction": batch_metrics.interval_includes_llm_solution_fraction,
                     },
                 )
                 if args.verbose:
@@ -451,12 +451,11 @@ def main() -> int:
                         "batch_end": start + len(batch_examples) - 1,
                         "batch_size": len(batch_examples),
                         "total_examples": total,
-                        "accuracy": batch_metrics.accuracy,
-                        "final_accuracy": batch_metrics.final_accuracy,
-                        "verification_tp": batch_metrics.verification_tp,
-                        "verification_fp": batch_metrics.verification_fp,
-                        "verification_fn": batch_metrics.verification_fn,
-                        "verification_tn": batch_metrics.verification_tn,
+                        "baseline_accuracy": batch_metrics.baseline_accuracy,
+                        "constrained_accuracy": batch_metrics.constrained_accuracy,
+                        "interval_unknown_fraction": batch_metrics.interval_unknown_fraction,
+                        "interval_includes_true_answer_fraction": batch_metrics.interval_includes_true_answer_fraction,
+                        "interval_includes_llm_solution_fraction": batch_metrics.interval_includes_llm_solution_fraction,
                     },
                 )
                 if args.verbose:
@@ -473,12 +472,11 @@ def main() -> int:
         raise
 
     metric_payload = {
-        "accuracy": metrics.accuracy,
-        "final_accuracy": metrics.final_accuracy,
-        "verification_tp": metrics.verification_tp,
-        "verification_fp": metrics.verification_fp,
-        "verification_fn": metrics.verification_fn,
-        "verification_tn": metrics.verification_tn,
+        "baseline_accuracy": metrics.baseline_accuracy,
+        "constrained_accuracy": metrics.constrained_accuracy,
+        "interval_unknown_fraction": metrics.interval_unknown_fraction,
+        "interval_includes_true_answer_fraction": metrics.interval_includes_true_answer_fraction,
+        "interval_includes_llm_solution_fraction": metrics.interval_includes_llm_solution_fraction,
     }
     details = None
     if args.log_traces:
@@ -490,31 +488,30 @@ def main() -> int:
                     "initial_verification_text": result.initial_verification_text,
                     "initial_final_answer": result.initial_final_answer,
                     "initial_verification_verdict": result.initial_verification_verdict,
-                    "correction_applied": result.correction_applied,
-                    "correction_reason": result.correction_reason,
                     "solution_text": result.solution_text,
+                    "raw_constraints_text": result.raw_constraints_text,
+                    "baseline_solution_text": result.baseline_solution_text,
+                    "baseline_final_answer": result.baseline_final_answer,
                     "constraints_text": result.constraints_text,
                     "verification_text": result.verification_text,
                     "final_answer": result.final_answer,
                     "verification_verdict": result.verification_verdict,
-                    "corrected_solution_text": result.corrected_solution_text,
-                    "corrected_verification_text": result.corrected_verification_text,
-                    "corrected_final_answer": result.corrected_final_answer,
-                    "corrected_verification_verdict": result.corrected_verification_verdict,
                 }
                 for result in results
             ]
         }
     run_logger.write_results(metric_payload, details=details)
 
-    print(f"Accuracy: {metrics.accuracy:.3f}")
-    print(f"Final accuracy: {metrics.final_accuracy:.3f}")
+    print(f"Baseline accuracy: {metrics.baseline_accuracy:.3f}")
+    print(f"Constrained accuracy: {metrics.constrained_accuracy:.3f}")
+    print(f"Intervals unknown fraction: {metrics.interval_unknown_fraction:.3f}")
     print(
-        "Verification confusion matrix (TP/FP/FN/TN): "
-        f"{metrics.verification_tp}/"
-        f"{metrics.verification_fp}/"
-        f"{metrics.verification_fn}/"
-        f"{metrics.verification_tn}"
+        "Intervals including true answer fraction: "
+        f"{metrics.interval_includes_true_answer_fraction:.3f}"
+    )
+    print(
+        "Intervals including LLM solution fraction: "
+        f"{metrics.interval_includes_llm_solution_fraction:.3f}"
     )
     print(f"Run saved to: {run_logger.output_path}")
     return 0

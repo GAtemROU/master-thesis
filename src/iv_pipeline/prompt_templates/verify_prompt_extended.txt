@@ -1,11 +1,11 @@
-You need to verify the proposed solution using the checks.
+You need to verify the proposed solution using the interval constraint.
 
 Meaning of this step:
-- Read the problem, proposed solution, and checks.
-- Test whether the proposed solution satisfies the checks.
-- If a check fails, the solution should fail.
-- If the checks support the solution and no clear mistake is found, pass it.
-- Do not rewrite the full solution unless needed to test a check.
+- Read the problem, proposed solution, and interval.
+- Test whether the proposed solution’s final answer lies within the interval.
+- If the interval check fails, the solution should fail.
+- If the interval supports the solution and no clear mistake is found, pass it.
+- Do not rewrite the full solution unless needed to test interval membership.
 - Keep the reason short and specific.
 
 Output format:
@@ -18,5 +18,5 @@ Problem:
 Proposed solution:
 {solution}
 
-Checks:
+Interval:
 {constraints}
