@@ -1,6 +1,7 @@
-Generate a single interval constraint that contains the correct final answer.
-Do not solve the problem.
-Return exactly one line:
+No explanation.
+
+Do not solve.
+
 INTERVAL: [lower, upper]
 
 Problem:

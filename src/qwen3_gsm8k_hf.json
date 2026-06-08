@@ -15,7 +15,7 @@
   "constraint_model": {
     "name": "hf_causal_lm",
     "params": {
-      "model_name": "Qwen/Qwen3-0.6B",
+      "model_name": "Qwen/Qwen3-1.7B",
       "device": "cpu",
       "torch_dtype": "float32",
       "trust_remote_code": true,

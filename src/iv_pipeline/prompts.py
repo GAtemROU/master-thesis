@@ -24,7 +24,7 @@ class PromptSet:
 
 
 def _load_prompt(path: Path) -> str:
-    return path.read_text()
+    return path.read_text(encoding="utf-8")
 
 
 def load_prompt_set(prompt_config: Optional[PromptConfig]) -> PromptSet:
@@ -45,3 +45,12 @@ def load_prompt_set(prompt_config: Optional[PromptConfig]) -> PromptSet:
         verify_prompt=_load_prompt(Path(verify_path)),
         constrained_task_prompt=_load_prompt(Path(constrained_task_path)),
     )
+
+
+def load_constraint_prompt(prompt_config: Optional[PromptConfig]) -> str:
+    if prompt_config is None:
+        prompt_config = PromptConfig()
+    constraint_path = (
+        prompt_config.constraint_prompt_path or DEFAULT_CONSTRAINT_PROMPT_PATH
+    )
+    return _load_prompt(Path(constraint_path))

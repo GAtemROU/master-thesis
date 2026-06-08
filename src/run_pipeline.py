@@ -12,6 +12,7 @@ from iv_pipeline.evaluate import compute_metrics, evaluate
 from iv_pipeline.logger import RunLogger, set_verbose, verbose_print
 from iv_pipeline.pipeline import (
     MajorityVotePipeline,
+    RangeOnlyPipeline,
     VerificationPipeline,
     _extract_final_answer,
     _hard_interval_check,
@@ -47,8 +48,11 @@ def main() -> int:
         "--pipeline",
         type=str,
         default="proposed",
-        choices=["proposed", "majority_vote"],
-        help="Select pipeline: proposed (constraints+verify) or majority_vote baseline.",
+        choices=["proposed", "majority_vote", "range_only"],
+        help=(
+            "Select pipeline: proposed (constraints+verify), "
+            "majority_vote baseline, or range_only (constraints only)."
+        ),
     )
     parser.add_argument(
         "--num-samples",
@@ -97,6 +101,8 @@ def main() -> int:
     args = parser.parse_args()
     if args.verbose:
         set_verbose(True)
+    def _format_metric(value: float | None) -> str:
+        return "n/a" if value is None else f"{value:.3f}"
     def _parse_split_range(split_value: str) -> tuple[str, int, int | None]:
         if "[" not in split_value or not split_value.endswith("]"):
             return split_value, 0, None
@@ -184,8 +190,11 @@ def main() -> int:
             )
         if args.pipeline == "majority_vote":
             pipeline = MajorityVotePipeline(config, args.num_samples)
+        elif args.pipeline == "range_only":
+            pipeline = RangeOnlyPipeline(config)
         else:
             pipeline = VerificationPipeline(config)
+        compute_accuracy = args.pipeline != "range_only"
         examples = None
         if args.trace_run or not (
             args.batch_size
@@ -277,6 +286,20 @@ def main() -> int:
                 "constrained_task_prompt": constrained_solution_prompt,
                 "constraint_prompt": constraint_prompt,
             }
+        elif isinstance(pipeline, RangeOnlyPipeline):
+            constraint_prompt = pipeline.constraint_prompt.format(
+                question=example.question,
+                problem=example.question,
+            )
+            raw_constraints_text = pipeline.constraint_model.generate(constraint_prompt)
+            constraints_text = _normalize_interval_constraint(raw_constraints_text)
+            trace_outputs = {
+                "raw_constraints_text": raw_constraints_text,
+                "constraints_text": constraints_text,
+            }
+            trace_prompts = {
+                "constraint_prompt": constraint_prompt,
+            }
         else:
             solution_prompt = pipeline.prompts.task_prompt.format(
                 question=example.question
@@ -354,11 +377,17 @@ def main() -> int:
                 "verbose": args.verbose,
             },
             "config": asdict(config),
-            "prompts": {
-                "task_prompt": pipeline.prompts.task_prompt,
-                "constrained_task_prompt": pipeline.prompts.constrained_task_prompt,
-                "constraint_prompt": pipeline.prompts.constraint_prompt,
-            },
+            "prompts": (
+                {
+                    "constraint_prompt": pipeline.constraint_prompt,
+                }
+                if isinstance(pipeline, RangeOnlyPipeline)
+                else {
+                    "task_prompt": pipeline.prompts.task_prompt,
+                    "constrained_task_prompt": pipeline.prompts.constrained_task_prompt,
+                    "constraint_prompt": pipeline.prompts.constraint_prompt,
+                }
+            ),
             "dataset": {
                 "num_examples": None if examples is None else len(examples),
             },
@@ -411,7 +440,9 @@ def main() -> int:
                 batch_results = evaluate(pipeline, batch_examples)
                 results.extend(batch_results)
                 result_examples.extend(batch_examples)
-                batch_metrics = compute_metrics(results, result_examples)
+                batch_metrics = compute_metrics(
+                    results, result_examples, compute_accuracy=compute_accuracy
+                )
                 run_logger.write_event(
                     "Batch completed",
                     {
@@ -424,6 +455,9 @@ def main() -> int:
                         "interval_unknown_fraction": batch_metrics.interval_unknown_fraction,
                         "interval_includes_true_answer_fraction": batch_metrics.interval_includes_true_answer_fraction,
                         "interval_includes_llm_solution_fraction": batch_metrics.interval_includes_llm_solution_fraction,
+                        "interval_width_rel_stats": batch_metrics.interval_width_rel_stats,
+                        "interval_margin_z_stats": batch_metrics.interval_margin_z_stats,
+                        "interval_signed_outside_stats": batch_metrics.interval_signed_outside_stats,
                     },
                 )
                 if args.verbose:
@@ -443,7 +477,9 @@ def main() -> int:
                 batch_results = evaluate(pipeline, batch_examples)
                 results.extend(batch_results)
                 result_examples = examples[: start + len(batch_examples)]
-                batch_metrics = compute_metrics(results, result_examples)
+                batch_metrics = compute_metrics(
+                    results, result_examples, compute_accuracy=compute_accuracy
+                )
                 run_logger.write_event(
                     "Batch completed",
                     {
@@ -456,6 +492,9 @@ def main() -> int:
                         "interval_unknown_fraction": batch_metrics.interval_unknown_fraction,
                         "interval_includes_true_answer_fraction": batch_metrics.interval_includes_true_answer_fraction,
                         "interval_includes_llm_solution_fraction": batch_metrics.interval_includes_llm_solution_fraction,
+                        "interval_width_rel_stats": batch_metrics.interval_width_rel_stats,
+                        "interval_margin_z_stats": batch_metrics.interval_margin_z_stats,
+                        "interval_signed_outside_stats": batch_metrics.interval_signed_outside_stats,
                     },
                 )
                 if args.verbose:
@@ -466,7 +505,9 @@ def main() -> int:
         else:
             results = evaluate(pipeline, examples)
             result_examples = examples
-        metrics = compute_metrics(results, result_examples)
+        metrics = compute_metrics(
+            results, result_examples, compute_accuracy=compute_accuracy
+        )
     except BaseException as exc:
         run_logger.write_error(exc)
         raise
@@ -477,6 +518,9 @@ def main() -> int:
         "interval_unknown_fraction": metrics.interval_unknown_fraction,
         "interval_includes_true_answer_fraction": metrics.interval_includes_true_answer_fraction,
         "interval_includes_llm_solution_fraction": metrics.interval_includes_llm_solution_fraction,
+        "interval_width_rel_stats": metrics.interval_width_rel_stats,
+        "interval_margin_z_stats": metrics.interval_margin_z_stats,
+        "interval_signed_outside_stats": metrics.interval_signed_outside_stats,
     }
     details = None
     if args.log_traces:
@@ -502,8 +546,8 @@ def main() -> int:
         }
     run_logger.write_results(metric_payload, details=details)
 
-    print(f"Baseline accuracy: {metrics.baseline_accuracy:.3f}")
-    print(f"Constrained accuracy: {metrics.constrained_accuracy:.3f}")
+    print(f"Baseline accuracy: {_format_metric(metrics.baseline_accuracy)}")
+    print(f"Constrained accuracy: {_format_metric(metrics.constrained_accuracy)}")
     print(f"Intervals unknown fraction: {metrics.interval_unknown_fraction:.3f}")
     print(
         "Intervals including true answer fraction: "
@@ -513,6 +557,9 @@ def main() -> int:
         "Intervals including LLM solution fraction: "
         f"{metrics.interval_includes_llm_solution_fraction:.3f}"
     )
+    print(f"Interval relative width stats: {metrics.interval_width_rel_stats}")
+    print(f"Interval margin z stats (inside): {metrics.interval_margin_z_stats}")
+    print(f"Interval signed outside stats: {metrics.interval_signed_outside_stats}")
     print(f"Run saved to: {run_logger.output_path}")
     return 0
 

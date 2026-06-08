@@ -1,13 +1,13 @@
-Carefully read the presented problem, reason and output a single interval constraint that contains the correct final answer. 
-Meaning of this step:
-- The interval should not be very tight
-- Do not solve the whole problem.
-- Do not output multiple checks.
-- You are free to perform reasoning steps in order to figure out the interval.
+Output exactly one line. No other text.
 
-Output format:
-<short reasoning>
-INTERVAL: [lower, upper]
+Format:
+INTERVAL: [a, b]
+
+Rules:
+- Do NOT compute any new numbers
+- Do NOT combine numbers
+- Use only numbers already in the problem
+- If you compute the exact answer, the output is invalid
 
 Problem:
 {question}

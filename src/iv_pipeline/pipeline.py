@@ -8,7 +8,7 @@ from typing import Dict, List, Optional, Tuple
 from .config import PipelineConfig
 from .logger import verbose_print
 from .models import get_model
-from .prompts import load_prompt_set
+from .prompts import load_constraint_prompt, load_prompt_set
 
 
 @dataclass
@@ -189,6 +189,50 @@ class MajorityVotePipeline:
             initial_solution_text="\n\n".join(samples),
             initial_verification_text="",
             initial_final_answer=final_answer,
+            initial_verification_verdict="UNKNOWN",
+        )
+
+
+class RangeOnlyPipeline:
+    def __init__(self, config: PipelineConfig) -> None:
+        if config.max_samples != 1:
+            raise ValueError("Single-sample pipeline only; set max_samples=1.")
+        self.config = config
+        self.constraint_prompt = load_constraint_prompt(config.prompts)
+        self.constraint_model = get_model(
+            config.constraint_model.name, config.constraint_model.params
+        )
+        verbose_print(
+            "Initialized RangeOnlyPipeline with model: "
+            f"constraint={config.constraint_model.name}"
+        )
+
+    def run(self, question: str) -> PipelineResult:
+        start_time = time.perf_counter()
+        question_preview = question.replace("\n", " ")[:80]
+        verbose_print(f"Range-only start: question={question_preview}")
+
+        constraint_prompt = self.constraint_prompt.format(
+            question=question,
+            problem=question,
+        )
+        raw_constraints_text = self.constraint_model.generate(constraint_prompt)
+        constraints_text = _normalize_interval_constraint(raw_constraints_text)
+        end_time = time.perf_counter()
+        verbose_print(f"Range-only done: elapsed={end_time - start_time:.3f}s")
+        return PipelineResult(
+            question=question,
+            solution_text="",
+            constraints_text=constraints_text,
+            raw_constraints_text=raw_constraints_text,
+            verification_text="",
+            final_answer="unknown",
+            verification_verdict="UNKNOWN",
+            baseline_solution_text="",
+            baseline_final_answer="unknown",
+            initial_solution_text="",
+            initial_verification_text="",
+            initial_final_answer="unknown",
             initial_verification_verdict="UNKNOWN",
         )
 
