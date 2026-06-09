@@ -13,6 +13,18 @@ class Example:
     example_id: str
     question: str
     answer: str
+    interval: tuple[float, float] | None = None
+
+
+def _parse_interval_field(value: object) -> tuple[float, float] | None:
+    if isinstance(value, (list, tuple)) and len(value) == 2:
+        try:
+            lower = float(value[0])
+            upper = float(value[1])
+        except (TypeError, ValueError):
+            return None
+        return (lower, upper)
+    return None
 
 
 def load_jsonl(path: str | Path) -> List[Example]:
@@ -21,11 +33,13 @@ def load_jsonl(path: str | Path) -> List[Example]:
         if not line.strip():
             continue
         data = json.loads(line)
+        interval = _parse_interval_field(data.get("interval"))
         examples.append(
             Example(
                 example_id=str(data.get("id", index)),
                 question=data["question"],
                 answer=str(data["answer"]),
+                interval=interval,
             )
         )
     verbose_print(f"Loaded {len(examples)} examples from jsonl: {path}")
@@ -48,6 +62,7 @@ def load_gsm8k(path: str | Path) -> List[Example]:
                 example_id=str(data.get("id", index)),
                 question=data["question"],
                 answer=answer,
+                interval=_parse_interval_field(data.get("interval")),
             )
         )
     verbose_print(f"Loaded {len(examples)} examples from gsm8k: {path}")
@@ -66,6 +81,7 @@ def load_math500(path: str | Path) -> List[Example]:
         question = data.get("problem") or data.get("question")
         solution = data.get("solution") or ""
         answer = data.get("answer") or data.get("final_answer")
+        interval = _parse_interval_field(data.get("interval"))
         if answer is None:
             answer = _extract_math_answer(str(solution))
         else:
@@ -75,6 +91,7 @@ def load_math500(path: str | Path) -> List[Example]:
                 example_id=str(data.get("id", index)),
                 question=question,
                 answer=answer,
+                interval=interval,
             )
         )
     verbose_print(f"Loaded {len(examples)} examples from math500: {path}")

@@ -1,0 +1,136 @@
+{
+  "completed_timestamp": "2026-06-09T22:37:26.148219",
+  "details": {
+    "trace_path": "C:\\Users\\timur\\uds\\master-thesis\\src\\traces\\trace_20260609T213613Z.json"
+  },
+  "events": [
+    {
+      "data": {
+        "dataset": "src\\datasets\\synthetic_wage_time.jsonl",
+        "dataset_name": "math500",
+        "max_examples": null,
+        "models": {
+          "constraint": {
+            "name": "mock_constraints",
+            "params": {}
+          },
+          "sampler": {
+            "name": "hf_causal_lm",
+            "params": {
+              "device": "cpu",
+              "do_sample": true,
+              "max_new_tokens": 256,
+              "model_name": "Qwen/Qwen3-0.6B",
+              "temperature": 0.7,
+              "top_p": 0.9,
+              "torch_dtype": "float32",
+              "trust_remote_code": true
+            }
+          },
+          "verifier": {
+            "name": "mock_verifier",
+            "params": {}
+          }
+        },
+        "num_samples": 5,
+        "pipeline": "solve_only",
+        "trace": true
+      },
+      "message": "Verbose mode enabled",
+      "timestamp": "2026-06-09T21:36:13.652042"
+    },
+    {
+      "data": {
+        "batch_size": null,
+        "dataset_name": "math500",
+        "num_examples": 100
+      },
+      "message": "Dataset loaded",
+      "timestamp": "2026-06-09T21:36:20.880633"
+    }
+  ],
+  "inputs": {
+    "args": {
+      "batch_size": null,
+      "config": "src\\solve_only_qwen3_gsm8k_hf.json",
+      "dataset": "src\\datasets\\synthetic_wage_time.jsonl",
+      "dataset_name": "math500",
+      "log_traces": false,
+      "max_examples": null,
+      "num_samples": 5,
+      "pipeline": "solve_only",
+      "trace": true,
+      "verbose": true
+    },
+    "config": {
+      "constraint_model": {
+        "name": "mock_constraints",
+        "params": {}
+      },
+      "max_samples": 1,
+      "prompts": {
+        "constrained_task_prompt_path": null,
+        "constraint_prompt_path": null,
+        "task_prompt_path": "src/iv_pipeline/prompt_templates/task_prompt_extended.txt",
+        "verify_prompt_path": null
+      },
+      "sampler_model": {
+        "name": "hf_causal_lm",
+        "params": {
+          "device": "cpu",
+          "do_sample": true,
+          "max_new_tokens": 256,
+          "model_name": "Qwen/Qwen3-0.6B",
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "torch_dtype": "float32",
+          "trust_remote_code": true
+        }
+      },
+      "verifier_model": {
+        "name": "mock_verifier",
+        "params": {}
+      }
+    },
+    "dataset": {
+      "num_examples": 100
+    },
+    "prompts": {
+      "task_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\n{question}\n"
+    }
+  },
+  "metrics": {
+    "baseline_accuracy": 0.17,
+    "constrained_accuracy": 0.17,
+    "interval_includes_llm_solution_fraction": 0.0,
+    "interval_includes_true_answer_fraction": 0.0,
+    "interval_margin_z_stats": {
+      "count": 0,
+      "max": null,
+      "mean": null,
+      "median": null,
+      "min": null,
+      "std": null
+    },
+    "interval_signed_outside_stats": {
+      "count": 0,
+      "max": null,
+      "mean": null,
+      "median": null,
+      "min": null,
+      "std": null
+    },
+    "interval_unknown_fraction": 1.0,
+    "interval_width_rel_stats": {
+      "count": 0,
+      "max": null,
+      "mean": null,
+      "median": null,
+      "min": null,
+      "std": null
+    }
+  },
+  "run_id": "20260609T213613Z",
+  "run_timestamp": "2026-06-09T21:36:13.636050+00:00",
+  "status": "completed"
+}

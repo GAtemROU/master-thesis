@@ -11,13 +11,11 @@ from iv_pipeline.data import load_dataset, _parse_hf_spec
 from iv_pipeline.evaluate import compute_metrics, evaluate
 from iv_pipeline.logger import RunLogger, set_verbose, verbose_print
 from iv_pipeline.pipeline import (
+    IntervalPromptSolvePipeline,
     MajorityVotePipeline,
     RangeOnlyPipeline,
+    SolveOnlyPipeline,
     VerificationPipeline,
-    _extract_final_answer,
-    _hard_interval_check,
-    _majority_vote,
-    _normalize_interval_constraint,
 )
 
 
@@ -48,10 +46,11 @@ def main() -> int:
         "--pipeline",
         type=str,
         default="proposed",
-        choices=["proposed", "majority_vote", "range_only"],
+        choices=["proposed", "majority_vote", "range_only", "solve_only", "interval_solve"],
         help=(
             "Select pipeline: proposed (constraints+verify), "
-            "majority_vote baseline, or range_only (constraints only)."
+            "majority_vote baseline, range_only (constraints only), "
+            "solve_only (task prompt only), or interval_solve (task+interval)."
         ),
     )
     parser.add_argument(
@@ -59,17 +58,6 @@ def main() -> int:
         type=int,
         default=5,
         help="Number of samples for majority vote baseline.",
-    )
-    parser.add_argument(
-        "--trace-run",
-        action="store_true",
-        help="Save full single-example trace to JSON.",
-    )
-    parser.add_argument(
-        "--trace-index",
-        type=int,
-        default=0,
-        help="Index of example to trace (default: 0).",
     )
     parser.add_argument(
         "--max-examples",
@@ -89,9 +77,9 @@ def main() -> int:
         help="Include per-example outputs in the run log.",
     )
     parser.add_argument(
-        "--trace-only",
+        "--trace",
         action="store_true",
-        help="Only run the trace step and skip full evaluation.",
+        help="Write per-example trace file alongside the run.",
     )
     parser.add_argument(
         "--verbose",
@@ -128,9 +116,7 @@ def main() -> int:
                 "config": args.config,
                 "pipeline": args.pipeline,
                 "num_samples": args.num_samples,
-                "trace_run": args.trace_run,
-                "trace_index": args.trace_index,
-                "trace_only": args.trace_only,
+                "trace": args.trace,
                 "max_examples": args.max_examples,
                 "batch_size": args.batch_size,
                 "log_traces": args.log_traces,
@@ -152,9 +138,7 @@ def main() -> int:
                     "config": args.config,
                     "pipeline": args.pipeline,
                     "num_samples": args.num_samples,
-                    "trace_run": args.trace_run,
-                    "trace_index": args.trace_index,
-                    "trace_only": args.trace_only,
+                "trace": args.trace,
                     "max_examples": args.max_examples,
                     "batch_size": args.batch_size,
                     "log_traces": args.log_traces,
@@ -184,19 +168,24 @@ def main() -> int:
                     },
                     "max_examples": args.max_examples,
                     "num_samples": args.num_samples,
-                    "trace_run": args.trace_run,
-                    "trace_only": args.trace_only,
+                    "trace": args.trace,
                 },
             )
         if args.pipeline == "majority_vote":
             pipeline = MajorityVotePipeline(config, args.num_samples)
         elif args.pipeline == "range_only":
             pipeline = RangeOnlyPipeline(config)
+        elif args.pipeline == "solve_only":
+            pipeline = SolveOnlyPipeline(config)
+        elif args.pipeline == "interval_solve":
+            pipeline = IntervalPromptSolvePipeline(config)
         else:
             pipeline = VerificationPipeline(config)
         compute_accuracy = args.pipeline != "range_only"
+        include_true_answer = args.pipeline != "interval_solve"
+        interval_answer_source = "model" if args.pipeline == "interval_solve" else "true"
         examples = None
-        if args.trace_run or not (
+        if args.trace or not (
             args.batch_size
             and args.dataset_name == "gsm8k"
             and str(args.dataset).startswith("hf:")
@@ -228,137 +217,7 @@ def main() -> int:
     except BaseException as exc:
         run_logger.write_error(exc)
         raise
-    if args.trace_run:
-        print(f"Trace run enabled (index {args.trace_index}).")
-        if examples is None:
-            raise ValueError("--trace-run requires full dataset load.")
-        if not (0 <= args.trace_index < len(examples)):
-            raise ValueError(
-                f"trace_index {args.trace_index} out of range for "
-                f"{len(examples)} examples."
-            )
-        example = examples[args.trace_index]
-        if isinstance(pipeline, VerificationPipeline):
-            constraint_prompt = pipeline.prompts.constraint_prompt.format(
-                question=example.question,
-                problem=example.question,
-            )
-            raw_constraints_text = pipeline.constraint_model.generate(constraint_prompt)
-            constraints_text = _normalize_interval_constraint(raw_constraints_text)
-            solution_prompt = pipeline.prompts.task_prompt.format(
-                question=example.question,
-                problem=example.question,
-            )
-            baseline_solution_text = pipeline.sampler_model.generate(
-                solution_prompt,
-                stop_after_line_prefixes=["FINAL:"],
-                stop_after_prefix_min_chars=10,
-            )
-            baseline_final_answer = _extract_final_answer(baseline_solution_text)
-            constrained_solution_prompt = pipeline.prompts.constrained_task_prompt.format(
-                question=example.question,
-                problem=example.question,
-                constraints=constraints_text,
-            )
-            solution_text = pipeline.sampler_model.generate(
-                constrained_solution_prompt,
-                stop_after_line_prefixes=["FINAL:"],
-                stop_after_prefix_min_chars=10,
-            )
-            final_answer = _extract_final_answer(solution_text)
-            verdict, interval_reason = _hard_interval_check(
-                final_answer,
-                constraints_text,
-            )
-            verification_text = f"VERDICT: {verdict}\nREASON: {interval_reason}"
-            trace_outputs = {
-                "raw_constraints_text": raw_constraints_text,
-                "baseline_solution_text": baseline_solution_text,
-                "baseline_final_answer": baseline_final_answer,
-                "solution_text": solution_text,
-                "constraints_text": constraints_text,
-                "verification_text": verification_text,
-                "final_answer": final_answer,
-                "verification_verdict": verdict,
-            }
-            trace_prompts = {
-                "task_prompt": solution_prompt,
-                "constrained_task_prompt": constrained_solution_prompt,
-                "constraint_prompt": constraint_prompt,
-            }
-        elif isinstance(pipeline, RangeOnlyPipeline):
-            constraint_prompt = pipeline.constraint_prompt.format(
-                question=example.question,
-                problem=example.question,
-            )
-            raw_constraints_text = pipeline.constraint_model.generate(constraint_prompt)
-            constraints_text = _normalize_interval_constraint(raw_constraints_text)
-            trace_outputs = {
-                "raw_constraints_text": raw_constraints_text,
-                "constraints_text": constraints_text,
-            }
-            trace_prompts = {
-                "constraint_prompt": constraint_prompt,
-            }
-        else:
-            solution_prompt = pipeline.prompts.task_prompt.format(
-                question=example.question
-            )
-            samples = []
-            answers = []
-            for _ in range(pipeline.num_samples):
-                solution_text = pipeline.sampler_model.generate(solution_prompt)
-                samples.append(solution_text)
-                answers.append(_extract_final_answer(solution_text))
-            final_answer = _majority_vote(answers)
-            trace_outputs = {
-                "samples": samples,
-                "answers": answers,
-                "final_answer": final_answer,
-            }
-            trace_prompts = {
-                "task_prompt": solution_prompt,
-            }
-        trace_dir = Path(__file__).parent / "traces"
-        trace_dir.mkdir(parents=True, exist_ok=True)
-        trace_path = trace_dir / f"trace_{run_id}_idx{args.trace_index}.json"
-        trace_record = {
-            "trace_id": f"{run_id}_idx{args.trace_index}",
-            "trace_timestamp": run_timestamp.isoformat(),
-            "inputs": {
-                "args": {
-                    "dataset": args.dataset,
-                    "dataset_name": args.dataset_name,
-                    "config": args.config,
-                    "pipeline": args.pipeline,
-                    "num_samples": args.num_samples,
-                    "trace_index": args.trace_index,
-                },
-                "example": {
-                    "example_id": example.example_id,
-                    "question": example.question,
-                    "answer": example.answer,
-                },
-                "config": asdict(config),
-                "prompts": trace_prompts,
-            },
-            "outputs": trace_outputs,
-        }
-        trace_path.write_text(json.dumps(trace_record, indent=2, sort_keys=True))
-        print(f"Trace saved to: {trace_path}")
-        if args.trace_only:
-            run_logger.write_results(
-                {
-                    "baseline_accuracy": 0.0,
-                    "constrained_accuracy": 0.0,
-                    "interval_unknown_fraction": 0.0,
-                    "interval_includes_true_answer_fraction": 0.0,
-                    "interval_includes_llm_solution_fraction": 0.0,
-                },
-                details={"trace_only": True, "trace_path": str(trace_path)},
-            )
-            print(f"Run saved to: {run_logger.output_path}")
-            return 0
+
 
     run_logger.write_start(
         {
@@ -368,9 +227,7 @@ def main() -> int:
                 "config": args.config,
                 "pipeline": args.pipeline,
                 "num_samples": args.num_samples,
-                "trace_run": args.trace_run,
-                "trace_index": args.trace_index,
-                "trace_only": args.trace_only,
+                "trace": args.trace,
                 "max_examples": args.max_examples,
                 "batch_size": args.batch_size,
                 "log_traces": args.log_traces,
@@ -382,6 +239,14 @@ def main() -> int:
                     "constraint_prompt": pipeline.constraint_prompt,
                 }
                 if isinstance(pipeline, RangeOnlyPipeline)
+                else {
+                    "task_prompt": pipeline.prompts.task_prompt,
+                }
+                if isinstance(pipeline, SolveOnlyPipeline)
+                else {
+                    "constrained_task_prompt": pipeline.prompts.constrained_task_prompt,
+                }
+                if isinstance(pipeline, IntervalPromptSolvePipeline)
                 else {
                     "task_prompt": pipeline.prompts.task_prompt,
                     "constrained_task_prompt": pipeline.prompts.constrained_task_prompt,
@@ -437,11 +302,21 @@ def main() -> int:
                         f"Batch loaded: {batch_split} size={len(batch_examples)}"
                     )
                     verbose_print(f"Batch evaluate: start {batch_split}")
-                batch_results = evaluate(pipeline, batch_examples)
+                if isinstance(pipeline, IntervalPromptSolvePipeline):
+                    batch_results = [
+                        pipeline.run(example.question, example.interval)
+                        for example in batch_examples
+                    ]
+                else:
+                    batch_results = evaluate(pipeline, batch_examples)
                 results.extend(batch_results)
                 result_examples.extend(batch_examples)
                 batch_metrics = compute_metrics(
-                    results, result_examples, compute_accuracy=compute_accuracy
+                    results,
+                    result_examples,
+                    compute_accuracy=compute_accuracy,
+                    include_true_answer=include_true_answer,
+                    interval_answer_source=interval_answer_source,
                 )
                 run_logger.write_event(
                     "Batch completed",
@@ -474,11 +349,21 @@ def main() -> int:
                     verbose_print(
                         f"Batch evaluate: start {start}-{start + len(batch_examples) - 1} of {total}"
                     )
-                batch_results = evaluate(pipeline, batch_examples)
+                if isinstance(pipeline, IntervalPromptSolvePipeline):
+                    batch_results = [
+                        pipeline.run(example.question, example.interval)
+                        for example in batch_examples
+                    ]
+                else:
+                    batch_results = evaluate(pipeline, batch_examples)
                 results.extend(batch_results)
                 result_examples = examples[: start + len(batch_examples)]
                 batch_metrics = compute_metrics(
-                    results, result_examples, compute_accuracy=compute_accuracy
+                    results,
+                    result_examples,
+                    compute_accuracy=compute_accuracy,
+                    include_true_answer=include_true_answer,
+                    interval_answer_source=interval_answer_source,
                 )
                 run_logger.write_event(
                     "Batch completed",
@@ -489,12 +374,6 @@ def main() -> int:
                         "total_examples": total,
                         "baseline_accuracy": batch_metrics.baseline_accuracy,
                         "constrained_accuracy": batch_metrics.constrained_accuracy,
-                        "interval_unknown_fraction": batch_metrics.interval_unknown_fraction,
-                        "interval_includes_true_answer_fraction": batch_metrics.interval_includes_true_answer_fraction,
-                        "interval_includes_llm_solution_fraction": batch_metrics.interval_includes_llm_solution_fraction,
-                        "interval_width_rel_stats": batch_metrics.interval_width_rel_stats,
-                        "interval_margin_z_stats": batch_metrics.interval_margin_z_stats,
-                        "interval_signed_outside_stats": batch_metrics.interval_signed_outside_stats,
                     },
                 )
                 if args.verbose:
@@ -503,14 +382,86 @@ def main() -> int:
                     )
             result_examples = examples
         else:
-            results = evaluate(pipeline, examples)
+            if isinstance(pipeline, IntervalPromptSolvePipeline):
+                results = [
+                    pipeline.run(example.question, example.interval)
+                    for example in examples
+                ]
+            else:
+                results = evaluate(pipeline, examples)
             result_examples = examples
         metrics = compute_metrics(
-            results, result_examples, compute_accuracy=compute_accuracy
+            results,
+            result_examples,
+            compute_accuracy=compute_accuracy,
+            include_true_answer=include_true_answer,
+            interval_answer_source=interval_answer_source,
         )
     except BaseException as exc:
         run_logger.write_error(exc)
         raise
+    trace_path = None
+    if args.trace:
+        if examples is None:
+            raise ValueError("--trace requires full dataset load.")
+        trace_entries = []
+        for result, example in zip(results, result_examples):
+            prompts = {}
+            if result.constraint_prompt:
+                prompts["constraint_prompt"] = result.constraint_prompt
+            if result.baseline_solution_prompt:
+                prompts["baseline_solution_prompt"] = result.baseline_solution_prompt
+            if result.constrained_solution_prompt:
+                prompts["constrained_solution_prompt"] = (
+                    result.constrained_solution_prompt
+                )
+            raw_output = (
+                result.raw_constraints_text
+                or result.baseline_solution_text
+                or result.solution_text
+            )
+            outputs = {"raw_output": raw_output} if raw_output else {}
+            outputs["parsed_answer"] = (
+                result.final_answer
+                if result.final_answer and result.final_answer != "unknown"
+                else None
+            )
+            trace_entries.append(
+                {
+                    "inputs": {
+                        "example_id": example.example_id,
+                        "question": example.question,
+                        "answer": example.answer,
+                        "interval": list(example.interval) if example.interval else None,
+                    },
+                    "prompts": prompts,
+                    "outputs": outputs,
+                }
+            )
+        trace_dir = Path(__file__).parent / "traces"
+        trace_dir.mkdir(parents=True, exist_ok=True)
+        trace_path = trace_dir / f"trace_{run_id}.json"
+        trace_record = {
+            "trace_id": run_id,
+            "trace_timestamp": run_timestamp.isoformat(),
+            "inputs": {
+                "args": {
+                    "dataset": args.dataset,
+                    "dataset_name": args.dataset_name,
+                    "config": args.config,
+                    "pipeline": args.pipeline,
+                    "num_samples": args.num_samples,
+                    "max_examples": args.max_examples,
+                    "batch_size": args.batch_size,
+                    "log_traces": args.log_traces,
+                    "trace": args.trace,
+                },
+                "config": asdict(config),
+            },
+            "entries": trace_entries,
+        }
+        trace_path.write_text(json.dumps(trace_record, indent=2, sort_keys=True))
+        print(f"Trace saved to: {trace_path}")
 
     metric_payload = {
         "baseline_accuracy": metrics.baseline_accuracy,
@@ -527,23 +478,24 @@ def main() -> int:
         details = {
             "results": [
                 {
-                    "question": result.question,
-                    "initial_solution_text": result.initial_solution_text,
-                    "initial_verification_text": result.initial_verification_text,
-                    "initial_final_answer": result.initial_final_answer,
-                    "initial_verification_verdict": result.initial_verification_verdict,
-                    "solution_text": result.solution_text,
-                    "raw_constraints_text": result.raw_constraints_text,
-                    "baseline_solution_text": result.baseline_solution_text,
-                    "baseline_final_answer": result.baseline_final_answer,
-                    "constraints_text": result.constraints_text,
-                    "verification_text": result.verification_text,
-                    "final_answer": result.final_answer,
-                    "verification_verdict": result.verification_verdict,
+                    "raw_output": (
+                        result.raw_constraints_text
+                        or result.baseline_solution_text
+                        or result.solution_text
+                    ),
+                    "parsed_answer": (
+                        result.final_answer
+                        if result.final_answer and result.final_answer != "unknown"
+                        else None
+                    ),
                 }
                 for result in results
             ]
         }
+    if trace_path is not None:
+        if details is None:
+            details = {}
+        details["trace_path"] = str(trace_path)
     run_logger.write_results(metric_payload, details=details)
 
     print(f"Baseline accuracy: {_format_metric(metrics.baseline_accuracy)}")
@@ -551,7 +503,7 @@ def main() -> int:
     print(f"Intervals unknown fraction: {metrics.interval_unknown_fraction:.3f}")
     print(
         "Intervals including true answer fraction: "
-        f"{metrics.interval_includes_true_answer_fraction:.3f}"
+        f"{_format_metric(metrics.interval_includes_true_answer_fraction)}"
     )
     print(
         "Intervals including LLM solution fraction: "

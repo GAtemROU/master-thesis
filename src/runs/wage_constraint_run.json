@@ -1,0 +1,172 @@
+{
+  "completed_timestamp": "2026-06-09T23:36:45.022976",
+  "details": {
+    "trace_path": "C:\\Users\\timur\\uds\\master-thesis\\src\\traces\\trace_20260609T223919Z.json"
+  },
+  "events": [
+    {
+      "data": {
+        "dataset": "src\\datasets\\synthetic_wage_time.jsonl",
+        "dataset_name": "math500",
+        "max_examples": null,
+        "models": {
+          "constraint": {
+            "name": "hf_causal_lm",
+            "params": {
+              "device": "cpu",
+              "do_sample": true,
+              "max_new_tokens": 256,
+              "model_name": "Qwen/Qwen3-0.6B",
+              "temperature": 0.7,
+              "top_p": 0.9,
+              "torch_dtype": "float32",
+              "trust_remote_code": true
+            }
+          },
+          "sampler": {
+            "name": "hf_causal_lm",
+            "params": {
+              "device": "cpu",
+              "do_sample": true,
+              "max_new_tokens": 256,
+              "model_name": "Qwen/Qwen3-0.6B",
+              "temperature": 0.7,
+              "top_p": 0.9,
+              "torch_dtype": "float32",
+              "trust_remote_code": true
+            }
+          },
+          "verifier": {
+            "name": "hf_causal_lm",
+            "params": {
+              "device": "cpu",
+              "do_sample": true,
+              "max_new_tokens": 256,
+              "model_name": "Qwen/Qwen3-0.6B",
+              "temperature": 0.7,
+              "top_p": 0.9,
+              "torch_dtype": "float32",
+              "trust_remote_code": true
+            }
+          }
+        },
+        "num_samples": 5,
+        "pipeline": "interval_solve",
+        "trace": true
+      },
+      "message": "Verbose mode enabled",
+      "timestamp": "2026-06-09T22:39:19.878876"
+    },
+    {
+      "data": {
+        "batch_size": null,
+        "dataset_name": "math500",
+        "num_examples": 100
+      },
+      "message": "Dataset loaded",
+      "timestamp": "2026-06-09T22:39:27.129761"
+    }
+  ],
+  "inputs": {
+    "args": {
+      "batch_size": null,
+      "config": "src\\qwen3_gsm8k_hf.json",
+      "dataset": "src\\datasets\\synthetic_wage_time.jsonl",
+      "dataset_name": "math500",
+      "log_traces": false,
+      "max_examples": null,
+      "num_samples": 5,
+      "pipeline": "interval_solve",
+      "trace": true,
+      "verbose": true
+    },
+    "config": {
+      "constraint_model": {
+        "name": "hf_causal_lm",
+        "params": {
+          "device": "cpu",
+          "do_sample": true,
+          "max_new_tokens": 256,
+          "model_name": "Qwen/Qwen3-0.6B",
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "torch_dtype": "float32",
+          "trust_remote_code": true
+        }
+      },
+      "max_samples": 1,
+      "prompts": {
+        "constrained_task_prompt_path": "src/iv_pipeline/prompt_templates/task_prompt_with_constraints_extended.txt",
+        "constraint_prompt_path": "src/iv_pipeline/prompt_templates/constraint_prompt_extended.txt",
+        "task_prompt_path": "src/iv_pipeline/prompt_templates/task_prompt_extended.txt",
+        "verify_prompt_path": "src/iv_pipeline/prompt_templates/verify_prompt_extended.txt"
+      },
+      "sampler_model": {
+        "name": "hf_causal_lm",
+        "params": {
+          "device": "cpu",
+          "do_sample": true,
+          "max_new_tokens": 256,
+          "model_name": "Qwen/Qwen3-0.6B",
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "torch_dtype": "float32",
+          "trust_remote_code": true
+        }
+      },
+      "verifier_model": {
+        "name": "hf_causal_lm",
+        "params": {
+          "device": "cpu",
+          "do_sample": true,
+          "max_new_tokens": 256,
+          "model_name": "Qwen/Qwen3-0.6B",
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "torch_dtype": "float32",
+          "trust_remote_code": true
+        }
+      }
+    },
+    "dataset": {
+      "num_examples": 100
+    },
+    "prompts": {
+      "constrained_task_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\n{question}\n\nInterval:\n{constraints}\n"
+    }
+  },
+  "metrics": {
+    "baseline_accuracy": 0.04,
+    "constrained_accuracy": 0.04,
+    "interval_includes_llm_solution_fraction": 0.25,
+    "interval_includes_true_answer_fraction": null,
+    "interval_margin_z_stats": {
+      "count": 25,
+      "max": 1.0,
+      "mean": -0.2383983069079365,
+      "median": 0.0,
+      "min": -1.0,
+      "std": 0.6941283549032813
+    },
+    "interval_signed_outside_stats": {
+      "count": 46,
+      "max": 585.0,
+      "mean": 32.19565217391305,
+      "median": 0.0,
+      "min": -196.0,
+      "std": 123.86363812944307
+    },
+    "interval_unknown_fraction": 0.0,
+    "interval_width_rel_stats": {
+      "count": 100,
+      "max": 2.0,
+      "mean": 0.453862163979811,
+      "median": 0.2222222222222222,
+      "min": 0.11764705882352941,
+      "std": 0.5669844746390652
+    }
+  },
+  "run_id": "20260609T223919Z",
+  "run_timestamp": "2026-06-09T22:39:19.863741+00:00",
+  "status": "completed"
+}

@@ -1,0 +1,1867 @@
+{
+  "entries": [
+    {
+      "inputs": {
+        "answer": "35",
+        "example_id": "0",
+        "interval": [
+          30.0,
+          60.0
+        ],
+        "question": "Noah earns $30 an hour for lawn mowing. Yesterday, they did 1 hour and 10 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<interval>\n\n<solution steps>\n1. Convert the time worked into hours.\n2. Multiply the hourly rate by the number of hours worked.\n3. Subtract the total from the original hourly rate.\n4. Add the result to the total.\n5. Add the result to the total.\n<solution steps>\n1. Convert the time worked into hours.\n2. Multiply the hourly rate by the number of hours worked.\n3. Subtract the total from the original hourly rate.\n4. Add the result to the total.\n5. Add the result to the total.\n<solution steps>\n1. Convert the time worked into hours.\n2. Multiply the hourly rate by the number of hours worked.\n3. Subtract the total from the original hourly rate.\n4. Add the result to the total.\n5. Add the result to the total.\n<solution steps>\n1. Convert the time worked into hours.\n2. Multiply the hourly rate by the number of hours worked.\n3. Subtract the total from the original hourly rate.\n4. Add the result to the total.\n5. Add the result to the total.\n<solution steps>\n1. Convert the time worked into hours.\n2. Multiply the hourly rate by the number of hours worked.\n3. Subtract the total from the"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $30 an hour for lawn mowing. Yesterday, they did 1 hour and 10 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [30.0, 60.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "21",
+        "example_id": "1",
+        "interval": [
+          14.0,
+          28.0
+        ],
+        "question": "Zane earns $14 an hour for grocery delivery. Yesterday, they did 1 hour and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n- The problem asks for the earnings from working 1 hour and 30 minutes at a rate of $14 per hour.\n- The interval given is [14.0, 28.0], which represents the possible earnings range.\n- Since 1 hour and 30 minutes is more than 1 hour, the actual earnings should be within the higher bound of the interval.\n- The calculation is 1.5 hours * $14 per hour = $21.\n- The answer must be within the given interval, so the final answer is $21.\n<solution steps>\n- The problem asks for the earnings from working 1 hour and 30 minutes at a rate of $14 per hour.\n- The interval given is [14.0, 28.0], which represents the possible earnings range.\n- Since 1 hour and 30 minutes is more than 1 hour, the actual earnings should be within the higher bound of the interval.\n- The calculation is 1.5 hours * $14 per hour = $21.\n- The answer must be within the given interval, so the final answer is $21.\n<solution steps>\n- The"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $14 an hour for grocery delivery. Yesterday, they did 1 hour and 30 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [14.0, 28.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "15",
+        "example_id": "2",
+        "interval": [
+          10.0,
+          20.0
+        ],
+        "question": "Ava earns $10 an hour for yard work. Yesterday, they did 1 hour and 30 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer>\n\nTo solve the problem, we need to calculate Ava's earnings based on the number of hours she worked. \n\n1. Convert the time worked into hours. Yesterday, they did 1 hour and 30 minutes.\n2. Since 1 hour is 60 minutes, 1 hour and 30 minutes is 1 + 0.5 = 1.5 hours.\n3. Multiply the hourly rate by the number of hours worked: $10 * 1.5 = $15.\n4. Check the interval to ensure the answer is within the given range [10.0, 20.0].\n\nThe final answer is $15.\n<solution steps>\n<answer>15</answer>\n</solution steps>\n\nThe problem is to find the earnings Ava made from yard work. She earns $10 per hour. Yesterday, they worked 1 hour and 30 minutes. \n\nFirst, convert the time into hours: 1 hour and 30 minutes is 1.5 hours.\nThen, multiply by the hourly rate: 1.5 hours * $10/hour = $15.\nThe interval [10.0, 20."
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $10 an hour for yard work. Yesterday, they did 1 hour and 30 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [10.0, 20.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "85",
+        "example_id": "3",
+        "interval": [
+          80.0,
+          90.0
+        ],
+        "question": "Sofia earns $10 an hour for grocery delivery. Yesterday, they did 8 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Solution steps:\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<s"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $10 an hour for grocery delivery. Yesterday, they did 8 hours and 30 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [80.0, 90.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "100",
+        "example_id": "4",
+        "interval": [
+          96.0,
+          120.0
+        ],
+        "question": "Carlos earns $24 an hour for grocery delivery. Yesterday, they did 4 hours and 10 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer>\n96.0\n</answer>\n\n<solution steps>\n<answer>\n96.0\n</answer>\n</solution steps>\n</solution>\n\nThe problem is to find out how much Carlos earned based on the given hourly rate and hours worked. The hourly rate is $24, and they worked 4 hours and 10 minutes. To solve the problem, we need to convert the time into hours to calculate the total earnings.\n\nFirst, convert 10 minutes into hours. Since there are 60 minutes in an hour, 10 minutes is 10/60 hours, which simplifies to 0.1667 hours. Adding this to 4 hours gives 4.1667 hours of delivery.\n\nNext, multiply the hourly rate by the total hours worked: $24 * 4.1667. \n\nThe interval provided is [96.0, 120.0], which indicates that the possible earnings are within this range. The calculation results in 96.0, which falls within the interval. Therefore, the answer is $96.00.\n\n<solution steps>\n<answer>\n96.0\n</answer"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nCarlos earns $24 an hour for grocery delivery. Yesterday, they did 4 hours and 10 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [96.0, 120.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "90",
+        "example_id": "5",
+        "interval": [
+          80.0,
+          100.0
+        ],
+        "question": "Ava earns $20 an hour for car washing. Yesterday, they did 4 hours and 30 minutes of car washing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "200.00",
+        "raw_output": "Solution steps:\n1. Convert 30 minutes into hours.\n2. Add 4 hours and 30 minutes to the number of hours.\n3. Multiply the result by the hourly rate.\n4. Check if the answer falls within the given interval.\n\nAnswer:\n<solution steps>\nFINAL: $200.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $20 an hour for car washing. Yesterday, they did 4 hours and 30 minutes of car washing. How much did they earn?\n\nInterval:\nINTERVAL: [80.0, 100.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "74",
+        "example_id": "6",
+        "interval": [
+          72.0,
+          84.0
+        ],
+        "question": "Mina earns $12 an hour for car washing. Yesterday, they did 6 hours and 10 minutes of car washing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer: <answer>\n\n<solution steps>\n1. Convert the time from hours and minutes to total hours.\n2. Multiply the total hours by the hourly rate of $12.\n3. Check if the calculated amount is within the specified interval.\n4. If it is, output the answer. Otherwise, adjust accordingly.\n\n</solution steps>\n<solution steps>\n1. Convert 6 hours and 10 minutes to total hours. 6 + 10/60 = 6.1667 hours.\n2. Multiply by $12: 6.1667 * 12 = 74.0000.\n3. Check if the result is within the interval [72.0, 84.0]. It is, so the answer is 74.0000.\n</solution steps>\n<solution steps>\n1. Convert 6 hours and 10 minutes to total hours. 6 + 10/60 = 6.1667 hours.\n2. Multiply by $12: 6.1667 * 12 = 74.0000.\n3. Check if the result is within the interval ["
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $12 an hour for car washing. Yesterday, they did 6 hours and 10 minutes of car washing. How much did they earn?\n\nInterval:\nINTERVAL: [72.0, 84.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "12",
+        "example_id": "7",
+        "interval": [
+          0.0,
+          18.0
+        ],
+        "question": "Sofia earns $18 an hour for dog walking. Yesterday, they did 0 hours and 40 minutes of dog walking. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "0.66666666",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the time to hours to use the hourly rate.\n2. Calculate the earnings by multiplying the hours by the hourly rate.\n3. Add the result to the initial amount earned.\n<solution steps>\nFINAL: 0.66666666"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $18 an hour for dog walking. Yesterday, they did 0 hours and 40 minutes of dog walking. How much did they earn?\n\nInterval:\nINTERVAL: [0.0, 18.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "33",
+        "example_id": "8",
+        "interval": [
+          22.0,
+          44.0
+        ],
+        "question": "Zane earns $22 an hour for car washing. Yesterday, they did 1 hour and 30 minutes of car washing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the time worked into hours. The problem states 1 hour and 30 minutes, which is 1 + 30/60 = 1.5 hours.\n2. Multiply the hourly rate by the number of hours worked: $22.0 * 1.5 = $33.0.\n3. Check the interval to ensure the answer is within the given range. The calculated value of $33.0 is within [22.0, 44.0].\n4. Final answer is $33.00.\n<solution steps>\n1. Convert the time worked into hours. The problem states 1 hour and 30 minutes, which is 1 + 30/60 = 1.5 hours.\n2. Multiply the hourly rate by the number of hours worked: $22.0 * 1.5 = $33.0.\n3. Check the interval to ensure the answer is within the given range. The calculated value of $33.0 is within [22.0, 44.0].\n4. Final answer is $33.00.\n<solution steps>\n1. Convert the"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $22 an hour for car washing. Yesterday, they did 1 hour and 30 minutes of car washing. How much did they earn?\n\nInterval:\nINTERVAL: [22.0, 44.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "98",
+        "example_id": "9",
+        "interval": [
+          84.0,
+          112.0
+        ],
+        "question": "Weng earns $28 an hour for lawn mowing. Yesterday, they did 3 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "112.0",
+        "raw_output": "Answer:\n\n<solution steps>\n1. Convert 3 hours and 30 minutes to hours. Since 1 hour is 60 minutes, 3 hours and 30 minutes is 3.5 hours.\n2. Multiply the hourly rate by the number of hours worked to find the total earnings.\n3. Calculate 28 * 3.5 to get the total earnings.\n4. Check if the answer falls within the given interval [84.0, 112.0].\n<solution steps>\nFINAL: 112.0"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $28 an hour for lawn mowing. Yesterday, they did 3 hours and 30 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [84.0, 112.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "38",
+        "example_id": "10",
+        "interval": [
+          36.0,
+          48.0
+        ],
+        "question": "Hiro earns $12 an hour for house cleaning. Yesterday, they did 3 hours and 10 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<solution steps>\n1. Convert the 10 minutes into hours to find the total hours worked.\n2. Multiply the number of hours worked by the hourly rate of $12.\n3. Add the earnings from the first and second steps.\n<solution steps>\n<solution steps>\n1. Convert 10 minutes into hours by dividing by 60.\n2. Multiply the total hours worked (3 hours + 10 minutes) by the hourly rate of $12.\n3. Add the earnings from the first and second steps.\n<solution steps>\n<solution steps>\n1. Convert 10 minutes into hours to find the total hours worked.\n2. Multiply the number of hours worked by the hourly rate of $12.\n3. Add the earnings from the first and second steps.\n<solution steps>\n<solution steps>\n1. Convert 10 minutes into hours to find the total hours worked.\n2. Multiply the number of hours worked by the hourly rate of $12.\n3. Add the earnings from the first and second steps.\n<solution steps>\n<solution steps>\n1. Convert 10 minutes into hours to find the total hours worked.\n2. Multiply the number of hours worked by the hourly"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $12 an hour for house cleaning. Yesterday, they did 3 hours and 10 minutes of house cleaning. How much did they earn?\n\nInterval:\nINTERVAL: [36.0, 48.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "128",
+        "example_id": "11",
+        "interval": [
+          120.0,
+          144.0
+        ],
+        "question": "Mina earns $24 an hour for car washing. Yesterday, they did 5 hours and 20 minutes of car washing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "120.0",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 5 hours and 20 minutes to hours.\n2. Multiply by $24 per hour to find total earnings.\n3. Check if the result is within the given interval.\n<solution steps>\nFINAL: 120.0"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $24 an hour for car washing. Yesterday, they did 5 hours and 20 minutes of car washing. How much did they earn?\n\nInterval:\nINTERVAL: [120.0, 144.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "72",
+        "example_id": "12",
+        "interval": [
+          64.0,
+          80.0
+        ],
+        "question": "Zane earns $16 an hour for tutoring. Yesterday, they did 4 hours and 30 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "160.00",
+        "raw_output": "<solution steps>\nFINAL: $160.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $16 an hour for tutoring. Yesterday, they did 4 hours and 30 minutes of tutoring. How much did they earn?\n\nInterval:\nINTERVAL: [64.0, 80.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "90",
+        "example_id": "13",
+        "interval": [
+          81.0,
+          108.0
+        ],
+        "question": "Liam earns $27 an hour for grocery delivery. Yesterday, they did 3 hours and 20 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer: <answer>\n\n<solution steps>\n1. Convert 20 minutes to hours to find the total hours worked.\n2. Multiply the total hours by the hourly rate to get the earnings.\n3. Check if the calculated value is within the given interval.\n4. If it's within the interval, the answer is valid.\n<solution steps>\n1. Convert 20 minutes to hours: 20 minutes = 20/60 hours = 1/3 hour.\n2. Calculate total hours: 3 hours + 1/3 hour = 3.333... hours.\n3. Multiply by hourly rate: 3.333... * 27 = 89.999... dollars.\n4. Check if the result is within the interval [81.0, 108.0].\n5. Since 89.999... is approximately 90, which is within the interval, the answer is valid.\n<solution steps>\n1. Convert 20 minutes to hours: 20/60 = 1/3.\n2. Total hours: 3 + 1/3 = 10/3.\n3. Multiply by 2"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $27 an hour for grocery delivery. Yesterday, they did 3 hours and 20 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [81.0, 108.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "150",
+        "example_id": "14",
+        "interval": [
+          144.0,
+          162.0
+        ],
+        "question": "Mina earns $18 an hour for babysitting. Yesterday, they did 8 hours and 20 minutes of babysitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<solution steps>\n1. Calculate the total earnings from 8 hours and 20 minutes.\n2. Multiply by the hourly rate of $18.\n3. Check if the calculated value is within the given interval [144.0, 162.0].\n4. If it is, the answer is correct. Otherwise, the answer might be incorrect.\n\n<answer>\n1440\n</answer>\n</solution steps>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $18 an hour for babysitting. Yesterday, they did 8 hours and 20 minutes of babysitting. How much did they earn?\n\nInterval:\nINTERVAL: [144.0, 162.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "130",
+        "example_id": "15",
+        "interval": [
+          120.0,
+          140.0
+        ],
+        "question": "Rina earns $20 an hour for lawn mowing. Yesterday, they did 6 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Calculate the total hours Rina mowed.\n2. Multiply the total hours by the hourly rate.\n3. Check if the calculated value is within the given interval.\n4. If it is, provide the answer. Otherwise, adjust the interval based on the solution.\n<solution steps>\n1. Calculate the total hours Rina mowed. 6 hours and 30 minutes is 6.5 hours.\n2. Multiply the total hours by the hourly rate of $20. 6.5 * 20 = 130.\n3. Check if the calculated value is within the given interval. 130 is within [120.0, 140.0].\n4. Provide the answer.\n<solution steps>\n1. Calculate the total hours Rina mowed. 6 hours and 30 minutes is 6.5 hours.\n2. Multiply the total hours by the hourly rate of $20. 6.5 * 20 = 130.\n3. Check if the calculated value is within the given interval. 130 is within [120.0, 140.0].\n4. Provide the answer"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nRina earns $20 an hour for lawn mowing. Yesterday, they did 6 hours and 30 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [120.0, 140.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "154",
+        "example_id": "16",
+        "interval": [
+          140.0,
+          168.0
+        ],
+        "question": "Liam earns $28 an hour for grocery delivery. Yesterday, they did 5 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "140.0",
+        "raw_output": "Answer: <answer>\n\n<solution steps>\n1. Determine the number of hours Liam worked yesterday.\n2. Multiply the number of hours by the hourly rate.\n3. Check the interval to ensure the answer is within the given range.\n<solution steps>\nFINAL: 140.0"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $28 an hour for grocery delivery. Yesterday, they did 5 hours and 30 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [140.0, 168.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "220",
+        "example_id": "17",
+        "interval": [
+          210.0,
+          240.0
+        ],
+        "question": "Noah earns $30 an hour for tutoring. Yesterday, they did 7 hours and 20 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "The answer is in the interval [210.0, 240.0] and is a whole number.\n\n<solution steps>\n1. Convert the time to hours to calculate the total earnings.\n2. Multiply the hourly rate by the total hours.\n3. The answer is a whole number within the given interval.\n<solution steps>\n1. Convert the time to hours to calculate the total earnings.\n2. Multiply the hourly rate by the total hours.\n3. The answer is in the interval [210.0, 240.0].\n<solution steps>\n1. Convert the time to hours to calculate the total earnings.\n2. Multiply the hourly rate by the total hours.\n3. The answer is in the interval [210.0, 240.0].\n<solution steps>\n1. Convert the time to hours to calculate the total earnings.\n2. Multiply the hourly rate by the total hours.\n3. The answer is in the interval [210.0, 240.0].\n<solution steps>\n1. Convert the time to hours to calculate the total earnings.\n2. Multiply the hourly rate by the total hours.\n3. The answer is in the interval [21"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $30 an hour for tutoring. Yesterday, they did 7 hours and 20 minutes of tutoring. How much did they earn?\n\nInterval:\nINTERVAL: [210.0, 240.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "234",
+        "example_id": "18",
+        "interval": [
+          216.0,
+          243.0
+        ],
+        "question": "Zane earns $27 an hour for grocery delivery. Yesterday, they did 8 hours and 40 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "178.00",
+        "raw_output": "Solution steps:\n1. Convert the time into hours.\n2. Multiply the number of hours by the hourly rate.\n3. Check if the answer falls within the given interval.\n4. If not, adjust the time or rate.\n\n<solution steps>\nFINAL: $178.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $27 an hour for grocery delivery. Yesterday, they did 8 hours and 40 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [216.0, 243.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "182",
+        "example_id": "19",
+        "interval": [
+          168.0,
+          196.0
+        ],
+        "question": "Ava earns $28 an hour for tutoring. Yesterday, they did 6 hours and 30 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "182",
+        "raw_output": "Answer:\n\n<solution steps>\n1. Convert 30 minutes to hours: 30/60 = 0.5 hours.\n2. Add hours to the total hours: 6 + 0.5 = 6.5 hours.\n3. Multiply by the hourly rate: 6.5 * 28 = 182.\n4. Check the interval to ensure the answer is within the allowed range.\n<solution steps>\nFINAL: 182"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $28 an hour for tutoring. Yesterday, they did 6 hours and 30 minutes of tutoring. How much did they earn?\n\nInterval:\nINTERVAL: [168.0, 196.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "195",
+        "example_id": "20",
+        "interval": [
+          182.0,
+          208.0
+        ],
+        "question": "Weng earns $26 an hour for dog walking. Yesterday, they did 7 hours and 30 minutes of dog walking. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 7 hours and 30 minutes to hours.\n2. Multiply by $26 per hour to get total earnings.\n3. Use the interval constraint to check if the answer is within the range.\n<solution steps>\n1. Convert 7 hours and 30 minutes to hours.\n2. Multiply by $26 per hour to get total earnings.\n3. Use the interval constraint to check if the answer is within the range.\n<solution steps>\n1. Convert 7 hours and 30 minutes to hours.\n2. Multiply by $26 per hour to get total earnings.\n3. Use the interval constraint to check if the answer is within the range.\n<solution steps>\n1. Convert 7 hours and 30 minutes to hours.\n2. Multiply by $26 per hour to get total earnings.\n3. Use the interval constraint to check if the answer is within the range.\n<solution steps>\n1. Convert 7 hours and 30 minutes to hours.\n2. Multiply by $26 per hour to get total earnings.\n3. Use the interval constraint to check if the answer is within the range.\n<solution steps>\n1. Convert 7 hours and 30"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $26 an hour for dog walking. Yesterday, they did 7 hours and 30 minutes of dog walking. How much did they earn?\n\nInterval:\nINTERVAL: [182.0, 208.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "35",
+        "example_id": "21",
+        "interval": [
+          28.0,
+          42.0
+        ],
+        "question": "Zane earns $14 an hour for dog walking. Yesterday, they did 2 hours and 30 minutes of dog walking. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "294.00",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 2 hours and 30 minutes into hours.\n2. Multiply the hours by the hourly rate of $14.\n3. Add the result to get the total earnings.\n4. Check the interval to ensure the answer is within the given range.\n<solution steps>\nFINAL: $294.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $14 an hour for dog walking. Yesterday, they did 2 hours and 30 minutes of dog walking. How much did they earn?\n\nInterval:\nINTERVAL: [28.0, 42.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "143",
+        "example_id": "22",
+        "interval": [
+          132.0,
+          154.0
+        ],
+        "question": "Sofia earns $22 an hour for house cleaning. Yesterday, they did 6 hours and 30 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "143.0",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 30 minutes to hours: 30/60 = 0.5 hours.\n2. Add 6 hours and 0.5 hours to 6 hours to get 6.5 hours.\n3. Multiply 6.5 hours by $22 per hour to get the total earnings.\n<solution steps>\nFINAL: 143.0"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $22 an hour for house cleaning. Yesterday, they did 6 hours and 30 minutes of house cleaning. How much did they earn?\n\nInterval:\nINTERVAL: [132.0, 154.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "9",
+        "example_id": "23",
+        "interval": [
+          0.0,
+          27.0
+        ],
+        "question": "Sofia earns $27 an hour for house cleaning. Yesterday, they did 0 hours and 20 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "270.00",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 20 minutes into hours.\n2. Add the converted hours to the original hours to find the total hours worked.\n3. Multiply the total hours by the hourly rate.\n<solution final>\nFINAL: 270.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $27 an hour for house cleaning. Yesterday, they did 0 hours and 20 minutes of house cleaning. How much did they earn?\n\nInterval:\nINTERVAL: [0.0, 27.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "155",
+        "example_id": "24",
+        "interval": [
+          150.0,
+          180.0
+        ],
+        "question": "Noah earns $30 an hour for grocery delivery. Yesterday, they did 5 hours and 10 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Solution:\n<solution steps>\n1. Convert 5 hours and 10 minutes into total hours.\n2. Multiply by $30 per hour.\n3. Check if the answer is within the given interval.\n<solution steps>\n1. Convert 5 hours and 10 minutes into total hours.\n2. Multiply by $30 per hour.\n3. Check if the answer is within the given interval.\n<solution steps>\n1. Convert 5 hours and 10 minutes into total hours.\n2. Multiply by $30 per hour.\n3. Check if the answer is within the given interval.\n<solution steps>\n1. Convert 5 hours and 10 minutes into total hours.\n2. Multiply by $30 per hour.\n3. Check if the answer is within the given interval.\n\n<solution steps>\n1. Convert 5 hours and 10 minutes into total hours.\n2. Multiply by $30 per hour.\n3. Check if the answer is within the given interval.\n<solution steps>\n1. Convert 5 hours and 10 minutes into total hours.\n2. Multiply by $30 per hour.\n3. Check if the answer is within the given interval.\n\n<solution steps>\n1. Convert"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $30 an hour for grocery delivery. Yesterday, they did 5 hours and 10 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [150.0, 180.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "110",
+        "example_id": "25",
+        "interval": [
+          105.0,
+          120.0
+        ],
+        "question": "Noah earns $15 an hour for yard work. Yesterday, they did 7 hours and 20 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "105.0",
+        "raw_output": "Solution:\n<solution steps>\n1. Convert the time from hours and minutes to hours to find the total hours worked.\n2. Multiply the total hours by the hourly rate of $15 to find the total earnings.\n<solution>\nFINAL: 105.0"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $15 an hour for yard work. Yesterday, they did 7 hours and 20 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [105.0, 120.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "125",
+        "example_id": "26",
+        "interval": [
+          120.0,
+          135.0
+        ],
+        "question": "Noah earns $15 an hour for yard work. Yesterday, they did 8 hours and 20 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "15",
+        "raw_output": "Solution steps:\n<solution steps>\n1. Find the total number of hours worked: 8 hours and 20 minutes\n2. Convert the 20 minutes into hours to get the total hours.\n3. Multiply the total hours by the hourly rate of $15.\n<solution steps>\nFINAL: 15 * (8 + 2"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $15 an hour for yard work. Yesterday, they did 8 hours and 20 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [120.0, 135.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "40",
+        "example_id": "27",
+        "interval": [
+          32.0,
+          48.0
+        ],
+        "question": "Carlos earns $16 an hour for yard work. Yesterday, they did 2 hours and 30 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer>\n32.0\n</answer>\n\n</solution steps>\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>\n\n</solution>"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nCarlos earns $16 an hour for yard work. Yesterday, they did 2 hours and 30 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [32.0, 48.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "13",
+        "example_id": "28",
+        "interval": [
+          0.0,
+          26.0
+        ],
+        "question": "Liam earns $26 an hour for babysitting. Yesterday, they did 0 hours and 30 minutes of babysitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "</interval>\n</interval>\n\n<solution steps>\n1. Convert the 30 minutes to hours to find out the total time worked yesterday.\n2. Multiply the total time by the hourly rate to find the total earnings.\n3. Check if the time worked is within the given interval.\n4. Ensure that the earnings are within the given interval.\n</solution steps>\n<solution>26.0</solution>\n</solution>\n</solution>\n\nThe problem is to calculate Liam's earnings for the previous day, given that he earns $26 per hour and worked 30 minutes. The interval provided is [0.0, 26.0], which indicates that his earnings must be between $0 and $26. Since 30 minutes is less than an hour, he earned 30 minutes of work. To find his total earnings, we convert the 30 minutes to hours (which is 0.5 hours), then multiply by the hourly rate of $26. The calculation is 0.5 * 26 = 13. However, the answer provided in the solution steps seems to have a mistake in the calculation. The correct answer should be $13.00, not $26.0"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $26 an hour for babysitting. Yesterday, they did 0 hours and 30 minutes of babysitting. How much did they earn?\n\nInterval:\nINTERVAL: [0.0, 26.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "91",
+        "example_id": "29",
+        "interval": [
+          84.0,
+          105.0
+        ],
+        "question": "Weng earns $21 an hour for lawn mowing. Yesterday, they did 4 hours and 20 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 20 minutes to hours to find the total hours worked.\n2. Multiply the total hours by the hourly rate to find the total earnings.\n<solution steps>\n1. Convert 20 minutes to hours: 20/60 = 1/3 hour.\n2. Convert the total hours from the problem into a decimal: 4 + 1/3 = 4.333... hours.\n3. Multiply the total hours by the hourly rate: 4.333... * $21 = $91.666...\n<solution steps>\n1. Convert 20 minutes to hours: 20/60 = 1/3 hour.\n2. Convert the total hours from the problem into a decimal: 4 + 1/3 = 4.333... hours.\n3. Multiply the total hours by the hourly rate: 4.333... * $21 = $91.666...\n<solution steps>\n1. Convert 20 minutes to hours: 20/60 = 1/3 hour.\n2. Convert the total hours from the problem into a decimal: 4"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $21 an hour for lawn mowing. Yesterday, they did 4 hours and 20 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [84.0, 105.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "42",
+        "example_id": "30",
+        "interval": [
+          28.0,
+          56.0
+        ],
+        "question": "Liam earns $28 an hour for dog walking. Yesterday, they did 1 hour and 30 minutes of dog walking. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Possible answers:\nA) $120\nB) $160\nC) $180\nD) $200\nE) $220\n\nChoices:\nA\nB\nC\nD\nE\n\n<solution steps>\n<solution steps>\nI need to find the total earnings for Liam. He earns $28 per hour. Yesterday, he did 1 hour and 30 minutes. First, convert the time into hours. 1 hour and 30 minutes is 1 + 0.5 = 1.5 hours. Then, multiply by his hourly rate: 28 * 1.5. Let me calculate that. 28 * 1.5 is 42. So, the total earnings are $42. But wait, the answer choices don't include $42. Hmm, that's confusing. Let me check my calculation again. 1 hour and 30 minutes is indeed 1.5 hours. 28 * 1.5 is 42. But none of the options are $42. Did I make a mistake? Wait, maybe I misread the problem? Let me check again. The problem says Liam earns $"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $28 an hour for dog walking. Yesterday, they did 1 hour and 30 minutes of dog walking. How much did they earn?\n\nInterval:\nINTERVAL: [28.0, 56.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "63",
+        "example_id": "31",
+        "interval": [
+          54.0,
+          81.0
+        ],
+        "question": "Liam earns $27 an hour for yard work. Yesterday, they did 2 hours and 20 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "The answer must be within this interval.\n\n<solution steps>\n1. Convert 2 hours and 20 minutes into total hours.\n2. Multiply by the hourly rate of $27.\n3. Check if the answer is within the given interval.\n\n<answer>\n54.0\n</answer>\n</solution steps>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $27 an hour for yard work. Yesterday, they did 2 hours and 20 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [54.0, 81.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "70",
+        "example_id": "32",
+        "interval": [
+          60.0,
+          75.0
+        ],
+        "question": "Ava earns $15 an hour for yard work. Yesterday, they did 4 hours and 40 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "660",
+        "raw_output": "Given:\n- Ava earns $15 an hour.\n- They did 4 hours and 40 minutes of yard work.\n\nAnswer:\n<solution steps>\n1. Convert the time from hours and minutes to minutes for easier calculation.\n2. Calculate the total earnings by multiplying the hourly rate by the total hours worked.\n3. Check the interval to ensure the answer is within the allowed range.\n<solution steps>\nFINAL: 660"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $15 an hour for yard work. Yesterday, they did 4 hours and 40 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [60.0, 75.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "72",
+        "example_id": "33",
+        "interval": [
+          64.0,
+          80.0
+        ],
+        "question": "Mina earns $16 an hour for pet sitting. Yesterday, they did 4 hours and 30 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the time to hours. Since 30 minutes is 0.5 hours, the total time is 4 hours + 0.5 hours = 4.5 hours.\n2. Multiply the hourly rate by the total time to get the earnings.\n<solution steps>\n1. Convert the time to hours. Since 30 minutes is 0.5 hours, the total time is 4 hours + 0.5 hours = 4.5 hours.\n2. Multiply the hourly rate by the total time to get the earnings.\n<solution steps>\n1. Convert the time to hours. Since 30 minutes is 0.5 hours, the total time is 4 hours + 0.5 hours = 4.5 hours.\n2. Multiply the hourly rate by the total time to get the earnings.\n<solution steps>\n1. Convert the time to hours. Since 30 minutes is 0.5 hours, the total time is 4 hours + 0.5 hours = 4.5 hours.\n2. Multiply the hourly rate by the total time to get the earnings.\n<solution steps>\n1. Convert the time to hours. Since 30 minutes is"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $16 an hour for pet sitting. Yesterday, they did 4 hours and 30 minutes of pet sitting. How much did they earn?\n\nInterval:\nINTERVAL: [64.0, 80.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "195",
+        "example_id": "34",
+        "interval": [
+          182.0,
+          208.0
+        ],
+        "question": "Ava earns $26 an hour for lawn mowing. Yesterday, they did 7 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "195.00",
+        "raw_output": "Answer:\n<solution steps>\n1. Calculate the total number of hours Ava mowed.\n2. Multiply the total hours by the hourly rate.\n3. Check if the calculated amount falls within the given interval.\n<solution steps>\n1. Total hours = 7 hours and 30 minutes.\n2. Convert 7 hours and 30 minutes to hours. Since 30 minutes is 0.5 hours, total hours = 7.5 hours.\n3. Multiply by the hourly rate of $26.\n4. Check if the result is within the given interval [182.0, 208.0].\n<solution steps>\n1. Total hours = 7 hours and 30 minutes = 7.5 hours.\n2. Multiply 7.5 hours by $26 to get earnings.\n3. Check if the result is within the given interval [182.0, 208.0].\nFINAL: 195.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $26 an hour for lawn mowing. Yesterday, they did 7 hours and 30 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [182.0, 208.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "62",
+        "example_id": "35",
+        "interval": [
+          60.0,
+          72.0
+        ],
+        "question": "Zane earns $12 an hour for yard work. Yesterday, they did 5 hours and 10 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "120.00",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the 10 minutes to hours. 10 minutes is 10/60 hours.\n2. Add the hours and minutes to get the total work time in hours. 5 hours + 10/60 hours.\n3. Multiply the total hours by the hourly rate of $12 to get the total earnings.\n<solution steps>\nFINAL: $120.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $12 an hour for yard work. Yesterday, they did 5 hours and 10 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [60.0, 72.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "98",
+        "example_id": "36",
+        "interval": [
+          84.0,
+          112.0
+        ],
+        "question": "Rina earns $28 an hour for babysitting. Yesterday, they did 3 hours and 30 minutes of babysitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n- Find the total hours worked yesterday: 3 hours and 30 minutes.\n- Convert the time to hours to compute the total earnings.\n- Multiply the hourly rate by the total hours.\n- Check if the total earnings fall within the given interval.\n- Write the final answer.\n<solution steps>\n- Convert 3 hours and 30 minutes to hours.\n- The conversion factor is 1 hour = 60 minutes.\n- So, 3 hours and 30 minutes = 3 + 30/60 hours.\n- Calculate the total hours worked: 3 + 0.5 = 3.5 hours.\n- Multiply the hourly rate by the total hours: 28 * 3.5.\n- Check if the total earnings are within the given interval [84.0, 112.0].\n- Write the final answer.\n<solution steps>\n- Convert 3 hours and 30 minutes to hours.\n- Convert 3 hours to hours: 3.\n- Add 30 minutes to 3 hours: 3 + 0.5 = 3.5 hours.\n- Multiply the hourly rate by the total hours: 28 * 3"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nRina earns $28 an hour for babysitting. Yesterday, they did 3 hours and 30 minutes of babysitting. How much did they earn?\n\nInterval:\nINTERVAL: [84.0, 112.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "6",
+        "example_id": "37",
+        "interval": [
+          0.0,
+          12.0
+        ],
+        "question": "Rina earns $12 an hour for yard work. Yesterday, they did 0 hours and 30 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n- Let x be the number of hours of yard work.\n- Since Rina earns $12 per hour, her earnings are $12 * x.\n- Yesterday, they did 0 hours of yard work, so x = 0.\n- Therefore, her earnings are $12 * 0 = $0.\n- Interval: [0.0, 12.0]\n<solution steps>\n- Let x be the number of hours of yard work.\n- Since Rina earns $12 per hour, her earnings are $12 * x.\n- Yesterday, they did 0 hours of yard work, so x = 0.\n- Therefore, her earnings are $12 * 0 = $0.\n- Interval: [0.0, 12.0]\n<solution steps>\n- Let x be the number of hours of yard work.\n- Since Rina earns $12 per hour, her earnings are $12 * x.\n- Yesterday, they did 0 hours of yard work, so x = 0.\n- Therefore, her earnings are $12 * 0 = $0.\n- Interval: [0.0, 12.0]\n<solution"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nRina earns $12 an hour for yard work. Yesterday, they did 0 hours and 30 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [0.0, 12.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "132",
+        "example_id": "38",
+        "interval": [
+          126.0,
+          144.0
+        ],
+        "question": "Sofia earns $18 an hour for tutoring. Yesterday, they did 7 hours and 20 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Solution:\n<solution steps>\n1. Convert 7 hours and 20 minutes to total hours.\n2. Multiply the total hours by the hourly rate to get earnings.\n<solution steps>\n1. Convert 7 hours and 20 minutes to total hours.\n2. Multiply the total hours by the hourly rate to get earnings.\n<solution steps>\n1. Convert 7 hours and 20 minutes to total hours.\n2. Multiply the total hours by the hourly rate to get earnings.\n<solution steps>\n1. Convert 7 hours and 20 minutes to total hours.\n2. Multiply the total hours by the hourly rate to get earnings.\n<solution steps>\n1. Convert 7 hours and 20 minutes to total hours.\n2. Multiply the total hours by the hourly rate to get earnings.\n<solution steps>\n1. Convert 7 hours and 20 minutes to total hours.\n2. Multiply the total hours by the hourly rate to get earnings.\n<solution steps>\n1. Convert 7 hours and 20 minutes to total hours.\n2. Multiply the total hours by the hourly rate to get earnings.\n<solution steps>\n1. Convert 7 hours and 20 minutes to total hours.\n2. Multiply the"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $18 an hour for tutoring. Yesterday, they did 7 hours and 20 minutes of tutoring. How much did they earn?\n\nInterval:\nINTERVAL: [126.0, 144.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "210",
+        "example_id": "39",
+        "interval": [
+          196.0,
+          224.0
+        ],
+        "question": "Liam earns $28 an hour for grocery delivery. Yesterday, they did 7 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "28",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 30 minutes to hours.\n2. Add 30 minutes to 7 hours to get the total hours worked.\n3. Multiply the total hours by the hourly rate of $28 to find the total earnings.\n<solution steps>\nFINAL: 28 * 7 + 3"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $28 an hour for grocery delivery. Yesterday, they did 7 hours and 30 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [196.0, 224.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "24",
+        "example_id": "40",
+        "interval": [
+          16.0,
+          32.0
+        ],
+        "question": "Hiro earns $16 an hour for car washing. Yesterday, they did 1 hour and 30 minutes of car washing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "160",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the time worked from hours and minutes to minutes.\n2. Multiply the hourly rate by the total minutes worked.\n3. Compute the total earnings.\n<solution steps>\nFINAL: 160"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $16 an hour for car washing. Yesterday, they did 1 hour and 30 minutes of car washing. How much did they earn?\n\nInterval:\nINTERVAL: [16.0, 32.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "4",
+        "example_id": "41",
+        "interval": [
+          0.0,
+          24.0
+        ],
+        "question": "Weng earns $24 an hour for grocery delivery. Yesterday, they did 0 hours and 10 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<answer>\n\n<solution steps>\n- The interval for the problem is [0.0, 24.0], which means the answer must be within that range.\n- Since Weng earns $24 per hour, and they did 0 hours and 10 minutes, we convert 10 minutes to hours to find the total hours worked.\n- 10 minutes is equal to 10/60 hours, which simplifies to 1/6 hours.\n- So the total earnings are 0 + 1/6 = 1/6 hours.\n- Multiply the total hours by the hourly rate of $24 to get the total earnings.\n- 1/6 * 24 = 4.00\n- Therefore, Weng earned $4.00.\n\n<solution steps>\n- The interval for the problem is [0.0, 24.0], which means the answer must be within that range.\n- Since Weng earns $24 per hour, and they did 0 hours and 10 minutes, we convert 10 minutes to hours to find the total hours worked.\n- 10 minutes is equal to 10/60 hours, which simplifies to"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $24 an hour for grocery delivery. Yesterday, they did 0 hours and 10 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [0.0, 24.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "30",
+        "example_id": "42",
+        "interval": [
+          20.0,
+          40.0
+        ],
+        "question": "Ava earns $20 an hour for lawn mowing. Yesterday, they did 1 hour and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n- Convert the time to hours: 1 hour and 30 minutes is 1.5 hours.\n- Multiply the hourly rate by the number of hours: 20.0 * 1.5 = 30.0.\n- Check if the answer is within the interval [20.0, 40.0].\n- Since 30.0 is within the interval, the answer is 30.0.\n<solution steps>\n- Convert the time to hours: 1 hour and 30 minutes is 1.5 hours.\n- Multiply the hourly rate by the number of hours: 20.0 * 1.5 = 30.0.\n- Check if the answer is within the interval [20.0, 40.0].\n- Since 30.0 is within the interval, the answer is 30.0.\n<solution steps>\n- Convert the time to hours: 1 hour and 30 minutes is 1.5 hours.\n- Multiply the hourly rate by the number of hours: 20.0 * 1.5 = 30.0.\n- Check if the answer is within the"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $20 an hour for lawn mowing. Yesterday, they did 1 hour and 30 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [20.0, 40.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "198",
+        "example_id": "43",
+        "interval": [
+          189.0,
+          216.0
+        ],
+        "question": "Hiro earns $27 an hour for tutoring. Yesterday, they did 7 hours and 20 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "197.88",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the time from hours and minutes to hours.\n2. Calculate the total earnings by multiplying the hourly rate by the total hours.\n3. Check the interval to ensure the answer is within the given range.\n<solution steps>\n1. Convert 7 hours and 20 minutes to hours: 7 + (20/60) = 7.333... hours.\n2. Multiply by $27 per hour: 7.333... * 27 = 197.88.\n3. Check the interval [189.0, 216.0] to ensure the answer is within the range. Since 197.88 is within the interval, the answer is valid.\n\nFINAL: 197.88"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $27 an hour for tutoring. Yesterday, they did 7 hours and 20 minutes of tutoring. How much did they earn?\n\nInterval:\nINTERVAL: [189.0, 216.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "132",
+        "example_id": "44",
+        "interval": [
+          126.0,
+          144.0
+        ],
+        "question": "Rina earns $18 an hour for pet sitting. Yesterday, they did 7 hours and 20 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "[solution steps]\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nRina earns $18 an hour for pet sitting. Yesterday, they did 7 hours and 20 minutes of pet sitting. How much did they earn?\n\nInterval:\nINTERVAL: [126.0, 144.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "36",
+        "example_id": "45",
+        "interval": [
+          27.0,
+          54.0
+        ],
+        "question": "Sofia earns $27 an hour for babysitting. Yesterday, they did 1 hour and 20 minutes of babysitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "27.00",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the time from hours and minutes to hours.\n2. Multiply the hourly rate by the number of hours.\n3. Calculate the total earnings.\n<solution steps>\nFINAL: 27.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $27 an hour for babysitting. Yesterday, they did 1 hour and 20 minutes of babysitting. How much did they earn?\n\nInterval:\nINTERVAL: [27.0, 54.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "40",
+        "example_id": "46",
+        "interval": [
+          36.0,
+          48.0
+        ],
+        "question": "Hiro earns $12 an hour for pet sitting. Yesterday, they did 3 hours and 20 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer: <answer>\n\n<solution steps>\n1. Convert 3 hours and 20 minutes to minutes.\n2. Calculate the total earnings by multiplying the hours and rate.\n3. Check the interval to ensure the answer is within the allowed range.\n<solution steps>\n1. Convert 3 hours and 20 minutes to minutes.\n2. Calculate the total earnings by multiplying the hours and rate.\n3. Check the interval to ensure the answer is within the allowed range.\n<solution steps>\n1. Convert 3 hours and 20 minutes to minutes.\n2. Calculate the total earnings by multiplying the hours and rate.\n3. Check the interval to ensure the answer is within the allowed range.\n<solution steps>\n1. Convert 3 hours and 20 minutes to minutes.\n2. Calculate the total earnings by multiplying the hours and rate.\n3. Check the interval to ensure the answer is within the allowed range.\n<solution steps>\n1. Convert 3 hours and 20 minutes to minutes.\n2. Calculate the total earnings by multiplying the hours and rate.\n3. Check the interval to ensure the answer is within the allowed range.\n<solution steps>\n1. Convert 3 hours and 20 minutes to minutes.\n2. Calculate"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $12 an hour for pet sitting. Yesterday, they did 3 hours and 20 minutes of pet sitting. How much did they earn?\n\nInterval:\nINTERVAL: [36.0, 48.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "104",
+        "example_id": "47",
+        "interval": [
+          96.0,
+          112.0
+        ],
+        "question": "Carlos earns $16 an hour for grocery delivery. Yesterday, they did 6 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "104",
+        "raw_output": "[solution steps]\n</solution steps>\n\n</solution steps>\n<solution steps>\n1. The problem states that Carlos earns $16 an hour for grocery delivery.\n2. Yesterday, they did 6 hours and 30 minutes of delivery.\n3. Convert the time to hours for calculation: 6 hours and 30 minutes = 6 + 30/60 = 6.5 hours.\n4. Calculate total earnings: 6.5 hours * $16/hour = $104.\n5. Check if the answer is within the given interval [96.0, 112.0].\n6. Since $104 is within the interval, the answer is valid.\n</solution steps>\nFINAL: $104"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nCarlos earns $16 an hour for grocery delivery. Yesterday, they did 6 hours and 30 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [96.0, 112.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "65",
+        "example_id": "48",
+        "interval": [
+          60.0,
+          70.0
+        ],
+        "question": "Liam earns $10 an hour for house cleaning. Yesterday, they did 6 hours and 30 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer: <answer>\n\n<solution steps>\n1. Convert the time from hours and minutes to total hours.\n2. Multiply the total hours by the hourly rate to find the total earnings.\n3. Check if the calculated value falls within the given interval.\n4. If it does, the answer is within the interval. Otherwise, it's outside.\n\n<solution steps>\n1. Convert 30 minutes to hours: 30/60 = 0.5 hours.\n2. Add to 6 hours: 6 + 0.5 = 6.5 hours.\n3. Multiply by $10/hour: 6.5 * 10 = $65.\n4. Check if $65 is within [60.0, 70.0]. Since 65 is within the interval, the answer is $65.\n\n<solution steps>\n1. Convert 30 minutes to hours: 30/60 = 0.5 hours.\n2. Add to 6 hours: 6 + 0.5 = 6.5 hours.\n3. Multiply by $10/hour: 6.5 * 10 = $65.\n4. Check if $"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $10 an hour for house cleaning. Yesterday, they did 6 hours and 30 minutes of house cleaning. How much did they earn?\n\nInterval:\nINTERVAL: [60.0, 70.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "198",
+        "example_id": "49",
+        "interval": [
+          189.0,
+          216.0
+        ],
+        "question": "Ava earns $27 an hour for house cleaning. Yesterday, they did 7 hours and 20 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "189.0",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 7 hours and 20 minutes to hours.\n2. Multiply by the hourly rate to get the total earnings.\n3. Verify the calculation within the given interval to ensure it's within the range.\n<solution steps>\nFINAL: 189.0"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $27 an hour for house cleaning. Yesterday, they did 7 hours and 20 minutes of house cleaning. How much did they earn?\n\nInterval:\nINTERVAL: [189.0, 216.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "8",
+        "example_id": "50",
+        "interval": [
+          0.0,
+          16.0
+        ],
+        "question": "Mina earns $16 an hour for babysitting. Yesterday, they did 0 hours and 30 minutes of babysitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. The problem states that Mina earns $16 per hour for babysitting.\n2. Yesterday, they did 0 hours and 30 minutes.\n3. Convert the 30 minutes to hours to find the total time worked.\n4. Calculate the total earnings by multiplying the hourly rate by the total hours worked.\n5. Check if the earnings are within the given interval [0.0, 16.0] to ensure the answer is valid.\n<solution steps>\n1. Convert 30 minutes to hours: 0 hours + 0.5 hours = 0.5 hours.\n2. Multiply by the hourly rate: 0.5 hours * $16 per hour = $8.\n3. Check if the result is within the interval [0.0, 16.0], which it is.\n<solution steps>\n1. Convert 0 hours and 30 minutes to hours: 0 + 0.5 = 0.5 hours.\n2. Multiply by hourly rate: 0.5 * 16 = $8.\n3. Check if the result is within the interval [0.0, 16.0], which it is."
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $16 an hour for babysitting. Yesterday, they did 0 hours and 30 minutes of babysitting. How much did they earn?\n\nInterval:\nINTERVAL: [0.0, 16.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "210",
+        "example_id": "51",
+        "interval": [
+          196.0,
+          224.0
+        ],
+        "question": "Weng earns $28 an hour for yard work. Yesterday, they did 7 hours and 30 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<solution steps>\n1. Calculate the number of hours they worked. 7 hours and 30 minutes can be converted to minutes. 7 hours is 420 minutes, so 420 + 30 = 450 minutes.\n2. Calculate the total earnings. Weng earns $28 per hour. 450 minutes is 7.5 hours.\n3. Multiply the number of hours by the hourly rate to find the total earnings. 7.5 * 28 = 210.\n4. Check the interval for the answer. The interval is [196.0, 224.0]. The calculated value is 210, which is within the interval. So, the answer is 210.\n<solution steps>\n<solution steps>\n1. Convert 7 hours and 30 minutes to minutes: 7 * 60 + 30 = 450 minutes.\n2. Convert 450 minutes to hours: 450 / 60 = 7.5 hours.\n3. Multiply by the hourly rate: 7.5 * 28 = 210.\n4"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $28 an hour for yard work. Yesterday, they did 7 hours and 30 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [196.0, 224.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "26",
+        "example_id": "52",
+        "interval": [
+          24.0,
+          36.0
+        ],
+        "question": "Zane earns $12 an hour for dog walking. Yesterday, they did 2 hours and 10 minutes of dog walking. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the time into hours for consistency.\n2. Multiply by the hourly rate to find earnings.\n3. Check if the time is within the given interval.\n<solution steps>\n1. Convert the time into hours: 2 hours + 10 minutes = 2.1666666667 hours.\n2. Multiply by the hourly rate: 2.1666666667 * 12 = 26.0000000000.\n3. Check if the time is within the given interval: [24.0, 36.0].\n<solution steps>\n1. Convert the time into hours: 2 hours + 10 minutes = 2.1666666667 hours.\n2. Multiply by the hourly rate: 2.1666666667 * 12 = 26.0000000000.\n3. Check if the time is within the given interval: [24.0, 36.0].\n<solution steps>\n1. Convert the time into hours: 2 hours"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $12 an hour for dog walking. Yesterday, they did 2 hours and 10 minutes of dog walking. How much did they earn?\n\nInterval:\nINTERVAL: [24.0, 36.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "33",
+        "example_id": "53",
+        "interval": [
+          22.0,
+          44.0
+        ],
+        "question": "Zane earns $22 an hour for dishwashing. Yesterday, they did 1 hour and 30 minutes of dishwashing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Solution:\n<solution steps>\n1. Find the total hours worked yesterday: 1 hour and 30 minutes.\nConvert 1 hour and 30 minutes into hours.\n2. Multiply the hours by the hourly rate of $22 to find the total earnings.\n<solution steps>\n1. Convert 1 hour 30 minutes into hours: 1.5 hours.\n2. Multiply 1.5 hours by $22 to get the total earnings.\n<solution steps>\n1. Convert 1 hour 30 minutes into hours: 1.5 hours.\n2. Multiply 1.5 hours by $22 to get the total earnings.\n<solution steps>\n1. Convert 1 hour 30 minutes into hours: 1.5 hours.\n2. Multiply 1.5 hours by $22 to get the total earnings.\n<solution steps>\n1. Convert 1 hour 30 minutes into hours: 1.5 hours.\n2. Multiply 1.5 hours by $22 to get the total earnings.\n<solution steps>\n1. Convert 1 hour 30 minutes into hours: 1.5 hours.\n2. Multiply 1.5 hours by $22 to get"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $22 an hour for dishwashing. Yesterday, they did 1 hour and 30 minutes of dishwashing. How much did they earn?\n\nInterval:\nINTERVAL: [22.0, 44.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "82",
+        "example_id": "54",
+        "interval": [
+          72.0,
+          84.0
+        ],
+        "question": "Zane earns $12 an hour for yard work. Yesterday, they did 6 hours and 50 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "78.00",
+        "raw_output": "Given:\nZane earns $12 an hour for yard work. Yesterday, they did 6 hours and 50 minutes of yard work.\n\nStep 1:\nConvert the time into hours. The time was 6 hours and 50 minutes. Convert this into hours.\n\nStep 2:\nCalculate the total earnings.\n\n<solution steps>\nFINAL: $78.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $12 an hour for yard work. Yesterday, they did 6 hours and 50 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [72.0, 84.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "90",
+        "example_id": "55",
+        "interval": [
+          80.0,
+          100.0
+        ],
+        "question": "Mina earns $20 an hour for lawn mowing. Yesterday, they did 4 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo solve the problem, we need to calculate the total earnings from the 4 hours and 30 minutes of lawn mowing. Mina earns $20 per hour. We can convert 4 hours and 30 minutes into hours for consistency. Since 30 minutes is a fraction of an hour, we convert 4 hours and 30 minutes to hours by adding 0.5 hours (30 minutes). Then, multiply the number of hours by the hourly rate of $20. Finally, we add the result to find the total earnings.\n\nTo check if the answer is within the given interval [80.0, 100.0], we can calculate the lower bound: 4 hours * $20 = $80.00, which is the lower limit of the interval. The upper bound is 4.5 hours * $20 = $90.00, which is within the given interval. Therefore, the total earnings are between $80.00 and $90.00, which confirms the answer is within the specified interval.\n<solution steps>\nTo find the total earnings, we convert 4 hours and 30 minutes into hours."
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $20 an hour for lawn mowing. Yesterday, they did 4 hours and 30 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [80.0, 100.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "114",
+        "example_id": "56",
+        "interval": [
+          108.0,
+          126.0
+        ],
+        "question": "Noah earns $18 an hour for pet sitting. Yesterday, they did 6 hours and 20 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Possible answer choices:\nA) $22.00\nB) $126.00\nC) $180.00\nD) $240.00\nE) $270.00\n\n<solution steps>\n<solution steps>\n- First, convert the time to hours.\n- 6 hours and 20 minutes is 6 + 20/60 = 6 + 1/3 = 6.333... hours.\n- Then, multiply the hourly rate by the number of hours.\n- 18 * 6.333... = $114.00.\n- However, the interval given is [108.0, 126.0], so the answer must be within this range.\n- Therefore, the correct answer is $114.00, which is not in the answer choices.\n- So, the answer is not in the provided options.\n</solution steps>\n<solution steps>\n<solution steps>\n- Convert the time to hours.\n- 6 hours and 20 minutes is 6 + 20/60 = 6.333... hours.\n- Multiply"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $18 an hour for pet sitting. Yesterday, they did 6 hours and 20 minutes of pet sitting. How much did they earn?\n\nInterval:\nINTERVAL: [108.0, 126.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "30",
+        "example_id": "57",
+        "interval": [
+          20.0,
+          40.0
+        ],
+        "question": "Liam earns $20 an hour for dishwashing. Yesterday, they did 1 hour and 30 minutes of dishwashing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "70.00",
+        "raw_output": "Answer:\n<solution steps>\n1. Liam earns $20 per hour for dishwashing.\n2. Yesterday, they did 1 hour and 30 minutes of dishwashing.\n3. Convert 1 hour and 30 minutes to hours.\n4. Multiply the number of hours by the hourly rate.\n5. Calculate the total earnings.\n<solution steps>\nFINAL: $70.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $20 an hour for dishwashing. Yesterday, they did 1 hour and 30 minutes of dishwashing. How much did they earn?\n\nInterval:\nINTERVAL: [20.0, 40.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "42",
+        "example_id": "58",
+        "interval": [
+          28.0,
+          56.0
+        ],
+        "question": "Sofia earns $28 an hour for lawn mowing. Yesterday, they did 1 hour and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "</interval>\n\n<answer>\n56.0\n</answer>\n</solution steps>\n</solution>\n</solution>\n\n<solution steps>\n1. Sofia earns $28 per hour.\n2. She mowed 1 hour and 30 minutes, which is 1.5 hours.\n3. Calculate the total earnings by multiplying the hourly rate by the number of hours worked.\n4. Multiply 28 by 1.5 to get the total earnings.\n5. Check the interval to ensure the answer is within the allowed range.\n6. Final answer is 56.0.\n</solution steps>\n</solution>\n\n<solution steps>\n1. Sofia earns $28 per hour.\n2. She mowed 1 hour and 30 minutes, which is 1.5 hours.\n3. Calculate the total earnings by multiplying the hourly rate by the number of hours worked.\n4. Multiply 28 by 1.5 to get the total earnings.\n5. Check the interval to ensure the answer is within the allowed range.\n6. Final answer is 56.0.\n</solution steps>\n</solution>\n\n<solution steps>\n1. Sofia earns $28 per hour.\n2. She mowed 1 hour and"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $28 an hour for lawn mowing. Yesterday, they did 1 hour and 30 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [28.0, 56.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "117",
+        "example_id": "59",
+        "interval": [
+          104.0,
+          130.0
+        ],
+        "question": "Mina earns $26 an hour for dog walking. Yesterday, they did 4 hours and 30 minutes of dog walking. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Solution:\n<solution steps>\n1. Convert 30 minutes into hours.\n2. Add the hours and minutes to get the total hours worked.\n3. Multiply the total hours by the hourly rate of $26 to find the total earnings.\n<solution steps>\n1. Convert 30 minutes into hours.\n2. Add the hours and minutes to get the total hours worked.\n3. Multiply the total hours by the hourly rate of $26 to find the total earnings.\n<solution steps>\n1. Convert 30 minutes into hours.\n2. Add the hours and minutes to get the total hours worked.\n3. Multiply the total hours by the hourly rate of $26 to find the total earnings.\n<solution steps>\n1. Convert 30 minutes into hours.\n2. Add the hours and minutes to get the total hours worked.\n3. Multiply the total hours by the hourly rate of $26 to find the total earnings.\n<solution steps>\n1. Convert 30 minutes into hours.\n2. Add the hours and minutes to get the total hours worked.\n3. Multiply the total hours by the hourly rate of $26 to find the total earnings.\n<solution steps>\n1. Convert 30 minutes into hours."
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $26 an hour for dog walking. Yesterday, they did 4 hours and 30 minutes of dog walking. How much did they earn?\n\nInterval:\nINTERVAL: [104.0, 130.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "91",
+        "example_id": "60",
+        "interval": [
+          84.0,
+          105.0
+        ],
+        "question": "Liam earns $21 an hour for yard work. Yesterday, they did 4 hours and 20 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "84.0",
+        "raw_output": "Constraints:\n- Only use the facts in the problem.\n- Only use the interval constraint.\n- No extra explanation.\n\nSolution steps:\n1. Convert 20 minutes to hours.\n2. Add 4 hours and 20 minutes to 21.\n3. Find the interval that contains the answer.\n\n<solution steps>\nFINAL: 84.0"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $21 an hour for yard work. Yesterday, they did 4 hours and 20 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [84.0, 105.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "245",
+        "example_id": "61",
+        "interval": [
+          240.0,
+          270.0
+        ],
+        "question": "Sofia earns $30 an hour for house cleaning. Yesterday, they did 8 hours and 10 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "300.00",
+        "raw_output": "Answer:\n<solution steps>\n1. Determine the total hours worked.\n2. Calculate the total earnings by multiplying the number of hours by the hourly rate.\n3. Check the interval to ensure the solution is within the given range.\n<solution steps>\nFINAL: $300.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $30 an hour for house cleaning. Yesterday, they did 8 hours and 10 minutes of house cleaning. How much did they earn?\n\nInterval:\nINTERVAL: [240.0, 270.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "63",
+        "example_id": "62",
+        "interval": [
+          56.0,
+          70.0
+        ],
+        "question": "Rina earns $14 an hour for yard work. Yesterday, they did 4 hours and 30 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n- The number of hours they worked yesterday is 4 hours and 30 minutes.\n- Convert 4 hours and 30 minutes to hours to find the total earnings.\n- Multiply by $14 per hour to get the total earnings.\n- Check if the earnings are within the specified interval.\n- If the earnings are within the interval, the answer is valid.\n- If not, the answer is not valid.\n\n<solution steps>\n- Convert 4 hours and 30 minutes to hours.\n- Total earnings = 4 hours + 30 minutes * 14.\n- Check if the earnings are within [56, 70].\n- If within, answer is valid.\n- If not, answer is invalid.\n\n<solution steps>\n- Convert 4 hours and 30 minutes to hours.\n- Total earnings = 4 + 30/60 * 14.\n- Check if the earnings are within [56, 70].\n- If within, answer is valid.\n- If not, answer is invalid.\n\n<solution steps>\n- Convert 4 hours and 30 minutes to hours.\n- Total earnings = 4 + 0.5 * 14.\n-"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nRina earns $14 an hour for yard work. Yesterday, they did 4 hours and 30 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [56.0, 70.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "63",
+        "example_id": "63",
+        "interval": [
+          56.0,
+          70.0
+        ],
+        "question": "Zane earns $14 an hour for lawn mowing. Yesterday, they did 4 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "63.0",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the 4 hours and 30 minutes into hours.\n2. Calculate the total earnings by multiplying the number of hours by the hourly rate.\n3. Check if the result falls within the given interval to ensure it's a valid answer.\n\n<solution steps>\n1. Convert 4 hours and 30 minutes into hours: 4 + 30/60 = 4.5 hours.\n2. Multiply by $14 per hour: 4.5 * 14 = 63.0.\n3. Check if 63.0 falls within the interval [56.0, 70.0]. Since 63.0 is within the interval, the answer is 63.0.\n\nFINAL: 63.0"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $14 an hour for lawn mowing. Yesterday, they did 4 hours and 30 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [56.0, 70.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "70",
+        "example_id": "64",
+        "interval": [
+          60.0,
+          80.0
+        ],
+        "question": "Sofia earns $20 an hour for pet sitting. Yesterday, they did 3 hours and 30 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Choices:\nA) $10.00\nB) $12.00\nC) $14.00\nD) $16.00\nE) $18.00\n\nChoices:\nA) $10.00\nB) $12.00\nC) $14.00\nD) $16.00\nE) $18.00\n\nChoices:\nA) $10.00\nB) $12.00\nC) $14.00\nD) $16.00\nE) $18.00\n\nChoices:\nA) $10.00\nB) $12.00\nC) $14.00\nD) $16.00\nE) $18.00\n\nChoices:\nA) $10.00\nB) $12.00\nC) $14.00\nD) $16.00\nE) $18.00\n\nChoices:\nA) $10.00\nB) $12.00\nC"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $20 an hour for pet sitting. Yesterday, they did 3 hours and 30 minutes of pet sitting. How much did they earn?\n\nInterval:\nINTERVAL: [60.0, 80.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "3",
+        "example_id": "65",
+        "interval": [
+          0.0,
+          18.0
+        ],
+        "question": "Hiro earns $18 an hour for house cleaning. Yesterday, they did 0 hours and 10 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "18.00",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the time from minutes to hours to get the total hours worked.\n2. Multiply the hourly rate by the total hours worked to find the total earnings.\n3. Check the interval to ensure the answer is within the allowed range.\n<solution steps>\nFINAL: $18.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $18 an hour for house cleaning. Yesterday, they did 0 hours and 10 minutes of house cleaning. How much did they earn?\n\nInterval:\nINTERVAL: [0.0, 18.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "55",
+        "example_id": "66",
+        "interval": [
+          50.0,
+          60.0
+        ],
+        "question": "Noah earns $10 an hour for tutoring. Yesterday, they did 5 hours and 30 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "10",
+        "raw_output": "Answer: <answer>\n<solution steps>\n1. Convert 5 hours and 30 minutes into hours for calculation.\n2. Multiply by the hourly rate of $10.\n3. Check if the answer is within the given interval.\n<solution steps>\nFINAL: 10 * 5.5 ="
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $10 an hour for tutoring. Yesterday, they did 5 hours and 30 minutes of tutoring. How much did they earn?\n\nInterval:\nINTERVAL: [50.0, 60.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "208",
+        "example_id": "67",
+        "interval": [
+          192.0,
+          216.0
+        ],
+        "question": "Sofia earns $24 an hour for babysitting. Yesterday, they did 8 hours and 40 minutes of babysitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Constraints:\n- The number of hours must be an integer.\n- The number of hours must be between 1 and 8, inclusive.\n\n<solution steps>\n1. Convert the time to hours to make calculations easier.\n2. Calculate the total earnings by multiplying the hourly rate by the number of hours.\n3. Verify the answer within the given interval to ensure it's within the allowed range.\n<solution steps>\n1. Convert 8 hours and 40 minutes to hours.\n2. Calculate total earnings.\n3. Verify the answer within the given interval.\n\n<solution steps>\n1. Convert 8 hours and 40 minutes to hours.\n2. Calculate total earnings.\n3. Verify the answer within the given interval.\n\n<solution steps>\n1. Convert 8 hours and 40 minutes to hours.\n2. Calculate total earnings.\n3. Verify the answer within the given interval.\n<sanswer>\n$192.00\n</sanswer>\n\n<solution steps>\n1. Convert 8 hours and 40 minutes to hours.\n2. Calculate total earnings.\n3. Verify the answer within the given interval.\n<solution steps>\n1. Convert 8 hours and 40 minutes to hours.\n2. Calculate total earnings.\n3."
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $24 an hour for babysitting. Yesterday, they did 8 hours and 40 minutes of babysitting. How much did they earn?\n\nInterval:\nINTERVAL: [192.0, 216.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "34",
+        "example_id": "68",
+        "interval": [
+          24.0,
+          36.0
+        ],
+        "question": "Weng earns $12 an hour for car washing. Yesterday, they did 2 hours and 50 minutes of car washing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Given:\nWeng earns $12 an hour for car washing. Yesterday, they did 2 hours and 50 minutes of car washing. How much did they earn?\n\nSolution:\n<solution steps>\n1. Convert 2 hours and 50 minutes into hours.\n2. Multiply by $12 per hour.\n3. Final answer: $12 * 2.8333... = $34.00\n\n<solution steps>\n1. Convert 2 hours and 50 minutes into hours.\n2. Multiply by $12 per hour.\n3. Final answer: $12 * 2.8333... = $34.00\n\n<solution steps>\n1. Convert 2 hours and 50 minutes into hours.\n2. Multiply by $12 per hour.\n3. Final answer: $12 * 2.8333... = $34.00\n\n<solution steps>\n1. Convert 2 hours and 50 minutes into hours.\n2. Multiply by $12 per hour.\n3. Final answer: $12 * 2.8333... = $34.00\n\n<solution steps>\n1."
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $12 an hour for car washing. Yesterday, they did 2 hours and 50 minutes of car washing. How much did they earn?\n\nInterval:\nINTERVAL: [24.0, 36.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "238",
+        "example_id": "69",
+        "interval": [
+          224.0,
+          252.0
+        ],
+        "question": "Hiro earns $28 an hour for tutoring. Yesterday, they did 8 hours and 30 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "28",
+        "raw_output": "<solution steps>\nFINAL: 28 * 8 + 3"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $28 an hour for tutoring. Yesterday, they did 8 hours and 30 minutes of tutoring. How much did they earn?\n\nInterval:\nINTERVAL: [224.0, 252.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "14",
+        "example_id": "70",
+        "interval": [
+          0.0,
+          21.0
+        ],
+        "question": "Ava earns $21 an hour for lawn mowing. Yesterday, they did 0 hours and 40 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "140",
+        "raw_output": "Answer:\n\n<solution steps>\n1. Convert the time from hours and minutes to hours.\n2. Calculate the total hours worked.\n3. Multiply by the hourly rate.\n<solution steps>\nFINAL: $140"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $21 an hour for lawn mowing. Yesterday, they did 0 hours and 40 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [0.0, 21.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "182",
+        "example_id": "71",
+        "interval": [
+          168.0,
+          189.0
+        ],
+        "question": "Zane earns $21 an hour for tutoring. Yesterday, they did 8 hours and 40 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "180.00",
+        "raw_output": "<answer>\n</solution steps>\n</solution>\n<solution steps>\n1. Convert 40 minutes into hours. 40 divided by 60 equals 2/3 or approximately 0.67 hours.\n2. Add the hours and minutes to get the total time worked. 8 hours plus 2/3 hours equals 8.666... hours.\n3. Multiply the total hours by the hourly rate of $21 to find the total earnings.\n4. Check if the result is within the given interval [168.0, 189.0] to confirm it's a valid solution.\n<solution>\nFINAL: 180.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $21 an hour for tutoring. Yesterday, they did 8 hours and 40 minutes of tutoring. How much did they earn?\n\nInterval:\nINTERVAL: [168.0, 189.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "40",
+        "example_id": "72",
+        "interval": [
+          30.0,
+          45.0
+        ],
+        "question": "Weng earns $15 an hour for tutoring. Yesterday, they did 2 hours and 40 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "39.99",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the time from minutes to hours. 2 hours and 40 minutes is 2 + 40/60 = 2.666... hours.\n2. Calculate the total earnings by multiplying the hourly rate by the time worked in hours. 15 * 2.666... = $39.99.\n3. Check if the calculated value is within the given interval. The value is within [30.0, 45.0], so it's valid.\n<solution steps>\nFINAL: $39.99"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $15 an hour for tutoring. Yesterday, they did 2 hours and 40 minutes of tutoring. How much did they earn?\n\nInterval:\nINTERVAL: [30.0, 45.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "130",
+        "example_id": "73",
+        "interval": [
+          120.0,
+          140.0
+        ],
+        "question": "Noah earns $20 an hour for tutoring. Yesterday, they did 6 hours and 30 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<answer>\n\n<solution steps>\n1. Convert 6 hours and 30 minutes to hours.  \n2. Multiply the hours by $20 to find the total earnings.  \n3. Use the given interval to check if the result is within the allowed range.  \n4. Add the calculated value to the interval.  \n5. Final answer: $120.00\n\n<solution steps>\n1. Convert 6 hours and 30 minutes to hours.  \n2. Multiply the hours by $20 to find the total earnings.  \n3. Use the given interval to check if the result is within the allowed range.  \n4. Add the calculated value to the interval.  \n5. Final answer: $120.00\n\n<solution steps>\n1. Convert 6 hours and 30 minutes to hours.  \n2. Multiply the hours by $20 to find the total earnings.  \n3. Use the given interval to check if the result is within the allowed range.  \n4. Add the calculated value to the interval.  \n5. Final answer: $120.00\n\n<solution steps>\n1. Convert 6 hours and 30 minutes to hours.  \n2. Multiply"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $20 an hour for tutoring. Yesterday, they did 6 hours and 30 minutes of tutoring. How much did they earn?\n\nInterval:\nINTERVAL: [120.0, 140.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "11",
+        "example_id": "74",
+        "interval": [
+          0.0,
+          22.0
+        ],
+        "question": "Ava earns $22 an hour for lawn mowing. Yesterday, they did 0 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "[solution steps]\n</solution steps>\n</solution steps>\n<solution steps>\n1. Determine the total hours Ava mowed by converting 30 minutes to hours.\n2. Add the hours and the hourly rate to find the total earnings.\n3. Check the interval constraint to ensure the answer is within the given range.\n</solution steps>\n<solution steps>\n1. Convert 30 minutes to hours: 30 minutes = 0.5 hours.\n2. Add the hours and the hourly rate: 0.5 hours * $22 = $11.\n3. Check the interval constraint: $11 is within [0.0, 22.0].\n</solution steps>\n<solution steps>\n1. Convert 30 minutes to hours: 0.5 hours.\n2. Multiply 0.5 hours by $22 to get the earnings: $11.\n3. Check the interval constraint: $11 is within [0.0, 22.0].\n</solution steps>\n<solution steps>\n1. Convert 30 minutes to hours: 0.5 hours.\n2. Multiply 0.5 hours by $22 to get the earnings: $11.\n3."
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $22 an hour for lawn mowing. Yesterday, they did 0 hours and 30 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [0.0, 22.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "132",
+        "example_id": "75",
+        "interval": [
+          120.0,
+          144.0
+        ],
+        "question": "Ava earns $24 an hour for lawn mowing. Yesterday, they did 5 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "150.00",
+        "raw_output": "Solution steps:\n1. Convert 5 hours and 30 minutes to minutes.\n2. Multiply the number of hours by the hourly rate.\n3. Add the total earnings from mowing and any other earnings.\n\n<solution steps>\nFINAL: 150.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $24 an hour for lawn mowing. Yesterday, they did 5 hours and 30 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [120.0, 144.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "35",
+        "example_id": "76",
+        "interval": [
+          30.0,
+          40.0
+        ],
+        "question": "Mina earns $10 an hour for house cleaning. Yesterday, they did 3 hours and 30 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "25.00",
+        "raw_output": "Answer: \n<solution steps>\n1. Convert the time from hours and minutes to total hours.\n2. Multiply the hourly rate by the total hours to get the earnings.\n3. Check the interval to ensure the solution is reasonable.\n<solution steps>\nFINAL: $25.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $10 an hour for house cleaning. Yesterday, they did 3 hours and 30 minutes of house cleaning. How much did they earn?\n\nInterval:\nINTERVAL: [30.0, 40.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "54",
+        "example_id": "77",
+        "interval": [
+          48.0,
+          60.0
+        ],
+        "question": "Sofia earns $12 an hour for grocery delivery. Yesterday, they did 4 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 4 hours and 30 minutes to minutes to calculate total earnings.\n2. Multiply by the hourly rate of $12 to find the total earnings.\n3. Check if the calculated value falls within the given interval.\n<solution steps>\n1. Convert 4 hours and 30 minutes to minutes: 4 hours = 240 minutes, so 240 + 30 = 270 minutes.\n2. Multiply by $12: 270 * 12 = 3240.\n3. Check if 3240 is within the interval [48.0, 60.0].\n<solution steps>\n1. Convert 4 hours and 30 minutes to minutes: 270 minutes.\n2. Multiply by $12: 270 * 12 = 3240.\n3. Check if 3240 is within the given interval [48.0, 60.0].\n<solution steps>\n1. Convert 4 hours and 30 minutes to minutes: 270 minutes.\n2. Multiply by $12: 270 *"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $12 an hour for grocery delivery. Yesterday, they did 4 hours and 30 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [48.0, 60.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "144",
+        "example_id": "78",
+        "interval": [
+          135.0,
+          162.0
+        ],
+        "question": "Rina earns $27 an hour for house cleaning. Yesterday, they did 5 hours and 20 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "217.00",
+        "raw_output": "The answer must be in dollars and cents.\n\n<solution steps>\n- Convert 20 minutes to hours: 20 / 60 = 0.3333 hours.\n- Add 5 hours and 0.3333 hours to find the total hours worked.\n- Multiply the total hours by the hourly rate of $27 to get the total earnings.\n\nFinal answer:\nFINAL: $217.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nRina earns $27 an hour for house cleaning. Yesterday, they did 5 hours and 20 minutes of house cleaning. How much did they earn?\n\nInterval:\nINTERVAL: [135.0, 162.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "65",
+        "example_id": "79",
+        "interval": [
+          60.0,
+          75.0
+        ],
+        "question": "Rina earns $15 an hour for dishwashing. Yesterday, they did 4 hours and 20 minutes of dishwashing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the 20 minutes to hours: 20 minutes = 20/60 hours = 1/3 hours.\n2. Add the hours to get the total hours worked: 4 + 1/3 = 4.333... hours.\n3. Multiply by the hourly rate: 4.333... * $15 = $65.00.\n<solution steps>\n1. Convert 20 minutes to hours: 20/60 = 1/3.\n2. Convert 4 hours to hours: 4 hours = 4 hours.\n3. Add the hours: 4 + 1/3 = 13/3 hours.\n4. Multiply by the hourly rate: 13/3 * 15 = 65.00.\n<solution steps>\n1. Convert 20 minutes to hours: 20/60 = 1/3.\n2. Add the hours: 4 + 1/3 = 13/3 hours.\n3. Multiply by the hourly rate: 13/3 * 15 = 65.00.\n<solution steps"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nRina earns $15 an hour for dishwashing. Yesterday, they did 4 hours and 20 minutes of dishwashing. How much did they earn?\n\nInterval:\nINTERVAL: [60.0, 75.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "119",
+        "example_id": "80",
+        "interval": [
+          105.0,
+          126.0
+        ],
+        "question": "Zane earns $21 an hour for yard work. Yesterday, they did 5 hours and 40 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 40 minutes to hours. 40 minutes = 40/60 hours = 2/3 hours.\n2. Add 5 hours and 40 minutes to 2 hours. 5 hours + 2 hours + 40 minutes = 7 hours.\n3. Multiply the total hours by $21 per hour.\n4. Calculate the total earnings. 7 hours * $21/hour = $147.00.\n\n<solution steps>\n1. Convert 40 minutes to hours. 40 minutes = 40/60 hours = 2/3 hours.\n2. Add 5 hours and 2/3 hours to 5 hours. 5 hours + 5 hours + 2/3 hours = 10 hours and 2/3 hours.\n3. Convert 10 hours and 2/3 hours to a single fraction. 10 hours = 30/3 hours, so 30/3 hours + 2/3 hours = 32/3 hours.\n4. Multiply the total hours by $21 per hour. 32/3 hours * $21/h"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $21 an hour for yard work. Yesterday, they did 5 hours and 40 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [105.0, 126.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "77",
+        "example_id": "81",
+        "interval": [
+          66.0,
+          88.0
+        ],
+        "question": "Weng earns $22 an hour for grocery delivery. Yesterday, they did 3 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 3 hours and 30 minutes into hours.\n2. Multiply by the hourly rate of $22 to get the total earnings.\n3. Check if the calculated value is within the given interval.\n4. Verify if the value is within the allowed range.\n5. Output the final answer.\n\n<solution steps>\n1. Convert 3 hours and 30 minutes into hours.\n2. Multiply by the hourly rate of $22 to get the total earnings.\n3. Check if the calculated value is within the given interval.\n4. Verify if the value is within the allowed range.\n5. Output the final answer.\n\n<solution steps>\n1. Convert 3 hours and 30 minutes into hours.\n2. Multiply by the hourly rate of $22 to get the total earnings.\n3. Check if the calculated value is within the given interval.\n4. Verify if the value is within the allowed range.\n5. Output the final answer.\n\n<solution steps>\n1. Convert 3 hours and 30 minutes into hours.\n2. Multiply by the hourly rate of $22 to get the total earnings.\n3. Check if the calculated value is within the given interval.\n4. Verify if the"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $22 an hour for grocery delivery. Yesterday, they did 3 hours and 30 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [66.0, 88.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "85",
+        "example_id": "82",
+        "interval": [
+          80.0,
+          90.0
+        ],
+        "question": "Mina earns $10 an hour for grocery delivery. Yesterday, they did 8 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 30 minutes into hours to find the total hours worked.\n2. Add 8 hours and 30 minutes to 8 hours.\n3. Calculate the total earnings by multiplying the total hours by the hourly rate of $10.\n4. Check the interval to ensure the solution is within the allowed range.\n<solution steps>\n1. Convert 30 minutes into hours.\n2. Add 8 hours and 30 minutes to 8 hours.\n3. Calculate total earnings.\n4. Check interval.\n<solution steps>\n1. Convert 30 minutes into hours.\n2. Add 8 hours and 30 minutes to 8 hours.\n3. Calculate total earnings.\n<solution steps>\n1. Convert 30 minutes into hours.\n2. Add 8 hours and 30 minutes to 8 hours.\n3. Calculate total earnings.\n<solution steps>\n1. Convert 30 minutes into hours.\n2. Add 8 hours and 30 minutes to 8 hours.\n3. Calculate total earnings.\n<solution steps>\n1. Convert 30 minutes into hours.\n2. Add 8 hours and 30 minutes to 8 hours.\n3. Calculate total"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $10 an hour for grocery delivery. Yesterday, they did 8 hours and 30 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [80.0, 90.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "70",
+        "example_id": "83",
+        "interval": [
+          60.0,
+          72.0
+        ],
+        "question": "Mina earns $12 an hour for dog walking. Yesterday, they did 5 hours and 50 minutes of dog walking. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the time from minutes to hours for consistent measurement.\n2. Calculate the total earnings by multiplying the hourly rate by the total hours worked.\n3. Verify that the total earnings fall within the given interval.\n<solution steps>\n1. Convert 5 hours and 50 minutes to hours: 5 + (50/60) = 5.8333 hours.\n2. Calculate total earnings: $12 * 5.8333 = $69.999.\n3. Verify that the total earnings fall within the given interval [60.0, 72.0].\n<solution steps>\n1. Convert 5 hours and 50 minutes to hours: 5 + 50/60 = 5.8333 hours.\n2. Calculate total earnings: $12 * 5.8333 = $69.999.\n3. Verify that the total earnings fall within the given interval [60.0, 72.0].\n<solution steps>\n1. Convert 5 hours and 50 minutes to hours: 5 + 50/60 = 5.8"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $12 an hour for dog walking. Yesterday, they did 5 hours and 50 minutes of dog walking. How much did they earn?\n\nInterval:\nINTERVAL: [60.0, 72.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "117",
+        "example_id": "84",
+        "interval": [
+          104.0,
+          130.0
+        ],
+        "question": "Mina earns $26 an hour for grocery delivery. Yesterday, they did 4 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "104.00",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 4 hours and 30 minutes into total hours.  \n2. Multiply the number of hours by the hourly rate to find the total earnings.  \n3. Use the given interval to check if the answer is within the allowed range.  \n<solution steps>\n1. Convert 4 hours and 30 minutes into total hours.  \n2. Multiply the number of hours by the hourly rate to find the total earnings.  \n3. The total earnings are $104.00, which is within the interval [104.0, 130.0].\nFINAL: $104.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $26 an hour for grocery delivery. Yesterday, they did 4 hours and 30 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [104.0, 130.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "63",
+        "example_id": "85",
+        "interval": [
+          54.0,
+          81.0
+        ],
+        "question": "Hiro earns $27 an hour for grocery delivery. Yesterday, they did 2 hours and 20 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "270.00",
+        "raw_output": "Choices:\nA) $27.00\nB) $54.00\nC) $81.00\nD) $108.00\nE) $144.00\nF) $168.00\nG) $216.00\nH) $243.00\nI) $270.00\n</solution steps>\n\n<solution steps>\n1. Convert 2 hours and 20 minutes to minutes to calculate the total hours worked.\n2. Multiply the hourly rate by the total hours worked.\n</solution steps>\nFINAL: $270.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $27 an hour for grocery delivery. Yesterday, they did 2 hours and 20 minutes of grocery delivery. How much did they earn?\n\nInterval:\nINTERVAL: [54.0, 81.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "70",
+        "example_id": "86",
+        "interval": [
+          60.0,
+          75.0
+        ],
+        "question": "Sofia earns $15 an hour for babysitting. Yesterday, they did 4 hours and 40 minutes of babysitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Solution steps:\n1. Convert 4 hours and 40 minutes into hours.\n2. Multiply the number of hours by the hourly rate.\n3. Add the results together.\n4. Check if the answer falls within the given interval.\n\nLet me think... So, first, I need to convert 4 hours and 40 minutes into hours. Let me calculate that. 4 hours and 40 minutes is 4 hours plus 40/60 hours, which equals 4 + 2/3 hours. Then, multiply by $15 per hour. So, 4 + 2/3 hours is equal to 14/3 hours. Multiplying by 15 gives 14/3 * 15. Let me calculate that. 14 * 5 is 70, so 70 divided by 3 is approximately 23.33. Adding that to the 4 hours gives 27.33. Now, checking if this is within the given interval [60.0, 75.0]. Since 27.33 is much less than 60, the answer must be outside the interval. But wait, the problem says to use"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $15 an hour for babysitting. Yesterday, they did 4 hours and 40 minutes of babysitting. How much did they earn?\n\nInterval:\nINTERVAL: [60.0, 75.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "104",
+        "example_id": "87",
+        "interval": [
+          96.0,
+          112.0
+        ],
+        "question": "Liam earns $16 an hour for pet sitting. Yesterday, they did 6 hours and 30 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "104",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the time worked into hours.\n2. Multiply the hourly rate by the number of hours worked.\n3. Check if the answer falls within the given interval.\n<solution steps>\n1. Convert 6 hours and 30 minutes into hours. Since 1 hour = 60 minutes, 30 minutes = 0.5 hours. So, 6 + 0.5 = 6.5 hours.\n2. Multiply the hourly rate by the number of hours worked. The hourly rate is $16. So, 6.5 * 16 = $104.\n3. Check if the answer falls within the given interval [96.0, 112.0]. Since 104 is within this interval, the answer is $104.\n\nFINAL: $104"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $16 an hour for pet sitting. Yesterday, they did 6 hours and 30 minutes of pet sitting. How much did they earn?\n\nInterval:\nINTERVAL: [96.0, 112.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "92",
+        "example_id": "88",
+        "interval": [
+          72.0,
+          96.0
+        ],
+        "question": "Liam earns $24 an hour for tutoring. Yesterday, they did 3 hours and 50 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 3 hours and 50 minutes into hours.\n2. Multiply by Liam's hourly rate of $24.\n3. Check if the answer is within the given interval.\n<solution steps>\n1. Convert 3 hours and 50 minutes into hours. 3 + 50/60 = 3.8333 hours.\n2. Multiply by $24: 3.8333 * 24 = 92.0.\n3. Check if the answer is within the given interval [72.0, 96.0]. Since 92.0 is within the interval, the final answer is 92.0.\n<solution steps>\n1. Convert 3 hours and 50 minutes into hours. 3 + 50/60 = 3.8333 hours.\n2. Multiply by $24: 3.8333 * 24 = 92.0.\n3. Check if the answer is within the given interval [72.0, 96.0]. Since 92.0 is within the interval, the final answer is 92"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $24 an hour for tutoring. Yesterday, they did 3 hours and 50 minutes of tutoring. How much did they earn?\n\nInterval:\nINTERVAL: [72.0, 96.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "58",
+        "example_id": "89",
+        "interval": [
+          48.0,
+          60.0
+        ],
+        "question": "Zane earns $12 an hour for car washing. Yesterday, they did 4 hours and 50 minutes of car washing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "48.0",
+        "raw_output": "Answer: <answer>\n</solution steps>\n<solution steps>\n1. Convert 50 minutes to hours. Since 1 hour = 60 minutes, 50 minutes = 50/60 = 5/6 \u2248 0.8333 hours.\n2. Add the hours to find the total hours worked: 4 + 5/6 = 4 + 0.8333 = 4.8333 hours.\n3. Multiply by the hourly rate of $12 to find the total earnings.\n</solution steps>\nFINAL: 48.0"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $12 an hour for car washing. Yesterday, they did 4 hours and 50 minutes of car washing. How much did they earn?\n\nInterval:\nINTERVAL: [48.0, 60.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "42",
+        "example_id": "90",
+        "interval": [
+          36.0,
+          48.0
+        ],
+        "question": "Ava earns $12 an hour for lawn mowing. Yesterday, they did 3 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "360.00",
+        "raw_output": "Given:\n- Ava earns $12 an hour for lawn mowing.\n- They did 3 hours and 30 minutes of lawn mowing.\n\n<answer>\n<solution steps>\n1. Convert the time to hours for easier calculation.\n2. Multiply the hourly rate by the total hours worked.\n3. Calculate the total earnings.\n<solution steps>\nFINAL: 360.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $12 an hour for lawn mowing. Yesterday, they did 3 hours and 30 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [36.0, 48.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "7",
+        "example_id": "91",
+        "interval": [
+          0.0,
+          14.0
+        ],
+        "question": "Ava earns $14 an hour for pet sitting. Yesterday, they did 0 hours and 30 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 0 hours and 30 minutes to hours.\n2. Calculate the total hours worked.\n3. Multiply by the hourly rate.\n<solution: 14.00)\n</solution>\n<solution steps>\n1. Convert 0 hours and 30 minutes to hours.\n2. Calculate the total hours worked.\n3. Multiply by the hourly rate.\n<solution: 14.00)\n</solution>\n<solution steps>\n1. Convert 0 hours and 30 minutes to hours.\n2. Calculate the total hours worked.\n3. Multiply by the hourly rate.\n<solution: 14.00)\n</solution>\n\nThe problem asks how much Ava earned, given that she earns $14 per hour and worked 0 hours and 30 minutes. The interval constraint is [0.0, 14.0], which helps ensure the answer is within the range of possible earnings. Since 0 hours and 30 minutes is less than 1 hour, the answer must be less than or equal to $14. However, since the problem asks for the exact value, we convert the time to hours and multiply by the rate to get $14."
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $14 an hour for pet sitting. Yesterday, they did 0 hours and 30 minutes of pet sitting. How much did they earn?\n\nInterval:\nINTERVAL: [0.0, 14.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "92",
+        "example_id": "92",
+        "interval": [
+          84.0,
+          96.0
+        ],
+        "question": "Zane earns $12 an hour for lawn mowing. Yesterday, they did 7 hours and 40 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "96.00",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the time from hours and minutes to minutes.\n2. Calculate the total earnings by multiplying the hours by the hourly rate.\n3. Use the interval to check if the answer is reasonable.\n<solution steps>\nFINAL: $96.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $12 an hour for lawn mowing. Yesterday, they did 7 hours and 40 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [84.0, 96.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "165",
+        "example_id": "93",
+        "interval": [
+          154.0,
+          176.0
+        ],
+        "question": "Ava earns $22 an hour for tutoring. Yesterday, they did 7 hours and 30 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "10",
+        "raw_output": "Answer: <answer>\n</solution steps>\n<solution steps>\n1. Determine the total hours worked: 7 hours and 30 minutes. Converting this to minutes, we have 7*60 + 30 = 450 minutes.\n2. Calculate Ava's earnings: 450 minutes * $22 per hour.\n3. Check the interval to ensure the answer is within the given range.\n</solution steps>\nFINAL: 10,200"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $22 an hour for tutoring. Yesterday, they did 7 hours and 30 minutes of tutoring. How much did they earn?\n\nInterval:\nINTERVAL: [154.0, 176.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "5",
+        "example_id": "94",
+        "interval": [
+          0.0,
+          30.0
+        ],
+        "question": "Hiro earns $30 an hour for lawn mowing. Yesterday, they did 0 hours and 10 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Convert the 10 minutes into hours to find the total working hours.\n2. Multiply the total working hours by the hourly rate to get the earnings.\n3. Check if the interval [0.0, 30.0] is consistent with the given information.\n<solution steps>\n1. Convert 10 minutes to hours: 10/60 = 0.1667 hours.\n2. Calculate earnings: 0.1667 * 30 = 5.00.\n3. Verify the result is within the interval.\n<solution steps>\n1. Convert 10 minutes to hours: 10/60 = 0.1667.\n2. Calculate earnings: 0.1667 * 30 = 5.00.\n3. Check if the result is within the interval [0.0, 30.0].\n<solution steps>\n1. Convert 10 minutes to hours: 10/60 = 0.1667.\n2. Calculate earnings: 0.1667 * 30 = 5.00.\n3. Verify the result"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $30 an hour for lawn mowing. Yesterday, they did 0 hours and 10 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [0.0, 30.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "130",
+        "example_id": "95",
+        "interval": [
+          120.0,
+          135.0
+        ],
+        "question": "Weng earns $15 an hour for yard work. Yesterday, they did 8 hours and 40 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Possible answers:\nA) $24\nB) $25\nC) $26\nD) $27\nE) $28\nF) $30\nG) $31\nH) $32\nI) $33\nJ) $34\nK) $35\nL) $36\nM) $37\nN) $38\nO) $39\nP) $40\nQ) $41\nR) $42\nS) $43\nT) $44\nU) $45\nV) $46\nW) $47\nX) $48\nY) $49\nZ) $50\n\nChoices:\nA to Z\n\nChoices:\nA) $24\nB) $25\nC) $26\nD) $27\nE) $28\nF) $28\nG) $29\nH) $30\nI) $31\nJ) $32\nK) $33\nL) $34\nM) $35\nN) $36\nO) $37"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $15 an hour for yard work. Yesterday, they did 8 hours and 40 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [120.0, 135.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "64",
+        "example_id": "96",
+        "interval": [
+          48.0,
+          72.0
+        ],
+        "question": "Sofia earns $24 an hour for yard work. Yesterday, they did 2 hours and 40 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "48.0",
+        "raw_output": "Solution:\n<solution steps>\n1. Convert the time worked into minutes to find the total earnings.\n2. Multiply the hourly rate by the total minutes worked to find the total earnings.\n3. Use the interval constraint to check if the answer is reasonable.\n<solution steps>\nFINAL: 48.0"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $24 an hour for yard work. Yesterday, they did 2 hours and 40 minutes of yard work. How much did they earn?\n\nInterval:\nINTERVAL: [48.0, 72.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "150",
+        "example_id": "97",
+        "interval": [
+          140.0,
+          160.0
+        ],
+        "question": "Sofia earns $20 an hour for pet sitting. Yesterday, they did 7 hours and 30 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "155.00",
+        "raw_output": "Answer:\n<solution steps>\n1. Convert 7 hours and 30 minutes into hours.\n2. Multiply the hours by the hourly rate.\n3. Calculate the total earnings.\n<solution steps>\nFINAL: 155.00"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $20 an hour for pet sitting. Yesterday, they did 7 hours and 30 minutes of pet sitting. How much did they earn?\n\nInterval:\nINTERVAL: [140.0, 160.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "115",
+        "example_id": "98",
+        "interval": [
+          105.0,
+          120.0
+        ],
+        "question": "Noah earns $15 an hour for lawn mowing. Yesterday, they did 7 hours and 40 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "115",
+        "raw_output": "Answer: <answer>\n</solution steps>\n\n<solution steps>\n1. Convert the time to hours to make calculations easier. 7 hours and 40 minutes is 7 + 40/60 = 7.666... hours.\n2. Multiply the number of hours by the hourly rate of $15 to find the total earnings.\n3. Check the interval to ensure the answer is within the given range.\n4. Perform the calculation: 7.666... * 15 = 115.\n5. Since the interval allows for values up to 120, 115 is within the range.\n</solution steps>\nFINAL: 115"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $15 an hour for lawn mowing. Yesterday, they did 7 hours and 40 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [105.0, 120.0]\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "145",
+        "example_id": "99",
+        "interval": [
+          120.0,
+          150.0
+        ],
+        "question": "Liam earns $30 an hour for lawn mowing. Yesterday, they did 4 hours and 50 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "Answer:\n<solution steps>\n1. Find the total hours worked by Liam yesterday: 4 hours and 50 minutes.\n2. Convert the hours into minutes for easier calculation: 4 * 60 + 50 = 200 minutes.\n3. Convert the total minutes to hours by dividing by 60: 200 / 60 = 3 hours and 20 minutes.\n4. Calculate Liam's earnings: 3 hours and 20 minutes * $30 per hour.\n5. Convert the earnings back to hours and minutes for final answer.\n6. Verify the earnings within the given interval [120.0, 150.0] to ensure correctness.\n<solution steps>\n1. Find the total hours worked by Liam yesterday: 4 hours and 50 minutes.\n2. Convert the hours into minutes for easier calculation: 4 * 60 + 50 = 200 minutes.\n3. Convert the total minutes to hours by dividing by 60: 200 / 60 = 3 hours and 20 minutes.\n4. Calculate Liam's earnings: 3 hours and 20 minutes * $30 per hour"
+      },
+      "prompts": {
+        "constrained_solution_prompt": "You need to solve the math problem using the interval constraint.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Use the interval to guide and sanity-check the solution.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $30 an hour for lawn mowing. Yesterday, they did 4 hours and 50 minutes of lawn mowing. How much did they earn?\n\nInterval:\nINTERVAL: [120.0, 150.0]\n"
+      }
+    }
+  ],
+  "inputs": {
+    "args": {
+      "batch_size": null,
+      "config": "src\\qwen3_gsm8k_hf.json",
+      "dataset": "src\\datasets\\synthetic_wage_time.jsonl",
+      "dataset_name": "math500",
+      "log_traces": false,
+      "max_examples": null,
+      "num_samples": 5,
+      "pipeline": "interval_solve",
+      "trace": true
+    },
+    "config": {
+      "constraint_model": {
+        "name": "hf_causal_lm",
+        "params": {
+          "device": "cpu",
+          "do_sample": true,
+          "max_new_tokens": 256,
+          "model_name": "Qwen/Qwen3-0.6B",
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "torch_dtype": "float32",
+          "trust_remote_code": true
+        }
+      },
+      "max_samples": 1,
+      "prompts": {
+        "constrained_task_prompt_path": "src/iv_pipeline/prompt_templates/task_prompt_with_constraints_extended.txt",
+        "constraint_prompt_path": "src/iv_pipeline/prompt_templates/constraint_prompt_extended.txt",
+        "task_prompt_path": "src/iv_pipeline/prompt_templates/task_prompt_extended.txt",
+        "verify_prompt_path": "src/iv_pipeline/prompt_templates/verify_prompt_extended.txt"
+      },
+      "sampler_model": {
+        "name": "hf_causal_lm",
+        "params": {
+          "device": "cpu",
+          "do_sample": true,
+          "max_new_tokens": 256,
+          "model_name": "Qwen/Qwen3-0.6B",
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "torch_dtype": "float32",
+          "trust_remote_code": true
+        }
+      },
+      "verifier_model": {
+        "name": "hf_causal_lm",
+        "params": {
+          "device": "cpu",
+          "do_sample": true,
+          "max_new_tokens": 256,
+          "model_name": "Qwen/Qwen3-0.6B",
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "torch_dtype": "float32",
+          "trust_remote_code": true
+        }
+      }
+    }
+  },
+  "trace_id": "20260609T223919Z",
+  "trace_timestamp": "2026-06-09T22:39:19.863741+00:00"
+}

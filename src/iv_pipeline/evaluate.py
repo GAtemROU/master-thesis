@@ -15,7 +15,7 @@ class EvaluationMetrics:
     baseline_accuracy: float | None
     constrained_accuracy: float | None
     interval_unknown_fraction: float
-    interval_includes_true_answer_fraction: float
+    interval_includes_true_answer_fraction: float | None
     interval_includes_llm_solution_fraction: float
     interval_width_rel_stats: Dict[str, float | None]
     interval_margin_z_stats: Dict[str, float | None]
@@ -45,6 +45,8 @@ def compute_metrics(
     results: Iterable[PipelineResult],
     examples: Iterable[Example],
     compute_accuracy: bool = True,
+    include_true_answer: bool = True,
+    interval_answer_source: str = "true",
 ) -> EvaluationMetrics:
     results_list = list(results)
     examples_list = list(examples)
@@ -81,20 +83,27 @@ def compute_metrics(
         width = upper - lower
         center = (lower + upper) / 2.0
         width_rel_values.append(width / max(1e-9, abs(center)))
-        true_answer_value = _parse_number(example.answer)
-        if true_answer_value is not None:
-            inside = _is_within_interval(true_answer_value, interval_bounds)
+        if interval_answer_source == "model":
+            interval_answer_value = _parse_number(result.final_answer)
+        else:
+            interval_answer_value = _parse_number(example.answer)
+        if include_true_answer:
+            true_answer_value = _parse_number(example.answer)
+            if true_answer_value is not None:
+                if _is_within_interval(true_answer_value, interval_bounds):
+                    intervals_include_true_answer += 1
+        if interval_answer_value is not None:
+            inside = _is_within_interval(interval_answer_value, interval_bounds)
             if inside:
-                intervals_include_true_answer += 1
                 margin_z_values.append(
-                    (true_answer_value - center) / max(1e-9, width / 2.0)
+                    (interval_answer_value - center) / max(1e-9, width / 2.0)
                 )
                 signed_outside_values.append(0.0)
             else:
-                if true_answer_value < lower:
-                    signed_outside_values.append(true_answer_value - lower)
+                if interval_answer_value < lower:
+                    signed_outside_values.append(interval_answer_value - lower)
                 else:
-                    signed_outside_values.append(true_answer_value - upper)
+                    signed_outside_values.append(interval_answer_value - upper)
         llm_answer_value = _parse_number(result.final_answer)
         if (
             llm_answer_value is not None
@@ -104,11 +113,14 @@ def compute_metrics(
     total = max(1, len(examples_list))
     baseline_accuracy = baseline_correct / total if compute_accuracy else None
     constrained_accuracy = constrained_correct / total if compute_accuracy else None
+    interval_true_fraction = (
+        intervals_include_true_answer / total if include_true_answer else None
+    )
     return EvaluationMetrics(
         baseline_accuracy=baseline_accuracy,
         constrained_accuracy=constrained_accuracy,
         interval_unknown_fraction=unknown_intervals / total,
-        interval_includes_true_answer_fraction=intervals_include_true_answer / total,
+        interval_includes_true_answer_fraction=interval_true_fraction,
         interval_includes_llm_solution_fraction=intervals_include_llm_solution / total,
         interval_width_rel_stats=_summary_stats(width_rel_values),
         interval_margin_z_stats=_summary_stats(margin_z_values),
@@ -173,3 +185,5 @@ def _summary_stats(values: Iterable[float]) -> Dict[str, float | None]:
         "min": float(min(values_list)),
         "max": float(max(values_list)),
     }
+
+

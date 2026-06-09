@@ -19,6 +19,9 @@ class PipelineResult:
     verification_text: str
     final_answer: str
     verification_verdict: str
+    constraint_prompt: str = ""
+    baseline_solution_prompt: str = ""
+    constrained_solution_prompt: str = ""
     raw_constraints_text: str = ""
     baseline_solution_text: str = ""
     baseline_final_answer: str = ""
@@ -142,6 +145,9 @@ class VerificationPipeline:
             verification_text=final_verification_text,
             final_answer=final_answer,
             verification_verdict=final_verdict,
+            constraint_prompt=constraint_prompt,
+            baseline_solution_prompt=solution_prompt,
+            constrained_solution_prompt=constrained_solution_prompt,
             baseline_solution_text=baseline_solution_text,
             baseline_final_answer=baseline_final_answer,
             initial_solution_text=solution_text,
@@ -184,9 +190,105 @@ class MajorityVotePipeline:
             verification_text="",
             final_answer=final_answer,
             verification_verdict="UNKNOWN",
+            baseline_solution_prompt=solution_prompt,
             baseline_solution_text="\n\n".join(samples),
             baseline_final_answer=final_answer,
             initial_solution_text="\n\n".join(samples),
+            initial_verification_text="",
+            initial_final_answer=final_answer,
+            initial_verification_verdict="UNKNOWN",
+        )
+
+class SolveOnlyPipeline:
+    def __init__(self, config: PipelineConfig) -> None:
+        if config.max_samples != 1:
+            raise ValueError("Single-sample pipeline only; set max_samples=1.")
+        self.config = config
+        self.prompts = load_prompt_set(config.prompts)
+        self.sampler_model = get_model(
+            config.sampler_model.name, config.sampler_model.params
+        )
+        verbose_print(
+            "Initialized SolveOnlyPipeline with model: "
+            f"sampler={config.sampler_model.name}"
+        )
+
+    def run(self, question: str) -> PipelineResult:
+        start_time = time.perf_counter()
+        question_preview = question.replace("\n", " ")[:80]
+        verbose_print(f"Solve-only start: question={question_preview}")
+        solution_prompt = self.prompts.task_prompt.format(
+            question=question,
+            problem=question,
+        )
+        solution_text = self.sampler_model.generate(
+            solution_prompt,
+            stop_after_line_prefixes=["FINAL:"],
+            stop_after_prefix_min_chars=10,
+        )
+        final_answer = _extract_final_answer(solution_text)
+        end_time = time.perf_counter()
+        verbose_print(f"Solve-only done: elapsed={end_time - start_time:.3f}s")
+        return PipelineResult(
+            question=question,
+            solution_text=solution_text,
+            constraints_text="",
+            raw_constraints_text="",
+            verification_text="",
+            final_answer=final_answer,
+            verification_verdict="UNKNOWN",
+            baseline_solution_prompt=solution_prompt,
+            baseline_solution_text=solution_text,
+            baseline_final_answer=final_answer,
+            initial_solution_text=solution_text,
+            initial_verification_text="",
+            initial_final_answer=final_answer,
+            initial_verification_verdict="UNKNOWN",
+        )
+class IntervalPromptSolvePipeline:
+    def __init__(self, config: PipelineConfig) -> None:
+        if config.max_samples != 1:
+            raise ValueError("Single-sample pipeline only; set max_samples=1.")
+        self.config = config
+        self.prompts = load_prompt_set(config.prompts)
+        self.sampler_model = get_model(
+            config.sampler_model.name, config.sampler_model.params
+        )
+        verbose_print(
+            "Initialized IntervalPromptSolvePipeline with model: "
+            f"sampler={config.sampler_model.name}"
+        )
+
+    def run(self, question: str, interval: tuple[float, float] | None) -> PipelineResult:
+        start_time = time.perf_counter()
+        question_preview = question.replace("\n", " ")[:80]
+        verbose_print(f"Interval-solve start: question={question_preview}")
+        constraints_text = _format_interval(interval)
+        solution_prompt = self.prompts.constrained_task_prompt.format(
+            question=question,
+            problem=question,
+            constraints=constraints_text,
+        )
+        solution_text = self.sampler_model.generate(
+            solution_prompt,
+            stop_after_line_prefixes=["FINAL:"],
+            stop_after_prefix_min_chars=10,
+        )
+        final_answer = _extract_final_answer(solution_text)
+        end_time = time.perf_counter()
+        verbose_print(f"Interval-solve done: elapsed={end_time - start_time:.3f}s")
+        return PipelineResult(
+            question=question,
+            solution_text=solution_text,
+            constraints_text=constraints_text,
+            raw_constraints_text="",
+            verification_text="",
+            final_answer=final_answer,
+            verification_verdict="UNKNOWN",
+            constrained_solution_prompt=solution_prompt,
+            baseline_solution_text=solution_text,
+            baseline_final_answer=final_answer,
+            initial_solution_text=solution_text,
             initial_verification_text="",
             initial_final_answer=final_answer,
             initial_verification_verdict="UNKNOWN",
@@ -228,6 +330,7 @@ class RangeOnlyPipeline:
             verification_text="",
             final_answer="unknown",
             verification_verdict="UNKNOWN",
+            constraint_prompt=constraint_prompt,
             baseline_solution_text="",
             baseline_final_answer="unknown",
             initial_solution_text="",
@@ -260,6 +363,13 @@ def _normalize_interval_constraint(text: str) -> str:
     if interval is None:
         return "INTERVAL: unknown"
     return f"INTERVAL: {interval}"
+
+
+def _format_interval(interval: tuple[float, float] | None) -> str:
+    if interval is None:
+        return "INTERVAL: unknown"
+    lower, upper = interval
+    return f"INTERVAL: [{lower}, {upper}]"
 
 def _extract_interval(text: str) -> Optional[str]:
     for line in text.splitlines():

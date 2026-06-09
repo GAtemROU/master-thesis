@@ -1,0 +1,1449 @@
+{
+  "entries": [
+    {
+      "inputs": {
+        "answer": "35",
+        "example_id": "0",
+        "question": "Noah earns $30 an hour for lawn mowing. Yesterday, they did 1 hour and 10 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "30",
+        "raw_output": "<solution steps>\nStep 1: Convert 1 hour and 10 minutes into hours.\nStep 2: Multiply the number of hours by the hourly rate of $30.\nStep 3: Calculate the total earnings.\n<solution steps>\nFINAL: $30"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $30 an hour for lawn mowing. Yesterday, they did 1 hour and 10 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "21",
+        "example_id": "1",
+        "question": "Zane earns $14 an hour for grocery delivery. Yesterday, they did 1 hour and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n- First, convert 1 hour and 30 minutes to hours. Since 1 hour = 60 minutes, 1 hour 30 minutes = 1 + 30/60 hours = 1 + 0.5 hours = 1.5 hours.\n- Multiply the number of hours by the hourly rate of $14 to find the total earnings. 1.5 * 14 = $21.\n- Check if there are any other costs or taxes, but the problem doesn't mention them. So, the answer is $21.\n<solution steps>\n- Convert 1 hour 30 minutes to hours: 1 + 30/60 = 1.5 hours.\n- Multiply by the hourly rate of $14: 1.5 * 14 = $21.\n- The answer is $21.\n<solution steps>\n- Convert 1 hour 30 minutes to hours: 1.5 hours.\n- Multiply by the hourly rate of $14: 1.5 * 14 = $21.\n- The answer is $21.\n<solution steps>\n- Convert 1 hour 30 minutes to"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $14 an hour for grocery delivery. Yesterday, they did 1 hour and 30 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "15",
+        "example_id": "2",
+        "question": "Ava earns $10 an hour for yard work. Yesterday, they did 1 hour and 30 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "15",
+        "raw_output": "<solution steps>\n<solution steps>\nStep 1: Identify the rate of earnings per hour. Ava earns $10 per hour for yard work.\nStep 2: Convert the time worked into hours. Yesterday, they did 1 hour and 30 minutes.\nStep 3: Calculate the total earnings by multiplying the rate by the time worked. Total earnings = 10 dollars/hour * 1.5 hours.\nStep 4: Perform the multiplication. Total earnings = 10 * 1.5 = 15 dollars.\nFINAL: 15"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $10 an hour for yard work. Yesterday, they did 1 hour and 30 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "85",
+        "example_id": "3",
+        "question": "Sofia earns $10 an hour for grocery delivery. Yesterday, they did 8 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo find out how much Sofia earned, we first need to convert the time from hours and minutes to hours for easier calculation. Since 30 minutes is 0.5 hours, the total time worked is 8 hours + 0.5 hours = 8.5 hours. Then, we multiply the hourly rate by the total hours worked: $10 * 8.5 = $85. So, Sofia earned $85.\n<solution steps>\nTo find the total earnings, we first convert the time worked into hours. 8 hours and 30 minutes is 8.5 hours. Then, multiply by the hourly rate of $10. 8.5 * 10 = $85. So, Sofia earned $85.\n<solution steps>\nTo find the total earnings, we first convert the time worked into hours. 8 hours and 30 minutes is 8.5 hours. Then, multiply by the hourly rate of $10. 8.5 * 10 = $85. So, Sofia earned $85.\n<solution steps>\nTo find the total earnings, we first convert the time worked into hours. 8 hours and 30"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $10 an hour for grocery delivery. Yesterday, they did 8 hours and 30 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "100",
+        "example_id": "4",
+        "question": "Carlos earns $24 an hour for grocery delivery. Yesterday, they did 4 hours and 10 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "240",
+        "raw_output": "<solution steps>\n1. Convert the time into hours to make calculations easier.\n2. Multiply the hourly rate by the number of hours worked.\n3. Add the earnings from the first hour and the earnings from the second hour.\n4. Add the earnings from the third hour and the earnings from the fourth hour.\n5. Add all the earnings together.\n6. Multiply the hourly rate by the total number of hours worked.\n7. Add the earnings from the third hour and the earnings from the fourth hour.\n8. Add the earnings from the first hour and the earnings from the second hour.\n9. Add the earnings from the fourth hour and the earnings from the third hour.\n10. Add the earnings from the first hour and the earnings from the second hour.\n11. Add all the earnings together.\n\n<solution steps>\nFINAL: $240"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nCarlos earns $24 an hour for grocery delivery. Yesterday, they did 4 hours and 10 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "90",
+        "example_id": "5",
+        "question": "Ava earns $20 an hour for car washing. Yesterday, they did 4 hours and 30 minutes of car washing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo find the total earnings, first, convert the time to hours. Then, multiply the hourly rate by the hours worked.\n<answer> $135\n</solution steps>\n<solution steps>\nTo find the total earnings, first, convert the time to hours. Then, multiply the hourly rate by the hours worked.\n<answer> $135\n</solution steps>\n<solution steps>\nTo find the total earnings, first, convert the time to hours. Then, multiply the hourly rate by the hours worked.\n<answer> $135\n</solution steps>\n<solution steps>\nTo find the total earnings, first, convert the time to hours. Then, multiply the hourly rate by the hours worked.\n<answer> $135\n</solution steps>\n<solution steps>\nTo find the total earnings, first, convert the time to hours. Then, multiply the hourly rate by the hours worked.\n<answer> $135\n</solution steps>\n<solution steps>\nTo find the total earnings, first, convert the time to hours. Then, multiply the hourly rate by the hours worked.\n<answer> $135\n</solution steps>\n<solution steps>\nTo find the total earnings,"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $20 an hour for car washing. Yesterday, they did 4 hours and 30 minutes of car washing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "74",
+        "example_id": "6",
+        "question": "Mina earns $12 an hour for car washing. Yesterday, they did 6 hours and 10 minutes of car washing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer>\n$\n<solution steps>\n1. Convert 10 minutes to hours: 10 minutes = 10/60 hours = 1/6 hours.\n2. Calculate total hours: 6 hours + 1/6 hours = 6.1667 hours.\n3. Multiply by the hourly rate: $12 per hour * 6.1667 hours = $74.00.\n<solution steps>\n$\nAnswer:\n$74.00\n</solution steps>\nThe answer is $74.00.\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $12 an hour for car washing. Yesterday, they did 6 hours and 10 minutes of car washing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "12",
+        "example_id": "7",
+        "question": "Sofia earns $18 an hour for dog walking. Yesterday, they did 0 hours and 40 minutes of dog walking. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<solution steps>\n<answer>\n$8.00\n</answer>\n</solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $18 an hour for dog walking. Yesterday, they did 0 hours and 40 minutes of dog walking. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "33",
+        "example_id": "8",
+        "question": "Zane earns $22 an hour for car washing. Yesterday, they did 1 hour and 30 minutes of car washing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo find the earnings, first, convert the time from hours and minutes to hours. Since 1 hour is 60 minutes, 1 hour and 30 minutes is 1.5 hours. Then, multiply the hourly rate by the number of hours worked: $22 * 1.5. The answer is $33.\n<solution steps>\nTo find the earnings, first, convert the time from hours and minutes to hours. Since 1 hour is 60 minutes, 1 hour and 30 minutes is 1.5 hours. Then, multiply the hourly rate by the number of hours worked: $22 * 1.5. The answer is $33.\n<solution steps>\nTo find the earnings, first, convert the time from hours and minutes to hours. Since 1 hour is 60 minutes, 1 hour and 30 minutes is 1.5 hours. Then, multiply the hourly rate by the number of hours worked: $22 * 1.5. The answer is $33.\n<solution steps>\nTo find the earnings, first, convert the time from hours and minutes to hours. Since 1 hour is 60 minutes,"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $22 an hour for car washing. Yesterday, they did 1 hour and 30 minutes of car washing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "98",
+        "example_id": "9",
+        "question": "Weng earns $28 an hour for lawn mowing. Yesterday, they did 3 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "98",
+        "raw_output": "<solution steps>\nTo find out how much Weng earned, we need to calculate the total number of hours she worked and then multiply that by her hourly rate. She worked 3 hours and 30 minutes, which is 4 hours and 10 minutes. Then, multiply the total hours by $28 to get her earnings.\n\nTo solve this step-by-step:\n1. Convert the time from hours and minutes to total hours: 3 hours + 30 minutes = 3.5 hours.\n2. Calculate total earnings by multiplying the total hours by her hourly rate.\n3. The answer is $28 * 3.5 = $98.\n\nTherefore, the final answer is $98.\n</solution steps>\n<solution steps>\nFINAL: $98"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $28 an hour for lawn mowing. Yesterday, they did 3 hours and 30 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "38",
+        "example_id": "10",
+        "question": "Hiro earns $12 an hour for house cleaning. Yesterday, they did 3 hours and 10 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "192",
+        "raw_output": "<solution steps>\n<solution steps>\n1. Find the total number of minutes in 3 hours and 10 minutes.\n2. Convert that total to hours.\n3. Multiply by the hourly rate of $12.\n<solution steps>\nFINAL: $192"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $12 an hour for house cleaning. Yesterday, they did 3 hours and 10 minutes of house cleaning. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "128",
+        "example_id": "11",
+        "question": "Mina earns $24 an hour for car washing. Yesterday, they did 5 hours and 20 minutes of car washing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo find the total earnings, we need to convert the time into hours and then multiply by the hourly rate. First, convert 5 hours and 20 minutes into hours: 5 hours + 20 minutes = 5.333... hours. Then multiply by $24 per hour: 5.333... * 24. The answer is $128.\n<solution steps>\nTo find the total earnings, we need to convert the time into hours and then multiply by the hourly rate. First, convert 5 hours and 20 minutes into hours: 5 hours + 20 minutes = 5.333... hours. Then multiply by $24 per hour: 5.333... * 24. The answer is $128.\n<solution steps>\nTo find the total earnings, we need to convert the time into hours and then multiply by the hourly rate. First, convert 5 hours and 20 minutes into hours: 5 hours + 20 minutes = 5.333... hours. Then multiply by $24 per hour: 5.333... * 24. The answer is"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $24 an hour for car washing. Yesterday, they did 5 hours and 20 minutes of car washing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "72",
+        "example_id": "12",
+        "question": "Zane earns $16 an hour for tutoring. Yesterday, they did 4 hours and 30 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "36",
+        "raw_output": "<solution steps>\nTo find the amount earned, first, convert the time into hours to add to the hourly rate. Then, multiply the number of hours by the hourly rate.\n</solution steps>\nFINAL: $36"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $16 an hour for tutoring. Yesterday, they did 4 hours and 30 minutes of tutoring. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "90",
+        "example_id": "13",
+        "question": "Liam earns $27 an hour for grocery delivery. Yesterday, they did 3 hours and 20 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo solve this, we need to convert the time into hours first. 3 hours and 20 minutes is the same as 3 + 20/60 = 3.333... hours. Then, multiply this by the hourly rate of $27. So, the total earnings would be 3.333... * 27 = $92.666... which rounds to $92.67.\n<solution steps>\nTo solve this, we need to convert the time into hours first. 3 hours and 20 minutes is the same as 3 + 20/60 = 3.333... hours. Then, multiply this by the hourly rate of $27. So, the total earnings would be 3.333... * 27 = $92.666... which rounds to $92.67.\n<solution steps>\nTo solve this, we need to convert the time into hours first. 3 hours and 20 minutes is the same as 3 + 20/60 = 3.333... hours. Then, multiply this by the hourly rate of"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $27 an hour for grocery delivery. Yesterday, they did 3 hours and 20 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "150",
+        "example_id": "14",
+        "question": "Mina earns $18 an hour for babysitting. Yesterday, they did 8 hours and 20 minutes of babysitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "150",
+        "raw_output": "<solution steps>\n1. Convert 20 minutes to hours: 20 minutes = 20/60 = 1/3 hour.\n2. Add the hours: 8 hours + 1/3 hour = 8.333... hours.\n3. Multiply by the hourly rate: 8.333... * $18 = ?\n\nLet me compute that:\n\nFirst, 8 hours * $18 = 144.\nThen, 1/3 hour * $18 = 6.\nSo, total is 144 + 6 = $150.\n\nBut let me check if I did the conversion correctly. 20 minutes is indeed 1/3 hour. So the calculation is correct.\n</solution steps>\nFINAL: $150"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $18 an hour for babysitting. Yesterday, they did 8 hours and 20 minutes of babysitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "130",
+        "example_id": "15",
+        "question": "Rina earns $20 an hour for lawn mowing. Yesterday, they did 6 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "130",
+        "raw_output": "<solution steps>\nTo find the total earnings, we need to calculate the product of the hourly rate and the number of hours worked. \n\nFirst, convert the time worked into hours. Since 30 minutes is 0.5 hours, the total hours worked are 6 hours + 0.5 hours = 6.5 hours. \n\nNext, multiply the hourly rate by the total hours worked. The hourly rate is $20, so the total earnings are 20 * 6.5.\n\nLet's calculate this:\n20 * 6.5 = 130.\n\nTherefore, the answer is $130.\n<solution steps>\nFINAL: $130"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nRina earns $20 an hour for lawn mowing. Yesterday, they did 6 hours and 30 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "154",
+        "example_id": "16",
+        "question": "Liam earns $28 an hour for grocery delivery. Yesterday, they did 5 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "154",
+        "raw_output": "<solution steps>\nTo find out how much Liam earned, we first need to convert the time into hours. Since 1 hour is 60 minutes, we convert 30 minutes into hours by dividing by 60. 30 divided by 60 is 0.5 hours. Adding that to the 5 hours gives us 5.5 hours in total. Then, we multiply the total hours by the hourly rate of $28 to find the total earnings. So, 5.5 hours multiplied by $28 should give the answer.\n</solution steps>\nFINAL: $154"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $28 an hour for grocery delivery. Yesterday, they did 5 hours and 30 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "220",
+        "example_id": "17",
+        "question": "Noah earns $30 an hour for tutoring. Yesterday, they did 7 hours and 20 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $30 an hour for tutoring. Yesterday, they did 7 hours and 20 minutes of tutoring. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "234",
+        "example_id": "18",
+        "question": "Zane earns $27 an hour for grocery delivery. Yesterday, they did 8 hours and 40 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "237",
+        "raw_output": "<solution steps>\n<solution steps>\nStep 1: Convert the time into hours to calculate the total earnings.\nStep 2: Multiply the hourly rate by the number of hours.\nStep 3: Calculate the total earnings.\n<solution steps>\nFINAL: $237"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $27 an hour for grocery delivery. Yesterday, they did 8 hours and 40 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "182",
+        "example_id": "19",
+        "question": "Ava earns $28 an hour for tutoring. Yesterday, they did 6 hours and 30 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>\n<solution steps>\n<answer> $40.50</answer>"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $28 an hour for tutoring. Yesterday, they did 6 hours and 30 minutes of tutoring. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "195",
+        "example_id": "20",
+        "question": "Weng earns $26 an hour for dog walking. Yesterday, they did 7 hours and 30 minutes of dog walking. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $26 an hour for dog walking. Yesterday, they did 7 hours and 30 minutes of dog walking. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "35",
+        "example_id": "21",
+        "question": "Zane earns $14 an hour for dog walking. Yesterday, they did 2 hours and 30 minutes of dog walking. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "35",
+        "raw_output": "<solution steps>\nTo find the total earnings, we need to convert the time from hours and minutes to hours for calculation. Then multiply by the hourly rate. \n\nFirst, convert 2 hours and 30 minutes to hours: 2 + 0.5 = 2.5 hours. \n\nThen, multiply by the hourly rate of $14: 2.5 * 14 = $35.\n\nFINAL: $35"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $14 an hour for dog walking. Yesterday, they did 2 hours and 30 minutes of dog walking. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "143",
+        "example_id": "22",
+        "question": "Sofia earns $22 an hour for house cleaning. Yesterday, they did 6 hours and 30 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n- Convert 6 hours and 30 minutes to hours.\n- Multiply the number of hours by the hourly rate.\n- Add the total earnings.\n\nAnswer:\n$22 * 6 + $22 * 0.5 = $132 + $11 = $143\n\nThe answer is $143.\nThe answer is $143.\nThe answer is $143.\nThe answer is $143.\nThe answer is $143.\nThe answer is $143.\n\n<solution steps>\n- Convert 6 hours and 30 minutes to hours.\n- Multiply the number of hours by the hourly rate.\n- Add the total earnings.\n\nAnswer:\n$22 * 6 + $22 * 0.5 = $132 + $11 = $143\n\nThe answer is $143.\nThe answer is $143.\nThe answer is $143.\nThe answer is $143.\nThe answer is $143.\nThe answer is $143.\n\n<solution steps>\n- Convert 6 hours and 30 minutes to hours.\n- Multiply the number of hours by the hourly rate."
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $22 an hour for house cleaning. Yesterday, they did 6 hours and 30 minutes of house cleaning. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "9",
+        "example_id": "23",
+        "question": "Sofia earns $27 an hour for house cleaning. Yesterday, they did 0 hours and 20 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo find out how much Sofia earned, we need to calculate the earnings from the hours she worked. She did 0 hours and 20 minutes, which is 20 minutes. Since she earns $27 per hour, we convert 20 minutes into hours and multiply by the hourly rate. Then, we add that to the total earnings. The answer is $20.\n<solution steps>\nTo find the amount earned, we first convert the time Sofia worked into hours. She worked 0 hours and 20 minutes, which is 20/60 hours. Then, we multiply this by the hourly rate of $27 to get the total earnings. The answer is $20.\n<solution steps>\nTo find the amount earned, we first convert the time Sofia worked into hours. She worked 0 hours and 20 minutes, which is 20/60 hours. Then, we multiply this by the hourly rate of $27 to get the total earnings. The answer is $20.\n<solution steps>\nTo find the amount earned, we first convert the time Sofia worked into hours. She worked 0 hours and 20 minutes, which is 20/60"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $27 an hour for house cleaning. Yesterday, they did 0 hours and 20 minutes of house cleaning. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "155",
+        "example_id": "24",
+        "question": "Noah earns $30 an hour for grocery delivery. Yesterday, they did 5 hours and 10 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nI. Determine the total hours Noah worked.\nII. Multiply the total hours by the hourly rate.\nIII. Add the total earnings from the two steps.\n<solution steps>\nI. Convert 10 minutes to hours.\nII. Add 1 hour and 10 minutes to 5 hours.\nIII. Multiply the total hours by the hourly rate of $30.\n<solution steps>\nI. Convert 10 minutes to hours.\nII. Add 1 hour and 10 minutes to 5 hours.\nIII. Multiply the total hours by the hourly rate of $30.\n<solution steps>\nI. Convert 10 minutes to hours.\nII. Add 1 hour and 10 minutes to 5 hours.\nIII. Multiply the total hours by the hourly rate of $30.\n</solution steps>\n<solution steps>\nI. Convert 10 minutes to hours.\nII. Add 1 hour and 10 minutes to 5 hours.\nIII. Multiply the total hours by the hourly rate of $30.\n</solution steps>\n<solution steps>\nI. Convert 10 minutes to hours.\nII. Add 1 hour and 10 minutes to 5 hours.\nIII. Multiply"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $30 an hour for grocery delivery. Yesterday, they did 5 hours and 10 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "110",
+        "example_id": "25",
+        "question": "Noah earns $15 an hour for yard work. Yesterday, they did 7 hours and 20 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<solution steps>\n1. Identify the hourly rate: $15 per hour.\n2. Convert the time worked from hours and minutes to hours: 7 hours and 20 minutes is 7 + (20/60) hours.\n3. Calculate total earnings: $15 * (7 + 20/60).\n4. Perform the calculation: 15 * 7 + 15 * (20/60).\n5. Simplify: 105 + (300/60).\n6. Simplify further: 105 + 5 = 110.\n<solution steps>\n<solution steps>\n1. Identify the hourly rate: $15 per hour.\n2. Convert the time worked into hours: 7 hours and 20 minutes is 7 + 20/60.\n3. Calculate total earnings: $15 * (7 + 20/60).\n4. Perform the calculation: 15 * 7 + 15 * 20/60.\n5. Simplify: 105 + (300/60).\n6. Simplify further: 10"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $15 an hour for yard work. Yesterday, they did 7 hours and 20 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "125",
+        "example_id": "26",
+        "question": "Noah earns $15 an hour for yard work. Yesterday, they did 8 hours and 20 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n- Convert 20 minutes to hours.\n- Multiply by the hourly rate.\n- Add to the total earnings from the 8 hours.\n- Final answer: $100\n</solution steps>\n<solution steps>\n- Convert 20 minutes to hours.\n- Multiply by the hourly rate.\n- Add to the total earnings from the 8 hours.\n- Final answer: $100\n</solution steps>\n<solution steps>\n- Convert 20 minutes to hours.\n- Multiply by the hourly rate.\n- Add to the total earnings from the 8 hours.\n- Final answer: $100\n</solution steps>\n<solution steps>\n- Convert 20 minutes to hours.\n- Multiply by the hourly rate.\n- Add to the total earnings from the 8 hours.\n- Final answer: $100\n</solution steps>\n<solution steps>\n- Convert 20 minutes to hours.\n- Multiply by the hourly rate.\n- Add to the total earnings from the 8 hours.\n- Final answer: $100\n</solution steps>\n<solution steps>\n- Convert 20 minutes to hours.\n- Multiply by the hourly rate.\n- Add to the total earnings from the 8 hours"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $15 an hour for yard work. Yesterday, they did 8 hours and 20 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "40",
+        "example_id": "27",
+        "question": "Carlos earns $16 an hour for yard work. Yesterday, they did 2 hours and 30 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "40",
+        "raw_output": "<solution steps>\nTo find the total earnings, we need to calculate the product of the hourly rate and the number of hours worked. The hourly rate is $16, and the number of hours is 2 hours and 30 minutes. \n\nFirst, convert the time to hours. 2 hours and 30 minutes is 2 + 30/60 = 2.5 hours. Multiply this by the hourly rate: 16 * 2.5. \n\nThen, perform the calculation to find the total earnings.\n<solution steps>\n<solution steps>\nFINAL: $40"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nCarlos earns $16 an hour for yard work. Yesterday, they did 2 hours and 30 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "13",
+        "example_id": "28",
+        "question": "Liam earns $26 an hour for babysitting. Yesterday, they did 0 hours and 30 minutes of babysitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo find out how much Liam earned, we need to calculate the earnings from the 0 hours and 30 minutes. Since he earns $26 per hour, we convert the 30 minutes to hours by dividing by 60. 0 hours and 30 minutes is equal to 0.5 hours. Then, we multiply 0.5 hours by $26 per hour to find the earnings. The result is $13.\n<solution steps>\nTo find the earnings, we need to calculate the amount from the 0 hours and 30 minutes. We convert 30 minutes to hours by dividing by 60, which gives us 0.5 hours. Then, we multiply the earnings per hour by the number of hours worked. The result is $13.\n<solution steps>\nTo find the earnings, we convert 30 minutes into hours. Since there are 60 minutes in an hour, we divide 30 by 60. This gives us 0.5 hours. Then, we multiply 0.5 hours by the hourly rate of $26 to find the total earnings. The result is $13.\n<solution steps>\nTo find the earnings"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $26 an hour for babysitting. Yesterday, they did 0 hours and 30 minutes of babysitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "91",
+        "example_id": "29",
+        "question": "Weng earns $21 an hour for lawn mowing. Yesterday, they did 4 hours and 20 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $21 an hour for lawn mowing. Yesterday, they did 4 hours and 20 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "42",
+        "example_id": "30",
+        "question": "Liam earns $28 an hour for dog walking. Yesterday, they did 1 hour and 30 minutes of dog walking. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "420",
+        "raw_output": "<solution steps>\nTo solve the problem, we need to convert the time from minutes to hours to find the total earnings. \n\nFirst, convert 1 hour and 30 minutes to hours. Since 1 hour is 60 minutes, we add 30 minutes to the 1 hour, making it 90 minutes. \n\nNext, calculate the earnings by multiplying the hours by the hourly rate. The hourly rate is $28, so 90 minutes is 1.5 hours. \n\nFinally, multiply the number of hours by the hourly rate to get the total earnings. \n</solution steps>\nFINAL: $420"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $28 an hour for dog walking. Yesterday, they did 1 hour and 30 minutes of dog walking. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "63",
+        "example_id": "31",
+        "question": "Liam earns $27 an hour for yard work. Yesterday, they did 2 hours and 20 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "70.50",
+        "raw_output": "<solution steps>\nTo find the total amount Liam earned, we need to convert the time from hours and minutes to hours and then multiply by the hourly rate.\n\nFirst, convert 2 hours and 20 minutes to hours:\n2 hours + 20 minutes = 2 + (20/60) hours = 2 + 1/3 hours.\n\nThen, multiply by the hourly rate of $27:\nTotal earnings = 2 + 1/3 hours * $27.\n\nFinally, calculate the result:\nThe total amount earned is $27*(2 + 1/3) = $70.50.\n\nFINAL: $70.50"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $27 an hour for yard work. Yesterday, they did 2 hours and 20 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "70",
+        "example_id": "32",
+        "question": "Ava earns $15 an hour for yard work. Yesterday, they did 4 hours and 40 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "105",
+        "raw_output": "<solution steps>\nTo find out how much Ava earned, we first convert the time from hours and minutes to hours. 4 hours and 40 minutes is equal to 4 + (40/60) hours. Then, multiply the number of hours by the hourly rate of $15. So, the calculation is 15 * (4 + 40/60). Then, simplify the calculation.\n</solution steps>\nFINAL: $105"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $15 an hour for yard work. Yesterday, they did 4 hours and 40 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "72",
+        "example_id": "33",
+        "question": "Mina earns $16 an hour for pet sitting. Yesterday, they did 4 hours and 30 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "16",
+        "raw_output": "<solution steps>\nFINAL: 16 * 4 + 1"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $16 an hour for pet sitting. Yesterday, they did 4 hours and 30 minutes of pet sitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "195",
+        "example_id": "34",
+        "question": "Ava earns $26 an hour for lawn mowing. Yesterday, they did 7 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n</solution steps>\n\n</solution steps>\n<solution steps>\n1. Determine the total hours worked by Ava. \n2. Multiply the total hours by the hourly rate.\n3. Add the results together.\n4. Ensure the answer is in dollars.\n</solution steps>\n<solution steps>\n1. Convert 7 hours and 30 minutes to hours.\n2. Multiply the total hours by the hourly rate.\n3. Add the results together.\n4. Ensure the answer is in dollars.\n</solution steps>\n<solution steps>\n1. Convert 7 hours and 30 minutes to hours.\n2. Multiply the total hours by the hourly rate.\n3. Add the results together.\n4. Ensure the answer is in dollars.\n</solution steps>\n<solution steps>\n1. Convert 7 hours and 30 minutes to hours.\n2. Multiply the total hours by the hourly rate.\n3. Add the results together.\n4. Ensure the answer is in dollars.\n</solution steps>\n<solution steps>\n1. Convert 7 hours and 30 minutes to hours.\n2. Multiply the total hours by the hourly rate.\n3. Add the results together.\n4. Ensure the answer is in dollars.\n</solution steps>\n<solution"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $26 an hour for lawn mowing. Yesterday, they did 7 hours and 30 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "62",
+        "example_id": "35",
+        "question": "Zane earns $12 an hour for yard work. Yesterday, they did 5 hours and 10 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n- Convert 10 minutes to hours.\n- Add the total hours.\n- Multiply by the hourly rate.\n- Final answer: $120\n\n<solution steps>\n- Convert 10 minutes to hours.\n- Add the total hours.\n- Multiply by the hourly rate.\n- Final answer: $120\n\n<solution steps>\n- Convert 10 minutes to hours.\n- Add the total hours.\n- Multiply by the hourly rate.\n- Final answer: $120\n<solution steps>\n- Convert 10 minutes to hours.\n- Add the total hours.\n- Multiply by the hourly rate.\n- Final answer: $120\n\n<solution steps>\n- Convert 10 minutes to hours.\n- Add the total hours.\n- Multiply by the hourly rate.\n- Final answer: $120\n<solution steps>\n- Convert 10 minutes to hours.\n- Add the total hours.\n- Multiply by the hourly rate.\n- Final answer: $120\n\n<solution steps>\n- Convert 10 minutes to hours.\n- Add the total hours.\n- Multiply by the hourly rate.\n- Final answer: $120\n<solution steps>\n- Convert 10 minutes to"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $12 an hour for yard work. Yesterday, they did 5 hours and 10 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "98",
+        "example_id": "36",
+        "question": "Rina earns $28 an hour for babysitting. Yesterday, they did 3 hours and 30 minutes of babysitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n- Convert the time from hours and minutes to minutes.\n- Multiply the hourly rate by the total number of hours and minutes.\n- Add the results.\n- Convert the total amount to dollars.\n- Then, put the final answer in a box.\n\n<solution steps>\n- Convert the time from hours and minutes to minutes.\n- Multiply the hourly rate by the total number of hours and minutes.\n- Add the results.\n- Convert the total amount to dollars.\n- Then, put the final answer in a box.\n\n<solution steps>\n- Convert the time from hours and minutes to minutes.\n- Multiply the hourly rate by the total number of hours and minutes.\n- Add the results.\n- Convert the total amount to dollars.\n- Then, put the final answer in a box.\n\n<solution steps>\n- Convert the time from hours and minutes to minutes.\n- Multiply the hourly rate by the total number of hours and minutes.\n- Add the results.\n- Convert the total amount to dollars.\n- Then, put the final answer in a box.\n<sanswer>1560</sanswer>\n<solution steps>\n- Convert the time from hours and minutes to minutes.\n- Multiply the hourly rate by the total number of hours and minutes.\n- Add the results"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nRina earns $28 an hour for babysitting. Yesterday, they did 3 hours and 30 minutes of babysitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "6",
+        "example_id": "37",
+        "question": "Rina earns $12 an hour for yard work. Yesterday, they did 0 hours and 30 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "6",
+        "raw_output": "<solution steps>\nI. Understand the problem: Rina earns $12 per hour for yard work. The problem states that yesterday, they did 0 hours and 30 minutes of yard work.\nII. Translate the hours into a decimal: 0 hours and 30 minutes is equal to 0.5 hours.\nIII. Multiply the number of hours by the hourly rate: 0.5 hours * $12 per hour.\nIV. Perform the multiplication: 0.5 * 12 = $6.\nFINAL: $6"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nRina earns $12 an hour for yard work. Yesterday, they did 0 hours and 30 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "132",
+        "example_id": "38",
+        "question": "Sofia earns $18 an hour for tutoring. Yesterday, they did 7 hours and 20 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo find the total earnings, multiply the hourly rate by the number of hours worked. The hourly rate is $18, and the number of hours worked is 7 hours and 20 minutes. Convert the minutes to hours to get the total hours worked in hours. Then multiply the hourly rate by the total hours worked in hours.\n<solution steps>\n<solution steps>\n<answer>266</answer>\n</solution steps>\n\n</solution steps>\n\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $18 an hour for tutoring. Yesterday, they did 7 hours and 20 minutes of tutoring. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "210",
+        "example_id": "39",
+        "question": "Liam earns $28 an hour for grocery delivery. Yesterday, they did 7 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "196",
+        "raw_output": "<solution steps>\nTo solve the problem, we need to calculate the total earnings by multiplying the hourly rate by the number of hours worked. First, convert the time from minutes to hours if necessary to ensure consistency. Then, multiply the hourly rate by the total hours worked. The steps are as follows: Convert 30 minutes to hours by dividing by 60, which gives 0.5 hours. Then, add this to the 7 hours to get the total hours worked. Finally, multiply by the hourly rate of $28 to get the total earnings.\n<solution steps>\nFINAL: $196"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $28 an hour for grocery delivery. Yesterday, they did 7 hours and 30 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "24",
+        "example_id": "40",
+        "question": "Hiro earns $16 an hour for car washing. Yesterday, they did 1 hour and 30 minutes of car washing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "256",
+        "raw_output": "<solution steps>\nI. Determine the number of hours they worked yesterday. \nII. Multiply that number by $16 per hour to get the total earnings. \nIII. Check if the number of hours is in the correct format.\nIV. Add any additional information if needed.\n<solution steps>\nFINAL: $256"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $16 an hour for car washing. Yesterday, they did 1 hour and 30 minutes of car washing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "4",
+        "example_id": "41",
+        "question": "Weng earns $24 an hour for grocery delivery. Yesterday, they did 0 hours and 10 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "16",
+        "raw_output": "<solution steps>\nTo find the earnings, we first convert the time into hours. 0 hours and 10 minutes is 10/60 hours, which simplifies to 1/6 hours. Then, we multiply this by the hourly rate of $24 to find the total earnings.\n</solution steps>\n<answer>16</answer>\n\nThe problem is to calculate the earnings Weng made for delivering groceries. The hourly rate is $24. The time spent was 0 hours and 10 minutes. First, we convert the time into hours, which is 10 minutes converted to hours, and then multiply by the hourly rate. The calculation is 0 hours and 10 minutes = 10/60 hours = 1/6 hours. Multiplying by $24 gives the total earnings, which is $16.\n</answer>\n<solution steps>\nFINAL: 16"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $24 an hour for grocery delivery. Yesterday, they did 0 hours and 10 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "30",
+        "example_id": "42",
+        "question": "Ava earns $20 an hour for lawn mowing. Yesterday, they did 1 hour and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer>1. Identify the hourly rate: $20.\n2. Convert 1 hour and 30 minutes to hours: 1 + 30/60 = 1.5 hours.\n3. Calculate earnings: 20 * 1.5 = 30.\n</solution steps>\n<answer>30</answer>\n\nOkay, let's see. Ava earns $20 an hour for lawn mowing. The problem says they did 1 hour and 30 minutes. So first, I need to convert that time into hours to figure out how much she earned. Since 1 hour is 60 minutes, 30 minutes is half an hour. Adding those together, 1 hour and 30 minutes equals 1.5 hours. Then, multiplying her hourly rate by the number of hours worked. So 20 dollars per hour times 1.5 hours gives me 30. That should be the total earnings. Yep, that makes sense. The answer is $30.\n</solution steps>\n<answer>30</answer>\n\nWait, but let me double-check. If they mowed 1 hour, that's 20 dollars. Then"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $20 an hour for lawn mowing. Yesterday, they did 1 hour and 30 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "198",
+        "example_id": "43",
+        "question": "Hiro earns $27 an hour for tutoring. Yesterday, they did 7 hours and 20 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $27 an hour for tutoring. Yesterday, they did 7 hours and 20 minutes of tutoring. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "132",
+        "example_id": "44",
+        "question": "Rina earns $18 an hour for pet sitting. Yesterday, they did 7 hours and 20 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n- First, convert 20 minutes into hours.\n- Then, calculate the total earnings by multiplying the number of hours by the hourly rate.\n- Then, add the earnings from each hour.\n- Finally, subtract the earnings from the total hours.\n- Then, add the final amount.\n<solution steps>\n- First, convert 20 minutes into hours.\n- Then, calculate the total earnings by multiplying the number of hours by the hourly rate.\n- Then, add the earnings from each hour.\n- Finally, subtract the earnings from the total hours.\n- Then, add the final amount.\n\n<solution steps>\n- First, convert 20 minutes into hours.\n- Then, calculate the total earnings by multiplying the number of hours by the hourly rate.\n- Then, add the earnings from each hour.\n- Finally, subtract the earnings from the total hours.\n- Then, add the final amount.\n<solution steps>\n- First, convert 20 minutes into hours.\n- Then, calculate the total earnings by multiplying the number of hours by the hourly rate.\n- Then, add the earnings from each hour.\n- Finally, subtract the earnings from the total hours.\n- Then, add the final amount.\n<solution steps>\n- First, convert"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nRina earns $18 an hour for pet sitting. Yesterday, they did 7 hours and 20 minutes of pet sitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "36",
+        "example_id": "45",
+        "question": "Sofia earns $27 an hour for babysitting. Yesterday, they did 1 hour and 20 minutes of babysitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer>\n27 * 1 + 27 * 20/60 = ?\n<solution steps>\n<answer>\n27 * 1 + 27 * (20/60) = 27 + 9 = 36\n<solution steps>\n<answer>\n27 + 9 = 36\n</solution steps>\n</solution steps>\n<solution steps>\n<answer>\n36\n</answer>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $27 an hour for babysitting. Yesterday, they did 1 hour and 20 minutes of babysitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "40",
+        "example_id": "46",
+        "question": "Hiro earns $12 an hour for pet sitting. Yesterday, they did 3 hours and 20 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "240",
+        "raw_output": "<solution steps>\n1. Convert 3 hours and 20 minutes to hours.\n2. Multiply that by the hourly rate of $12.\n3. Add the result to the earnings from the other hours.\n<solution steps>\nFINAL: $240"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $12 an hour for pet sitting. Yesterday, they did 3 hours and 20 minutes of pet sitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "104",
+        "example_id": "47",
+        "question": "Carlos earns $16 an hour for grocery delivery. Yesterday, they did 6 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<solution steps>\n1. Carlos earns $16 per hour for grocery delivery.\n2. Yesterday, they did 6 hours and 30 minutes.\n3. Convert 6 hours and 30 minutes to hours.\n4. Multiply the number of hours by $16 to find the total earnings.\n5. Calculate the total earnings.\n<solution steps>\n<solution steps>\n1. Carlos earns $16 per hour.\n2. Convert 6 hours and 30 minutes to hours.\n3. Calculate total earnings by multiplying the number of hours by $16.\n4. Add the earnings from the hours and minutes.\n5. The final amount earned is $128.\n<solution steps>\n<solution steps>\n1. Convert 6 hours and 30 minutes into hours.\n2. Multiply the number of hours by $16 to find the total earnings.\n3. The final amount earned is $128.\n<solution steps>\n<solution steps>\n1. Convert 6 hours and 30 minutes into hours.\n2. Multiply the number of hours by $16 to find the total earnings.\n3. The final amount earned is $128.\n<solution steps>\n<solution steps>\n1"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nCarlos earns $16 an hour for grocery delivery. Yesterday, they did 6 hours and 30 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "65",
+        "example_id": "48",
+        "question": "Liam earns $10 an hour for house cleaning. Yesterday, they did 6 hours and 30 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer> $10 * 6 hours and 30 minutes</answer>\n<solution steps>\n<answer> $10 * 6 + 30</answer>\n<solution steps>\n<answer> $60 + $30</answer>\n<solution steps>\n<answer> $90</answer>\n</solution steps>\n\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $10 an hour for house cleaning. Yesterday, they did 6 hours and 30 minutes of house cleaning. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "198",
+        "example_id": "49",
+        "question": "Ava earns $27 an hour for house cleaning. Yesterday, they did 7 hours and 20 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<solution steps>\n1. Identify the rate of earnings per hour: $27.\n2. Convert the time worked into hours for calculation: 7 hours and 20 minutes.\n3. Calculate the total earnings by multiplying the rate by the time worked in hours.\n4. Add the earnings from the first and second steps to find the total.\n5. The final answer is the result of step 3.\n<solution steps>\n<solution steps>\n1. Identify the rate of earnings per hour: $27.\n2. Convert the time worked into hours for calculation: 7 hours and 20 minutes.\n3. Calculate the total earnings by multiplying the rate by the time worked in hours.\n4. The final answer is the result of step 3.\n<solution steps>\n<solution steps>\n1. Identify the rate of earnings per hour: $27.\n2. Convert the time worked into hours for calculation: 7 hours and 20 minutes.\n3. Calculate the total earnings by multiplying the rate by the time worked in hours.\n4. The final answer is the result of step 3.\n<solution steps>\n<solution steps>\n1. Identify the rate of earnings per hour: $27.\n2."
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $27 an hour for house cleaning. Yesterday, they did 7 hours and 20 minutes of house cleaning. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "8",
+        "example_id": "50",
+        "question": "Mina earns $16 an hour for babysitting. Yesterday, they did 0 hours and 30 minutes of babysitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n</solution steps>\n</solution>\n</solution>\n</solution>\n\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $16 an hour for babysitting. Yesterday, they did 0 hours and 30 minutes of babysitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "210",
+        "example_id": "51",
+        "question": "Weng earns $28 an hour for yard work. Yesterday, they did 7 hours and 30 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n</solution steps>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $28 an hour for yard work. Yesterday, they did 7 hours and 30 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "26",
+        "example_id": "52",
+        "question": "Zane earns $12 an hour for dog walking. Yesterday, they did 2 hours and 10 minutes of dog walking. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "24",
+        "raw_output": "<solution steps>\nFINAL: $24 + $10 ="
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $12 an hour for dog walking. Yesterday, they did 2 hours and 10 minutes of dog walking. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "33",
+        "example_id": "53",
+        "question": "Zane earns $22 an hour for dishwashing. Yesterday, they did 1 hour and 30 minutes of dishwashing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n- First, convert the time worked into hours. 1 hour and 30 minutes is the same as 1 + 30/60 = 1.5 hours.\n- Then, multiply the hours worked by the hourly rate of $22 to find the total earnings.\n- So, 1.5 hours \u00d7 $22 per hour = $33.\n<solution steps>\n- First, convert the time worked into hours. 1 hour and 30 minutes is the same as 1 + 30/60 = 1.5 hours.\n- Then, multiply the hours worked by the hourly rate of $22 to find the total earnings.\n- So, 1.5 hours \u00d7 $22 per hour = $33.\n<solution steps>\n- First, convert the time worked into hours. 1 hour and 30 minutes is the same as 1 + 30/60 = 1.5 hours.\n- Then, multiply the hours worked by the hourly rate of $22 to find the total earnings.\n- So, 1.5 hours \u00d7 $22 per hour = $33.\n<solution steps>\n- First, convert the time"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $22 an hour for dishwashing. Yesterday, they did 1 hour and 30 minutes of dishwashing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "82",
+        "example_id": "54",
+        "question": "Zane earns $12 an hour for yard work. Yesterday, they did 6 hours and 50 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n</solution steps>\n</solution>\n</solution>\n\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $12 an hour for yard work. Yesterday, they did 6 hours and 50 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "90",
+        "example_id": "55",
+        "question": "Mina earns $20 an hour for lawn mowing. Yesterday, they did 4 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "90",
+        "raw_output": "<solution steps>\nTo find out how much Mina earned, we need to calculate the total hours she worked and then multiply by her hourly rate.\nWe know that she earns $20 per hour, and she worked 4 hours and 30 minutes.\nFirst, convert the time to hours: 4 hours + 30 minutes = 4.5 hours.\nThen, multiply by $20: 4.5 hours * $20 = $90.\nFINAL: $90"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $20 an hour for lawn mowing. Yesterday, they did 4 hours and 30 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "114",
+        "example_id": "56",
+        "question": "Noah earns $18 an hour for pet sitting. Yesterday, they did 6 hours and 20 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer>\n18 * 6 + 20 = 108 + 20 = 128 dollars\n</solution steps>\n<solution steps>\n<answer>\n128\n</solution steps>\nThe answer is 128.\nAnswer:\n<solution steps>\n<answer>\n128\n</solution steps>\n</solution>\nOkay, let's see. Noah earns $18 per hour for pet sitting. Yesterday, they did 6 hours and 20 minutes. I need to calculate how much he earned.\n\nFirst, I should convert the time into hours because the hourly rate is in dollars per hour. The problem says 6 hours and 20 minutes. Since there are 60 minutes in an hour, 20 minutes is 20/60 hours. Let me calculate that: 20 divided by 60 is 0.333... hours. So total hours would be 6 + 0.333... which is approximately 6.333... hours.\n\nBut wait, maybe it's easier to convert the 6 hours and 20 minutes into total minutes first. 6 hours is 6*60 ="
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $18 an hour for pet sitting. Yesterday, they did 6 hours and 20 minutes of pet sitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "30",
+        "example_id": "57",
+        "question": "Liam earns $20 an hour for dishwashing. Yesterday, they did 1 hour and 30 minutes of dishwashing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer>\n20 * 1.5 = 30\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $20 an hour for dishwashing. Yesterday, they did 1 hour and 30 minutes of dishwashing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "42",
+        "example_id": "58",
+        "question": "Sofia earns $28 an hour for lawn mowing. Yesterday, they did 1 hour and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "28",
+        "raw_output": "<solution steps>\nTo find the total amount Sofia earned, first calculate the total hours worked. Then, multiply that by the hourly rate.\n<solution steps>\nFINAL: $28"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $28 an hour for lawn mowing. Yesterday, they did 1 hour and 30 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "117",
+        "example_id": "59",
+        "question": "Mina earns $26 an hour for dog walking. Yesterday, they did 4 hours and 30 minutes of dog walking. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "22.50",
+        "raw_output": "<solution steps>\nTo find the amount Mina earned, we first convert the time into hours. Since 1 hour is 60 minutes, 30 minutes is 0.5 hours. Then, we calculate the total hours by adding 4 hours and 0.5 hours. The total hours are 4 + 0.5 = 4.5 hours. Finally, we multiply the hourly rate by the total hours to find the total earnings.\n</solution steps>\nFINAL: $22.50"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $26 an hour for dog walking. Yesterday, they did 4 hours and 30 minutes of dog walking. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "91",
+        "example_id": "60",
+        "question": "Liam earns $21 an hour for yard work. Yesterday, they did 4 hours and 20 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "156",
+        "raw_output": "<solution steps>\nFINAL: $156"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $21 an hour for yard work. Yesterday, they did 4 hours and 20 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "245",
+        "example_id": "61",
+        "question": "Sofia earns $30 an hour for house cleaning. Yesterday, they did 8 hours and 10 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "240",
+        "raw_output": "<solution steps>\n<solution steps>\n1. Convert 10 minutes into hours to find out the total time worked.\n2. Add the total hours (8 hours) to the minutes (10 minutes) to get the total time worked in hours.\n3. Multiply the total time worked in hours by the hourly rate of $30 to find the total earnings.\n</solution steps>\nFINAL: $240"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $30 an hour for house cleaning. Yesterday, they did 8 hours and 10 minutes of house cleaning. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "63",
+        "example_id": "62",
+        "question": "Rina earns $14 an hour for yard work. Yesterday, they did 4 hours and 30 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer>\n4 hours and 30 minutes = 4 hours + 30 minutes\nMultiply the number of hours by the rate: 4 hours * $14 = $56\nAdd the 30 minutes to the total: $56 + $30 = $86\n</solution steps>\n<solution steps>\n<answer>\n$56 + $30 = $86\n</solution steps>\n<solution steps>\n<answer>\n$86\n</solution steps>\n<solution steps>\n<answer>\n$86\n</solution steps>\n<solution steps>\n<answer>\n$86\n</solution steps>\n<solution steps>\n<answer>\n$86\n</solution steps>\n<solution steps>\n<answer>\n$86\n</solution steps>\n<solution steps>\n<answer>\n$86\n</solution steps>\n<solution steps>\n<answer>\n$86\n</solution steps>\n<solution steps>\n<answer>\n$86\n</solution steps>\n<solution steps>\n<answer>\n$86\n</solution steps>\n<solution steps>\n<answer>\n$86\n</solution steps>\n<solution steps>\n<answer>\n$86\n</"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nRina earns $14 an hour for yard work. Yesterday, they did 4 hours and 30 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "63",
+        "example_id": "63",
+        "question": "Zane earns $14 an hour for lawn mowing. Yesterday, they did 4 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "140.00",
+        "raw_output": "<solution steps>\n1. Convert 4 hours and 30 minutes to hours.\n2. Multiply by the hourly rate of $14.\n3. Add the result to the total for the day.\n<solution steps>\nFINAL: $140.00"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $14 an hour for lawn mowing. Yesterday, they did 4 hours and 30 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "70",
+        "example_id": "64",
+        "question": "Sofia earns $20 an hour for pet sitting. Yesterday, they did 3 hours and 30 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo find the total earnings, first, convert the time from hours and minutes to hours. Since 3 hours and 30 minutes is 3 + 30/60 = 3.5 hours. Then, multiply the hourly rate by the total hours worked. So, 20 * 3.5 = 70. The answer is $70.\n<solution steps>\nTo find the total earnings, first, convert the time from hours and minutes to hours. Since 3 hours and 30 minutes is 3 + 30/60 = 3.5 hours. Then, multiply the hourly rate by the total hours worked. So, 20 * 3.5 = 70. The answer is $70.\n<solution steps>\nTo find the total earnings, first, convert the time from hours and minutes to hours. Since 3 hours and 30 minutes is 3 + 30/60 = 3.5 hours. Then, multiply the hourly rate by the total hours worked. So, 20 * 3.5 = 70. The answer is $70.\n<solution steps>\nTo find the total earnings,"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $20 an hour for pet sitting. Yesterday, they did 3 hours and 30 minutes of pet sitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "3",
+        "example_id": "65",
+        "question": "Hiro earns $18 an hour for house cleaning. Yesterday, they did 0 hours and 10 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "18.00",
+        "raw_output": "<solution steps>\n1. Convert 10 minutes into hours.\n2. Add the hours and minutes to get the total hours worked.\n3. Multiply the total hours by the hourly rate.\n<solution steps>\nFINAL: $18.00"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $18 an hour for house cleaning. Yesterday, they did 0 hours and 10 minutes of house cleaning. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "55",
+        "example_id": "66",
+        "question": "Noah earns $10 an hour for tutoring. Yesterday, they did 5 hours and 30 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer>\n$10 * 5 + $10 * 30/60 = $10 * 5 + $10 * 0.5 = $50 + $5 = $55\n</solution steps>\n<solution steps>\n<answer>\n$55\n</answer>\n</solution steps>\n\n</solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $10 an hour for tutoring. Yesterday, they did 5 hours and 30 minutes of tutoring. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "208",
+        "example_id": "67",
+        "question": "Sofia earns $24 an hour for babysitting. Yesterday, they did 8 hours and 40 minutes of babysitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer>\n$24 * 8 + $24 * 40/60 = $24 * 8 + $24 * 2/3 = $192 + $16 = $208\n</solution steps>\n<solution steps>\n<answer>\n$208\n</answer>\n</solution steps>\n</solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $24 an hour for babysitting. Yesterday, they did 8 hours and 40 minutes of babysitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "34",
+        "example_id": "68",
+        "question": "Weng earns $12 an hour for car washing. Yesterday, they did 2 hours and 50 minutes of car washing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<solution steps>\n1. Convert 2 hours and 50 minutes to hours to find the total hours worked.\n2. Multiply the number of hours by the hourly rate of $12.\n</solution steps>\n<solution steps>\n<solution steps>\n1. Convert 2 hours and 50 minutes to hours by adding 50 minutes to 2 hours.\n2. Multiply the total hours by $12.\n</solution steps>\n<solution steps>\n<solution steps>\n1. Convert 2 hours and 50 minutes to hours by adding 50 minutes to 2 hours.\n2. Multiply the total hours by $12.\n</solution steps>\n<solution steps>\n<solution steps>\n1. Convert 2 hours and 50 minutes to hours by adding 50 minutes to 2 hours.\n2. Multiply the total hours by $12.\n</solution steps>\n<solution steps>\n<solution steps>\n1. Convert 2 hours and 50 minutes to hours by adding 50 minutes to 2 hours.\n2. Multiply the total hours by $12.\n</solution steps>\n<solution steps>\n<solution steps>\n1. Convert 2 hours and 50 minutes to"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $12 an hour for car washing. Yesterday, they did 2 hours and 50 minutes of car washing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "238",
+        "example_id": "69",
+        "question": "Hiro earns $28 an hour for tutoring. Yesterday, they did 8 hours and 30 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "238",
+        "raw_output": "<solution steps>\nTo solve the problem, we first convert the time into hours. 8 hours and 30 minutes can be converted into hours by adding 30 minutes to 8 hours. 30 minutes is equal to 0.5 hours, so the total time is 8 + 0.5 = 8.5 hours. Then, we multiply the hourly rate by the total hours worked to find the total earnings. The hourly rate is $28, so 8.5 hours multiplied by $28 gives us the total earnings.\n<solution steps>\nFINAL: $238"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $28 an hour for tutoring. Yesterday, they did 8 hours and 30 minutes of tutoring. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "14",
+        "example_id": "70",
+        "question": "Ava earns $21 an hour for lawn mowing. Yesterday, they did 0 hours and 40 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "14.20",
+        "raw_output": "<solution steps>\nTo solve the problem, we first need to convert the time into hours. Since there are 60 minutes in an hour, we can calculate the number of hours by dividing the minutes by 60. The total time worked is 0 hours and 40 minutes, which is 40/60 hours. Then, we multiply the number of hours by the hourly rate of $21 to find the total earnings. The calculation is 40/60 * 21.\n</solution steps>\nFINAL: $14.20"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $21 an hour for lawn mowing. Yesterday, they did 0 hours and 40 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "182",
+        "example_id": "71",
+        "question": "Zane earns $21 an hour for tutoring. Yesterday, they did 8 hours and 40 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "182",
+        "raw_output": "<solution steps>\n<answer>\n\nTo solve this problem, we need to calculate Zane's earnings based on the hours and the hourly rate. \n\n1. Convert the time worked into hours to ensure the calculation is straightforward.\n2. Multiply the hourly rate by the total hours worked.\n\nGiven:\n- Hourly rate = $21\n- Hours worked = 8 hours and 40 minutes\n\nStep 1: Convert 8 hours and 40 minutes into total hours. Since 1 hour = 60 minutes, 40 minutes is $ \\frac{40}{60} = \\frac{2}{3} $ hours.\nStep 2: Total hours = 8 + $\\frac{2}{3} = \\frac{26}{3}$ hours.\nStep 3: Earnings = $21 \\times \\frac{26}{3} = \\frac{546}{3} = 182$ dollars.\n\nThus, Zane earned $182.\n</solution steps>\nFINAL: 182"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $21 an hour for tutoring. Yesterday, they did 8 hours and 40 minutes of tutoring. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "40",
+        "example_id": "72",
+        "question": "Weng earns $15 an hour for tutoring. Yesterday, they did 2 hours and 40 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo find the total earnings, first, convert the time to hours. Since 1 hour is 60 minutes, 2 hours and 40 minutes is 2 + 40/60 = 2.666... hours. Then, multiply the hourly rate by the hours worked: 15 * 2.666... = 39.666... dollars. Then, round to the nearest cent, which is $39.67.\n\nSo the answer is $39.67.\n</solution steps>\n<solution steps>\nTo find the total earnings, first, convert the time to hours. Since 1 hour is 60 minutes, 2 hours and 40 minutes is 2 + 40/60 = 2.666... hours. Then, multiply the hourly rate by the hours worked: 15 * 2.666... = 39.666... dollars. Then, round to the nearest cent, which is $39.67.\n\nSo the answer is $39.67.\n</solution steps>\n<solution steps>\nTo find the total earnings, first, convert the"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $15 an hour for tutoring. Yesterday, they did 2 hours and 40 minutes of tutoring. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "130",
+        "example_id": "73",
+        "question": "Noah earns $20 an hour for tutoring. Yesterday, they did 6 hours and 30 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "200",
+        "raw_output": "<solution steps>\nTo find the total earnings, first, convert the time into hours. Since 30 minutes is 0.5 hours, add 6 hours and 0.5 hours. Then, multiply by the hourly rate of $20. So, total earnings = (6 + 0.5) * 20.\n</solution steps>\nFINAL: $200"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $20 an hour for tutoring. Yesterday, they did 6 hours and 30 minutes of tutoring. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "11",
+        "example_id": "74",
+        "question": "Ava earns $22 an hour for lawn mowing. Yesterday, they did 0 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "22",
+        "raw_output": "<solution steps>\nFINAL: 22 * 0.5"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $22 an hour for lawn mowing. Yesterday, they did 0 hours and 30 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "132",
+        "example_id": "75",
+        "question": "Ava earns $24 an hour for lawn mowing. Yesterday, they did 5 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer> $105.00</answer>\n</solution steps>\n\n</solution steps>\n<solution steps>\n<answer> $105.00</answer>\n</solution steps>\n\n</solution steps>\n<solution steps>\n<answer> $105.00</answer>\n</solution steps>\n</solution steps>\n</solution steps>\n<solution steps>\n<answer> $105.00</answer>\n</solution steps>\n</solution steps>\n<solution steps>\n<answer> $105.00</answer>\n</solution steps>\n</solution steps>\n<solution steps>\n<answer> $105.00</answer>\n</solution steps>\n</solution steps>\n<solution steps>\n<answer> $105.00</answer>\n</solution steps>\n</solution steps>\n<solution steps>\n<answer> $105.00</answer>\n</solution steps>\n</solution steps>\n<solution steps>\n<answer> $105.00</answer>\n</solution steps>\n</solution steps>\n<solution steps>\n<answer> $105.00</answer>\n</solution steps>\n</solution steps>\n<solution"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $24 an hour for lawn mowing. Yesterday, they did 5 hours and 30 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "35",
+        "example_id": "76",
+        "question": "Mina earns $10 an hour for house cleaning. Yesterday, they did 3 hours and 30 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "35",
+        "raw_output": "<solution steps>\nTo find out how much Mina earned, we need to calculate 10 times the number of hours she worked. The number of hours she worked is 3 hours and 30 minutes. \n\nTo convert 3 hours and 30 minutes to hours, we add 3 + 0.5 = 3.5 hours. Then, multiply by the hourly rate of $10. \n\nTherefore, the total earnings are $10 * 3.5 = $35.\n</solution steps>\nFINAL: $35"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $10 an hour for house cleaning. Yesterday, they did 3 hours and 30 minutes of house cleaning. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "54",
+        "example_id": "77",
+        "question": "Sofia earns $12 an hour for grocery delivery. Yesterday, they did 4 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo find out how much Sofia earned, we need to calculate the total hours worked and then multiply by the hourly rate. The total hours are 4 hours and 30 minutes. Since 1 hour is 60 minutes, we convert 30 minutes to hours by dividing by 60. This gives us 30/60 = 0.5 hours. Adding this to the 4 hours, the total hours are 4.5 hours. Then, multiplying by the hourly rate of $12 per hour, we get 4.5 * 12 = $54. The answer is $54.\n<solution steps>\nTo find out how much Sofia earned, we first convert the time worked into hours. Since Sofia worked 4 hours and 30 minutes, we convert 30 minutes into hours by dividing by 60, which gives 0.5 hours. Adding this to the 4 hours, the total hours are 4.5 hours. Next, we multiply the total hours by the hourly rate of $12 to find the total earnings. 4.5 hours * $12/hour = $54. The answer is $54.\n<solution"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $12 an hour for grocery delivery. Yesterday, they did 4 hours and 30 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "144",
+        "example_id": "78",
+        "question": "Rina earns $27 an hour for house cleaning. Yesterday, they did 5 hours and 20 minutes of house cleaning. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo find out how much Rina earned, we need to calculate the total hours she worked and then multiply by her hourly rate. \n\nFirst, we convert the time into hours. Since 5 hours and 20 minutes is the amount worked, we add 20 minutes to the hours. This gives us 5 + (20/60) hours. Simplifying the minutes, 20/60 is 1/3. \n\nThen, we multiply the total hours by her hourly rate of $27. So, the calculation is 27 * (5 + 1/3) = 27 * (16/3) = 144. \n\nTherefore, the final answer is $144.\n<solution steps>\nTo find the total earnings, we need to convert the time worked into hours. Since 5 hours and 20 minutes is the amount worked, we convert 20 minutes into hours by dividing by 60. This gives us 5 + 20/60 = 5 + 1/3 hours.\n\nNext, we multiply the total hours by the hourly rate of $27 to find the total earnings. Therefore, the total earnings"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nRina earns $27 an hour for house cleaning. Yesterday, they did 5 hours and 20 minutes of house cleaning. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "65",
+        "example_id": "79",
+        "question": "Rina earns $15 an hour for dishwashing. Yesterday, they did 4 hours and 20 minutes of dishwashing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<solution steps>\n1. Identify the hourly rate: $15.\n2. Convert the time worked into hours: 4 hours and 20 minutes.\n3. Calculate the total earnings by multiplying the hourly rate by the total hours worked.\n4. Add the earnings from both hours and 20 minutes.\n5. Convert the result into dollars.\n<solution steps>\n<solution steps>\n1. Identify the hourly rate: $15.\n2. Convert the time worked into hours: 4 hours and 20 minutes.\n3. Calculate the total earnings by multiplying the hourly rate by the total hours worked.\n4. Add the earnings from both hours and 20 minutes.\n5. Convert the result into dollars.\n<solution steps>\n<solution steps>\n1. Identify the hourly rate: $15.\n2. Convert the time worked into hours: 4 hours and 20 minutes.\n3. Calculate the total earnings by multiplying the hourly rate by the total hours worked.\n4. Add the earnings from both hours and 20 minutes.\n5. Convert the result into dollars.\n<solution steps>\n<solution steps>\n1. Identify the hourly rate: $15.\n2. Convert the time worked into hours:"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nRina earns $15 an hour for dishwashing. Yesterday, they did 4 hours and 20 minutes of dishwashing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "119",
+        "example_id": "80",
+        "question": "Zane earns $21 an hour for yard work. Yesterday, they did 5 hours and 40 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "15.60",
+        "raw_output": "<solution steps>\n<answer>\n$15.60\n</solution steps>\n</solution steps>\n</solution steps>\n<solution steps>\nFINAL: $15.60"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $21 an hour for yard work. Yesterday, they did 5 hours and 40 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "77",
+        "example_id": "81",
+        "question": "Weng earns $22 an hour for grocery delivery. Yesterday, they did 3 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo find the total earnings, we need to convert the time worked into hours to calculate the total pay. 3 hours and 30 minutes is equal to 3.5 hours. Then, multiply the number of hours by the hourly rate to get the total earnings. The answer is $85.\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $22 an hour for grocery delivery. Yesterday, they did 3 hours and 30 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "85",
+        "example_id": "82",
+        "question": "Mina earns $10 an hour for grocery delivery. Yesterday, they did 8 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "85",
+        "raw_output": "<solution steps>\nTo solve the problem, we need to calculate the total earnings by multiplying the hourly rate by the number of hours worked.\nFirst, convert the time worked into hours. Since 30 minutes is 0.5 hours, the total hours worked are 8 + 0.5 = 8.5 hours.\nThen, multiply the hourly rate by the total hours worked: $10 * 8.5 = $85.\nThe answer is $85.\n</solution steps>\n<solution steps>\nFINAL: $85"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $10 an hour for grocery delivery. Yesterday, they did 8 hours and 30 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "70",
+        "example_id": "83",
+        "question": "Mina earns $12 an hour for dog walking. Yesterday, they did 5 hours and 50 minutes of dog walking. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "225",
+        "raw_output": "<solution steps>\n<solution steps>\n1. Convert the time from hours and minutes to hours for easier calculation.\n2. Calculate the total hours worked: 5 hours + 50 minutes.\n3. Calculate the total earnings by multiplying the number of hours by the hourly rate.\n</solution steps>\nFINAL: $225"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $12 an hour for dog walking. Yesterday, they did 5 hours and 50 minutes of dog walking. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "117",
+        "example_id": "84",
+        "question": "Mina earns $26 an hour for grocery delivery. Yesterday, they did 4 hours and 30 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "117",
+        "raw_output": "<solution steps>\nTo solve this problem, we need to convert the time from hours and minutes to a single unit of time (e.g., hours) and then multiply by the hourly rate to find the total earnings. \n\nFirst, convert 30 minutes to hours: 30 minutes = 0.5 hours. \nThen, add the hours and minutes: 4 hours + 0.5 hours = 4.5 hours.\nFinally, multiply by the hourly rate of $26: 4.5 hours * $26 per hour = $117.\n\nThe answer is $117.\n</solution steps>\n<solution steps>\nFINAL: $117"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nMina earns $26 an hour for grocery delivery. Yesterday, they did 4 hours and 30 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "63",
+        "example_id": "85",
+        "question": "Hiro earns $27 an hour for grocery delivery. Yesterday, they did 2 hours and 20 minutes of grocery delivery. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n</solution steps>\n</solution>\n</solution>\n</solution>\n\n</solution>\n</solution>\n\n</solution>\n\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution>\n</solution"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $27 an hour for grocery delivery. Yesterday, they did 2 hours and 20 minutes of grocery delivery. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "70",
+        "example_id": "86",
+        "question": "Sofia earns $15 an hour for babysitting. Yesterday, they did 4 hours and 40 minutes of babysitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo find out how much Sofia earned, first, we need to convert the time into hours for accurate calculation. 4 hours and 40 minutes is 4 + 40/60 = 4.666... hours. Then, multiply the number of hours by the hourly rate of $15 to find the total earnings. 4.666... hours * $15 = $69.66.\n<solution steps>\nTo find out how much Sofia earned, first, we need to convert the time into hours for accurate calculation. 4 hours and 40 minutes is 4 + 40/60 = 4.666... hours. Then, multiply the number of hours by the hourly rate of $15 to find the total earnings. 4.666... hours * $15 = $69.66.\n<solution steps>\nTo find out how much Sofia earned, first, we need to convert the time into hours for accurate calculation. 4 hours and 40 minutes is 4 + 40/60 = 4.666... hours. Then, multiply the number of hours by the hourly rate of"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $15 an hour for babysitting. Yesterday, they did 4 hours and 40 minutes of babysitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "104",
+        "example_id": "87",
+        "question": "Liam earns $16 an hour for pet sitting. Yesterday, they did 6 hours and 30 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "128",
+        "raw_output": "<solution steps>\n<solution steps>\n1. Liam earns $16 per hour for pet sitting.\n2. He worked 6 hours and 30 minutes.\n3. Convert the time into hours to calculate total earnings.\n4. Multiply the hourly rate by the total hours worked.\n5. Perform the calculation.\n</solution steps>\nFINAL: $128"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $16 an hour for pet sitting. Yesterday, they did 6 hours and 30 minutes of pet sitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "92",
+        "example_id": "88",
+        "question": "Liam earns $24 an hour for tutoring. Yesterday, they did 3 hours and 50 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "240",
+        "raw_output": "<solution steps>\nTo find out how much Liam earned, first, convert the time into hours for calculation. 3 hours and 50 minutes is the same as 3 + (50/60) hours. Then, multiply this by the hourly rate of $24. The calculation is 3 + (50/60) * 24. Finally, simplify the expression to get the total earnings.\n<solution steps>\nFINAL: $240"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $24 an hour for tutoring. Yesterday, they did 3 hours and 50 minutes of tutoring. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "58",
+        "example_id": "89",
+        "question": "Zane earns $12 an hour for car washing. Yesterday, they did 4 hours and 50 minutes of car washing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "12",
+        "raw_output": "<solution steps>\nFINAL: $12 * 4 + $"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $12 an hour for car washing. Yesterday, they did 4 hours and 50 minutes of car washing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "42",
+        "example_id": "90",
+        "question": "Ava earns $12 an hour for lawn mowing. Yesterday, they did 3 hours and 30 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer>\n$\n</answer>\n\n</solution steps>\n</solution steps>\n</solution steps>\n\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $12 an hour for lawn mowing. Yesterday, they did 3 hours and 30 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "7",
+        "example_id": "91",
+        "question": "Ava earns $14 an hour for pet sitting. Yesterday, they did 0 hours and 30 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<solution steps>\n- First, convert 30 minutes to hours. Since 1 hour = 60 minutes, 30 minutes = 0.5 hours.\n- Then, calculate the total hours worked: 0 hours + 0.5 hours.\n- Multiply the hourly rate by the total hours worked to find the total earnings.\n- Therefore, the total earnings are $14 * 0.5 = $7.\n<solution steps>\n<solution steps>\n- First, convert 30 minutes to hours. Since 1 hour = 60 minutes, 30 minutes = 0.5 hours.\n- Then, calculate the total hours worked: 0 hours + 0.5 hours.\n- Multiply the hourly rate by the total hours worked to find the total earnings.\n- Therefore, the total earnings are $14 * 0.5 = $7.\n<solution steps>\n<solution steps>\n- First, convert 30 minutes to hours. Since 1 hour = 60 minutes, 30 minutes = 0.5 hours.\n- Then, calculate the total hours worked: 0 hours + 0.5 hours.\n- Multiply the hourly rate by the total hours"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $14 an hour for pet sitting. Yesterday, they did 0 hours and 30 minutes of pet sitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "92",
+        "example_id": "92",
+        "question": "Zane earns $12 an hour for lawn mowing. Yesterday, they did 7 hours and 40 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n<answer>\n$320\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>\n</solution steps>"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nZane earns $12 an hour for lawn mowing. Yesterday, they did 7 hours and 40 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "165",
+        "example_id": "93",
+        "question": "Ava earns $22 an hour for tutoring. Yesterday, they did 7 hours and 30 minutes of tutoring. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "165",
+        "raw_output": "<solution steps>\nTo solve the problem, we need to calculate Ava's earnings for the tutoring hours she worked. \n\nFirst, convert the time into hours to ensure the calculation is straightforward. 7 hours and 30 minutes can be converted to hours by adding 30/60 = 0.5 hours to the 7 hours. This gives 7.5 hours.\n\nNext, multiply the number of hours by the hourly rate to find the total earnings. \n\n22 hours/day * 7.5 hours/day = 165 hours/day. \n\nTherefore, the total earnings for the day are $165.\n</solution steps>\nFINAL: $165"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nAva earns $22 an hour for tutoring. Yesterday, they did 7 hours and 30 minutes of tutoring. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "5",
+        "example_id": "94",
+        "question": "Hiro earns $30 an hour for lawn mowing. Yesterday, they did 0 hours and 10 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "5",
+        "raw_output": "<solution steps>\nTo solve this problem, we need to calculate Hiro's total earnings for the day based on her hourly rate and the time she spent mowing. The problem states that she earns $30 per hour, and she mowed for 0 hours and 10 minutes. \n\nFirst, we convert the time from minutes to hours. Since 1 hour is 60 minutes, 10 minutes is $ \\frac{10}{60} $ hours, which simplifies to $ \\frac{1}{6} $ hours. \n\nNext, we calculate her total earnings by multiplying her hourly rate by the time she worked. This is done by $ 30 \\times \\frac{1}{6} $. \n\nTherefore, the total earnings for the day are $ 30 \\times \\frac{1}{6} = 5 $ dollars.\n</solution steps>\nFINAL: 5"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nHiro earns $30 an hour for lawn mowing. Yesterday, they did 0 hours and 10 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "130",
+        "example_id": "95",
+        "question": "Weng earns $15 an hour for yard work. Yesterday, they did 8 hours and 40 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "150",
+        "raw_output": "<solution steps>\nTo find the total earnings, first convert 40 minutes to hours and add it to the 8 hours. Then multiply by the hourly rate.\n<solution steps>\nFINAL: $150"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nWeng earns $15 an hour for yard work. Yesterday, they did 8 hours and 40 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "64",
+        "example_id": "96",
+        "question": "Sofia earns $24 an hour for yard work. Yesterday, they did 2 hours and 40 minutes of yard work. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\n1. Convert the time into hours for calculation.\n2. Multiply the hourly rate by the number of hours worked.\n3. The answer is $152.\n<solution steps>\n1. Convert the time into hours for calculation.\n2. Multiply the hourly rate by the number of hours worked.\n3. The answer is $152.\n<solution steps>\n1. Convert the time into hours for calculation.\n2. Multiply the hourly rate by the number of hours worked.\n3. The answer is $152.\n<solution steps>\n1. Convert the time into hours for calculation.\n2. Multiply the hourly rate by the number of hours worked.\n3. The answer is $152.\n<solution steps>\n1. Convert the time into hours for calculation.\n2. Multiply the hourly rate by the number of hours worked.\n3. The answer is $152.\n<solution steps>\n1. Convert the time into hours for calculation.\n2. Multiply the hourly rate by the number of hours worked.\n3. The answer is $152.\n<solution steps>\n1. Convert the time into hours for calculation.\n2. Multiply the hourly rate by the number of hours worked.\n3. The answer is $1"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $24 an hour for yard work. Yesterday, they did 2 hours and 40 minutes of yard work. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "150",
+        "example_id": "97",
+        "question": "Sofia earns $20 an hour for pet sitting. Yesterday, they did 7 hours and 30 minutes of pet sitting. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "150",
+        "raw_output": "<solution steps>\n<answer>\n\nTo find out how much Sofia earned, we need to calculate the total hours worked and then multiply by her hourly rate.\n\n1. Convert the time into hours: 7 hours and 30 minutes.\n2. Add 7 hours and 30 minutes to 20 hours.\n3. Multiply the total hours by $20 per hour to get the total earnings.\n\nSo, Sofia earned $20 * 7 + $20 * 0.5 = $140 + $10 = $150.\n\nFINAL: $150"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nSofia earns $20 an hour for pet sitting. Yesterday, they did 7 hours and 30 minutes of pet sitting. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "115",
+        "example_id": "98",
+        "question": "Noah earns $15 an hour for lawn mowing. Yesterday, they did 7 hours and 40 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": null,
+        "raw_output": "<solution steps>\nTo find the total earnings, multiply the hourly rate by the number of hours worked.\n<answer>\n15 * 7 + 40 = 105 + 40 = 145\n</solution steps>\n</solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>\n<solution steps>"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nNoah earns $15 an hour for lawn mowing. Yesterday, they did 7 hours and 40 minutes of lawn mowing. How much did they earn?\n"
+      }
+    },
+    {
+      "inputs": {
+        "answer": "145",
+        "example_id": "99",
+        "question": "Liam earns $30 an hour for lawn mowing. Yesterday, they did 4 hours and 50 minutes of lawn mowing. How much did they earn?"
+      },
+      "outputs": {
+        "parsed_answer": "300",
+        "raw_output": "<solution steps>\nTo find the total earnings, we need to calculate the total number of hours worked and multiply by the hourly rate. The number of hours worked yesterday is 4 hours plus 50 minutes. To convert 50 minutes to hours, we divide by 60. Adding that to the 4 hours gives the total hours worked. Then we multiply by $30 to get the total earnings. The calculation is (4 + 50/60)*30. Then we simplify the expression to get the total earnings.\n<solution steps>\n<solution steps>\nFINAL: $300"
+      },
+      "prompts": {
+        "baseline_solution_prompt": "You need to solve the math problem.\n\nMeaning of this step:\n- Understand what the problem asks.\n- Use only relevant facts from the problem.\n- Write short reasoning steps, enough to show how the answer is found.\n- Do not add unrelated explanation.\n- Put the final answer on the last line in the required format.\n\nOutput format:\n<solution steps>\nFINAL: <answer>\n\nProblem:\nLiam earns $30 an hour for lawn mowing. Yesterday, they did 4 hours and 50 minutes of lawn mowing. How much did they earn?\n"
+      }
+    }
+  ],
+  "inputs": {
+    "args": {
+      "batch_size": null,
+      "config": "src\\solve_only_qwen3_gsm8k_hf.json",
+      "dataset": "src\\datasets\\synthetic_wage_time.jsonl",
+      "dataset_name": "math500",
+      "log_traces": false,
+      "max_examples": null,
+      "num_samples": 5,
+      "pipeline": "solve_only",
+      "trace": true
+    },
+    "config": {
+      "constraint_model": {
+        "name": "mock_constraints",
+        "params": {}
+      },
+      "max_samples": 1,
+      "prompts": {
+        "constrained_task_prompt_path": null,
+        "constraint_prompt_path": null,
+        "task_prompt_path": "src/iv_pipeline/prompt_templates/task_prompt_extended.txt",
+        "verify_prompt_path": null
+      },
+      "sampler_model": {
+        "name": "hf_causal_lm",
+        "params": {
+          "device": "cpu",
+          "do_sample": true,
+          "max_new_tokens": 256,
+          "model_name": "Qwen/Qwen3-0.6B",
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "torch_dtype": "float32",
+          "trust_remote_code": true
+        }
+      },
+      "verifier_model": {
+        "name": "mock_verifier",
+        "params": {}
+      }
+    }
+  },
+  "trace_id": "20260609T213613Z",
+  "trace_timestamp": "2026-06-09T21:36:13.636050+00:00"
+}
